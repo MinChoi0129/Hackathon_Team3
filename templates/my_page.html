@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', path='css/reset.css') }}"
+    />
+    <!-------------------------------------------------------------------------->
+
+    <!-- CSS 연결 -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', path='css/my_page.css') }}"
+    />
+
+    <!-------------------------------------------------------------------------->
+
+    <!-- Javascript 연결 -->
+    <script
+      src="{{ url_for('static', path='javascript/my_page.js') }}"
+      defer
+    ></script>
+
+    <!-------------------------------------------------------------------------->
+  </head>
+
+  <body>
+    <p>마이 페이지입니다~</p>
+    <a href="{{ url_for('main') }}">홈으로 돌아가기</a>
+  </body>
+</html>
