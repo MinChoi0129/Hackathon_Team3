@@ -23,5 +23,10 @@ async def my_page(request: Request):
     return templates.TemplateResponse(request=request, name="my_page.html")
 
 
+@app.get("/journal", response_class=HTMLResponse)
+async def journal(request: Request):
+    return templates.TemplateResponse(request=request, name="journal.html")
+
+
 # API 연결
 # (추후 개발)
