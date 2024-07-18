@@ -1,3 +1,5 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
 a,
 abbr,
 acronym,
@@ -85,6 +87,7 @@ video {
   margin: 0;
   padding: 0;
   vertical-align: baseline;
+  font-family: "Pretendard";
 }
 article,
 aside,
@@ -98,17 +101,21 @@ menu,
 nav,
 section {
   display: block;
+  font-family: "Pretendard";
 }
 body {
   line-height: 1;
+  font-family: "Pretendard";
 }
 ol,
 ul {
   list-style: none;
+  font-family: "Pretendard";
 }
 blockquote,
 q {
   quotes: none;
+  font-family: "Pretendard";
 }
 blockquote:after,
 blockquote:before,
@@ -116,8 +123,10 @@ q:after,
 q:before {
   content: "";
   content: none;
+  font-family: "Pretendard";
 }
 table {
   border-collapse: collapse;
   border-spacing: 0;
+  font-family: "Pretendard";
 }

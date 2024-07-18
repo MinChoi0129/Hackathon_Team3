@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>로그인</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', path='css/reset.css') }}"
+    />
+    <!-------------------------------------------------------------------------->
+
+    <!-- CSS 연결 -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', path='css/landing.css') }}"
+    />
+
+    <!-------------------------------------------------------------------------->
+
+    <!-- Javascript 연결 -->
+    <script
+      src="{{ url_for('static', path='javascript/landing.js') }}"
+      defer
+    ></script>
+
+    <!-------------------------------------------------------------------------->
+  </head>
+  <body>
+    <!-- <div>
+      <h1>{{ username }}님 환영합니다.</h1>
+      <form method="post" action="/logout">
+        <button type="submit">Logout</button>
+      </form>
+    </div> -->
+    <div class="parent">
+      <div class="left">
+        <img
+          style="margin-left: 5vw"
+          id="character"
+          src="{{ url_for('static', path='images/ari_character.svg') }}"
+          alt=""
+        />
+      </div>
+      <div class="right">
+        <h1>아리에 오신것을 환영합니다!</h1>
+        <form method="post" action="/login">
+          <input type="text" id="username" name="username" required /><br />
+          <input
+            type="text"
+            id="phonenumber"
+            name="phonenumber"
+            required
+          /><br />
+          <input type="password" id="password" name="password" required /><br />
+          <button type="submit">로그인</button>
+        </form>
+      </div>
+    </div>
+    {% if login_error %}
+    <script>
+      alert("잘못된 계정입니다.");
+    </script>
+    {% endif %}
+  </body>
+</html>
