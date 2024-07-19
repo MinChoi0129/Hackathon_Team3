@@ -4,6 +4,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.exceptions import HTTPException
 from starlette.status import HTTP_302_FOUND
+from urllib.parse import quote, unquote
 
 app = FastAPI()
 
@@ -15,7 +16,7 @@ templates = Jinja2Templates(directory="templates")
 
 # 간단한 유저 데이터
 users = {
-    "aa": "bb",
+    "010-7440-1538": ["이민재", 7707],
 }
 
 
@@ -23,13 +24,15 @@ users = {
 async def landing(
     request: Request, login_error: bool = False, username: str = Cookie(None)
 ):
-    if username:
-        response = RedirectResponse(url="/main", status_code=HTTP_302_FOUND)
-        return response
-    else:
-        return templates.TemplateResponse(
-            "landing.html", {"request": request, "login_error": login_error}
-        )
+    try:
+        tmp_username = unquote(username)
+        if tmp_username:
+            return RedirectResponse(url="/main")
+    except:  # 쿠키 없음(새 세션)
+        pass
+    return templates.TemplateResponse(
+        "landing.html", {"request": request, "login_error": login_error}
+    )
 
 
 @app.get("/main", response_class=HTMLResponse)
@@ -39,21 +42,37 @@ async def main(request: Request, username: str = Cookie(None)):
     )
 
 
+@app.get("/payment", response_class=HTMLResponse)
+async def payment(request: Request, counselor_item: int, username: str = Cookie(None)):
+    return templates.TemplateResponse(
+        "payment.html",
+        {"request": request, "username": username, "counselor_item": counselor_item},
+    )
+
+
 @app.post("/login")
 async def login(
     response: Response,
     request: Request,
     username: str = Form(...),
-    password: str = Form(...),
+    phonenumber: str = Form(...),
+    PINCode: int = Form(...),
 ):
-    if users.get(username) == password:
-        response = RedirectResponse(url="/main", status_code=HTTP_302_FOUND)
-        response.set_cookie(key="username", value=username)
-        return response
+    if phonenumber not in users:
+        print("신규유저입니다. 유저 생성", username, phonenumber, PINCode)
+        users[phonenumber] = [username, PINCode]
+
     else:
-        response = RedirectResponse(url="/", status_code=HTTP_302_FOUND)
-        response.set_cookie(key="login_error", value="true")
-        return response
+        print("기존유저", phonenumber)
+        if [username, PINCode] == users.get(phonenumber):
+            response = RedirectResponse(url="/main", status_code=HTTP_302_FOUND)
+            encoded_value = quote(username)  # 한글을 URL 인코딩
+            response.set_cookie(key="username", value=encoded_value)
+            return response
+        else:
+            response = RedirectResponse(url="/", status_code=HTTP_302_FOUND)
+            response.set_cookie(key="login_error", value=True)
+            return response
 
 
 @app.post("/logout")

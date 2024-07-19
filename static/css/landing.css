@@ -1,14 +1,16 @@
-.parent {
-  width: 100%;
+body {
+  background-color: #fffeea;
 }
+
 .left {
-  width: 50%;
+  width: 45%;
   float: left;
   height: 100vh;
+  text-align: center;
 }
 
 .right {
-  width: 50%;
+  width: 55%;
   float: right;
   height: 100vh;
   justify-content: center;
@@ -16,24 +18,51 @@
   align-items: center;
 }
 
+.right_child {
+  position: relative;
+  top: 25vh;
+}
+
 #character {
   width: 627px;
   height: 608px;
 }
+@keyframes motion {
+  0% {
+    margin-top: -14vh;
+  }
+  100% {
+    margin-top: -10vh;
+  }
+}
+img {
+  position: relative;
+  top: 25vh;
+  left: 10%;
+  margin-top: -12vh;
+  animation: motion 0.6s ease-in 0s infinite alternate;
+  margin-top: 0;
+  /* filter: drop-shadow(0px 160px 10px #000); */
+}
+
 h1 {
   font-weight: 300;
   font-size: 35px;
 }
 input {
-  background-color: #f3b8ab;
+  background-color: #878787;
   border-radius: 15px;
   margin-top: 2rem;
   border: none;
   width: 293px;
   height: 59px;
-  font-size: 24px;
+  font-size: 22px;
   text-align: center;
   color: white;
+}
+
+input::placeholder {
+  color: rgb(255, 255, 255);
 }
 
 button {
