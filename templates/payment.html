@@ -35,108 +35,113 @@
 
     <div id="bill_title">주문서</div>
 
-    <div class="left">
-      <div class="counselor_info">
-        <div class="big_title">상담사 정보</div>
-        <hr />
-        <div>
-          <div class="counselor_detail">
-            <div class="counselor_detail_sub_item">
-              <p style="color: #cbcbcb">이름</p>
-              <p>김상담</p>
+    <div class="wrapper">
+      <div class="left">
+        <div class="counselor_info">
+          <div class="big_title">상담사 정보</div>
+          <hr />
+          <div>
+            <div class="counselor_detail">
+              <div class="counselor_detail_sub_item">
+                <p style="color: #cbcbcb">이름</p>
+                <p>김상담</p>
+              </div>
+              <div class="counselor_detail_sub_item">
+                <p style="color: #cbcbcb">기간</p>
+                <p>2024년 07월 10일 ~ 2025년 07월 09일 (365일)</p>
+              </div>
+              <div class="counselor_detail_sub_item">
+                <p style="color: #cbcbcb">상담유형</p>
+                <p>비대면상담</p>
+              </div>
+              <div class="counselor_detail_sub_item">
+                <p style="color: #cbcbcb">주소</p>
+                <p>경상남도 진주시 진주대로 501</p>
+              </div>
             </div>
-            <div class="counselor_detail_sub_item">
-              <p style="color: #cbcbcb">기간</p>
-              <p>2024년 07월 10일 ~ 2025년 07월 09일 (365일)</p>
-            </div>
-            <div class="counselor_detail_sub_item">
-              <p style="color: #cbcbcb">상담유형</p>
-              <p>비대면상담</p>
-            </div>
-            <div class="counselor_detail_sub_item">
-              <p style="color: #cbcbcb">주소</p>
-              <p>경상남도 진주시 진주대로 501</p>
-            </div>
+            <img
+              id="counselor_img"
+              src="{{ url_for('static', path='images/gnu.png') }}"
+              alt=""
+            />
           </div>
-          <img
-            id="counselor_img"
-            src="{{ url_for('static', path='images/gnu.png') }}"
-            alt=""
-          />
+        </div>
+
+        <div class="discount">
+          <div class="big_title">할인</div>
+          <hr />
+          <div class="counselor_detail_sub_item">
+            <p>쿠폰 코드</p>
+            <input type="text" placeholder="XXXXX-XXXXX-XXXXX-XXXXX" />
+            <button id="apply_discount">적용</button>
+          </div>
+        </div>
+
+        <div class="pay_type">
+          <div class="big_title">결제 수단</div>
+          <hr />
+
+          <div class="radio-group">
+            <input type="radio" id="option1" name="option" value="1" />
+            <label for="option1">
+              <img
+                width="80px"
+                src="{{ url_for('static', path='images/k-pay.svg' )}}"
+                alt="Option 1"
+              />
+            </label>
+
+            <input type="radio" id="option2" name="option" value="2" />
+            <label for="option2">
+              <img
+                width="80px"
+                src="{{ url_for('static', path='images/n-pay.svg' )}}"
+                alt="Option 2"
+                style="padding-top: 2px"
+              />
+            </label>
+
+            <input type="radio" id="option3" name="option" value="3" />
+            <label for="option3">
+              <img
+                width="120px"
+                src="{{ url_for('static', path='images/toss-pay.svg' )}}"
+                alt="Option 3"
+                style="padding-top: 5px"
+              />
+            </label>
+          </div>
         </div>
       </div>
 
-      <div class="discount">
-        <div class="big_title">할인</div>
-        <hr />
-        <div class="counselor_detail_sub_item">
-          <p>쿠폰 코드</p>
-          <input type="password" placeholder="XXXXX-XXXXX-XXXXX-XXXXX" />
-          <button>적용</button>
-        </div>
-      </div>
+      <div class="right">
+        <div class="right_child">
+          <div class="price_sub_detail">
+            <p class="price_sub_detail_title">가격</p>
+            <p class="price_sub_detail_number">120,000원</p>
+          </div>
 
-      <div class="pay_type">
-        <div class="big_title">결제 수단</div>
-        <hr />
+          <div class="price_sub_detail">
+            <p class="price_sub_detail_title">기본 할인</p>
+            <p class="price_sub_detail_number">5%</p>
+            <p class="more_discount">(-5,100원)</p>
+          </div>
 
-        <div class="radio-group">
-          <input type="radio" id="option1" name="option" value="1" />
-          <label for="option1">
-            <img
-              width="80px"
-              src="{{ url_for('static', path='images/k-pay.svg' )}}"
-              alt="Option 1"
-            />
-          </label>
+          <div class="price_sub_detail">
+            <p class="price_sub_detail_title">쿠폰 할인</p>
+            <p class="price_sub_detail_number">0%</p>
+            <p class="more_discount">(-0원)</p>
+          </div>
 
-          <input type="radio" id="option2" name="option" value="2" />
-          <label for="option2">
-            <img
-              width="80px"
-              src="{{ url_for('static', path='images/n-pay.svg' )}}"
-              alt="Option 2"
-            />
-          </label>
-
-          <input type="radio" id="option3" name="option" value="3" />
-          <label for="option3">
-            <img
-              width="120px"
-              src="{{ url_for('static', path='images/toss-pay.svg' )}}"
-              alt="Option 3"
-            />
-          </label>
+          <hr style="width: 80%" />
+          <div class="price_sub_detail">
+            <p class="price_sub_detail_title">결제금액</p>
+            <p id="final_price">96,000원</p>
+          </div>
         </div>
-      </div>
-    </div>
-
-    <div class="right">
-      <div class="right_child">
-        <div class="price_sub_detail">
-          <p class="price_sub_detail_title">가격</p>
-          <p class="price_sub_detail_number">120,000원</p>
+        <div>
+          <button id="go_pay">결제</button>
         </div>
-        <div class="price_sub_detail">
-          <p class="price_sub_detail_title">쿠폰 할인</p>
-          <p class="price_sub_detail_number">15%</p>
-          <p class="more_discount">(-18,000원)</p>
-        </div>
-        <div class="price_sub_detail">
-          <p class="price_sub_detail_title">추가 할인</p>
-          <p class="price_sub_detail_number">5%</p>
-          <p class="more_discount">(-5,100원)</p>
-        </div>
-        <hr style="width: 80%" />
-        <div class="price_sub_detail">
-          <p class="price_sub_detail_title">결제금액</p>
-          <p style="font-weight: 700; font-size: 30px; margin-top: 1rem">
-            96,000원
-          </p>
-        </div>
-      </div>
-      <div style="width: 24vw; text-align: center">
-        <button id="go_pay">결제</button>
       </div>
     </div>
   </body>

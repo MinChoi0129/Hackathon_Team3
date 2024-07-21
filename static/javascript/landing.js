@@ -26,5 +26,7 @@ function getCookie(cookieName) {
 }
 
 if (getCookie("login_error") == "True") {
-  alert("계정을 다시 확인해주세요");
+  alert("일치하는 회원이 없습니다.");
+} else if (getCookie("form_error") == "True") {
+  alert("입력한 정보가 형식에 맞지 않습니다.");
 }
