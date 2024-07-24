@@ -1,7 +1,7 @@
 // ========================= 함수 선언부 ========================= //
 
 function applyCouponCode() {
-  const couponCode = inputField.value;
+  const couponCode = couponField.value;
   fetch("/api/check_coupon", {
     method: "POST",
     headers: {
@@ -12,9 +12,9 @@ function applyCouponCode() {
     .then((response) => response.json())
     .then((data) => {
       if (data.valid) {
-        alert("Coupon applied successfully!");
+        alert("쿠폰이 적용되었습니다!");
       } else {
-        alert("Invalid coupon code.");
+        alert("쿠폰 코드가 올바르지 않습니다.");
       }
     })
     .catch((error) => {

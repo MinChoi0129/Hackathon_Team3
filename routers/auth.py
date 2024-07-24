@@ -14,14 +14,14 @@ async def login(
     response: Response,
     username: str = Form(...),
     phonenumber: str = Form(...),
-    PINCode: int = Form(...),
+    PINCode: str = Form(...),
     db: Session = Depends(get_db),
 ):
 
     phone_pattern = re.compile(r"^010-\d{4}-\d{4}$")
     pin_pattern = re.compile(r"^\d{4}$")
 
-    if not phone_pattern.match(phonenumber) or not pin_pattern.match(str(PINCode)):
+    if not phone_pattern.match(phonenumber) or not pin_pattern.match(PINCode):
         response = RedirectResponse(url="/", status_code=302)
         response.set_cookie(key="form_error", value=True)
         return response

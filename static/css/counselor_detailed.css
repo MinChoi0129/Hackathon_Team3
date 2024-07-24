@@ -1,0 +1,123 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.profile {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.left h1 {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.left .title {
+    font-size: 0.5em;
+    color: gray;
+}
+
+.reviews {
+    margin: 10px 0;
+}
+
+.pricing {
+    margin: 10px 0;
+}
+
+.btn-reserve {
+    background-color: pink;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.introduction {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.intro-left {
+    width: 60%;
+}
+
+.intro-right {
+    width: 35%;
+}
+
+.counselor-card {
+    background-color: #fffacd;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.counselor-card img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.consultation {
+    padding: 20px;
+    background-color: #f9f9f9;
+    position: relative;
+}
+
+.consultation h2 {
+    color: green;
+    font-weight: bold;
+}
+
+.consultation-content {
+    display: flex;
+}
+
+.jar {
+    position: absolute;
+    left: 10%;
+    bottom: 10%;
+    width: 100px;
+    height: auto;
+}
+
+.consultation-info {
+    margin-left: auto;
+    width: 70%;
+}
+
+.consultation-methods {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.method {
+    text-align: center;
+    width: 30%;
+}
+
+.method span {
+    display: block;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.feedback {
+    padding: 20px;
+}
+
