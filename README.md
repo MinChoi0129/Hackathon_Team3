@@ -20,4 +20,4 @@ pip install -r requirements.txt
 
 conda activate hackathon -> (hackathon) 이 왼쪽에 켜졌나 확인
 서버 실행 : uvicorn main:app --reload
-서버 종료 : Ctrl + C
+서버 종료 : Ctrl + C 

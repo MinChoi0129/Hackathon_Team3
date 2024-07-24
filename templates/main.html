@@ -26,10 +26,58 @@
 
     <!-------------------------------------------------------------------------->
   </head>
+
   <body>
-    <p>멋사 해커톤 메인 페이지</p>
-    <img src="{{ url_for('static', path='images/gnu.png') }}" alt="" />
-    <hr />
-    <a href="{{ url_for('my_page') }}">마이페이지로 이동</a>
+    <header>
+      <div id="logo_img">
+        <img
+          id="header_logo_img"
+          src="{{ url_for('static', path ='images/main_img/ari_log.svg')}}"
+          alt="ari_logo"
+        />
+      </div>
+    </header>
+
+    <div class="real_menu">
+      <div class="menu_images">
+        <img
+          class="menu_img"
+          src="{{ url_for('static', path ='images/main_img/mypage.svg')}}"
+          alt="no img"
+        />
+        <img
+          class="menu_img"
+          src="{{ url_for('static', path ='images/main_img/counselor.svg')}}"
+          alt="no img"
+        />
+        <img
+          class="menu_img"
+          src="{{ url_for('static', path ='images/main_img/record.svg')}}"
+          alt="no img"
+        />
+      </div>
+      <div class="menu">
+        <div class="item">마이 페이지</div>
+        <div class="item">상담사 목록</div>
+        <div class="item">앓이 기록</div>
+      </div>
+    </div>
+    <div class="ari_img">
+      <img
+        class="ari_image"
+        src="{{ url_for('static', path ='images/main_img/ari.png')}}"
+        alt="loading.."
+      />
+      <img
+        class="shadow"
+        src="{{ url_for('static', path ='images/main_img/shadow.svg')}}"
+        alt="loading.."
+      />
+    </div>
+    <img
+      class="eclipse"
+      src="{{ url_for('static', path ='images/main_img/eclipse.svg')}}"
+      alt="loading.."
+    />
   </body>
 </html>

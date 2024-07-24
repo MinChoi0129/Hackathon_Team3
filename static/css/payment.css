@@ -1,0 +1,252 @@
+header {
+  display: flex;
+  background-color: #fffeea;
+  height: 106px;
+  border: solid #ffc85d;
+  border-width: 0px 0px 2px 0px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#header_logo_img {
+  width: 34px;
+  height: 34px;
+}
+#menu_img {
+  display: flex;
+  position: absolute;
+  top: 30px;
+  left: 45px;
+}
+.menu {
+  display: flex;
+  justify-content: center; /*가운데 정렬 후 갭을 준다.*/
+  flex-wrap: wrap;
+  gap: 40px;
+}
+.item {
+  font-weight: 500;
+  color: #ffc85d;
+  margin-top: 50px;
+  padding: 45px;
+  max-width: fit-content;
+  min-width: 0;
+  position: relative; /* 가상 요소를 위한 상대 위치 */
+  display: inline-block; /* 인라인 블록 요소로 설정 */
+}
+.item:hover {
+  color: transparent; /* 텍스트 색상을 투명하게 설정 */
+}
+#my_page:hover::after {
+  content: "";
+  display: block;
+  width: 25px; /* 이미지의 너비 */
+  height: 25px; /* 이미지의 높이 */
+  background-image: url("../images/main_img/mypage.svg"); /* 대체할 이미지 URL */
+  background-size: contain; /* 이미지가 잘리지 않도록 설정 */
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 50%; /* 수직 중앙 정렬 */
+  left: 50%; /* 수평 중앙 정렬 */
+  transform: translate(
+    -50%,
+    -50%
+  ); /* 중앙으로부터 이동하여 정확히 중앙에 위치 */
+}
+#counselor:hover:after {
+  content: "";
+  display: block;
+  width: 25px; /* 이미지의 너비 */
+  height: 25px; /* 이미지의 높이 */
+  background-image: url("../images/main_img/counselor.svg"); /* 대체할 이미지 URL */
+  background-size: contain; /* 이미지가 잘리지 않도록 설정 */
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 50px; /* 수직 중앙 정렬 */
+  left: 50%; /* 수평 중앙 정렬 */
+  transform: translate(-50%, -50%); /* 중앙 정렬을 위한 변환 */
+}
+#record:hover::after {
+  content: "";
+  display: block;
+  width: 25px; /* 이미지의 너비 */
+  height: 25px; /* 이미지의 높이 */
+  background-image: url("../images/main_img/record.svg"); /* 대체할 이미지 URL */
+  background-size: contain; /* 이미지가 잘리지 않도록 설정 */
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 50%; /* 수직 중앙 정렬 */
+  left: 50%; /* 수평 중앙 정렬 */
+  transform: translate(
+    -50%,
+    -50%
+  ); /* 중앙으로부터 이동하여 정확히 중앙에 위치 */
+}
+
+#apply_discount {
+  width: 60px;
+  height: 38px;
+  border-radius: 5px;
+  background-color: #f3b8ab;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  border: 1px solid #e5e5e5;
+  font-family: "Pretendard";
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.left {
+  margin-right: 50px;
+  width: 800px;
+}
+
+.right {
+  width: 300px;
+  margin-left: 50px;
+}
+
+#go_pay {
+  width: 104px;
+  height: 55px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 800;
+  border-radius: 15px;
+  color: #ff4673;
+  background-color: white;
+  border: 1px solid #e5e5e5;
+  margin-top: 1rem;
+  position: relative;
+  left: 50%;
+  transform: translateX(-52px);
+}
+.right_child {
+  border: 1px solid gray;
+  border-radius: 10px;
+  /* height: 590px; */
+  margin-top: 80px;
+}
+
+.price_sub_detail {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  margin-left: 10%;
+}
+
+.price_sub_detail_title {
+  color: #cbcbcb;
+  font-weight: 800;
+  font-size: 20px;
+}
+
+.more_discount {
+  display: inline-block;
+  color: #ffc85d;
+  font-weight: 500;
+  font-size: 18px;
+}
+.price_sub_detail_number {
+  margin-top: 1rem;
+  margin-right: 0.5rem;
+  font-size: 30px;
+}
+#bill_title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  margin-top: 2rem;
+}
+
+#final_price {
+  font-size: 30px;
+  font-weight: 700;
+  margin-top: 0.8rem;
+}
+
+.big_title {
+  font-weight: 800;
+  font-size: 40px;
+  margin-top: 32px;
+}
+
+.counselor_detail {
+  font-weight: 500;
+  font-size: 18px;
+  display: inline-block;
+}
+
+.counselor_detail_sub_item {
+  margin-top: 2rem;
+}
+
+.counselor_detail_sub_item p {
+  margin-top: 0.5rem;
+}
+
+.counselor_detail_sub_item input {
+  border: 1px solid #e5e5e5;
+  border-radius: 5px;
+  width: 300px;
+  height: 38px;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.counselor_detail_sub_item input::placeholder {
+  color: #f3b8ab;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+#counselor_img {
+  float: right;
+  width: 232px;
+  height: 281px;
+  border-radius: 13px;
+  border: 1px solid gray;
+  margin-top: 2rem;
+}
+
+/* -------------- */
+.radio-group {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.radio-group input[type="radio"] {
+  display: none;
+}
+
+.radio-group label {
+  cursor: pointer;
+  border: 2px solid transparent;
+  padding: 5px;
+  transition: border-color 0.2s;
+  margin-right: 2rem;
+  margin-top: 0.5rem;
+}
+
+.radio-group input[type="radio"]:checked + label {
+  border: 2px solid #f3b8ab;
+  border-radius: 10px;
+}
+
+.radio-group img {
+  display: block;
+  max-width: 100px; /* 이미지 최대 너비 설정 */
+}

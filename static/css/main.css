@@ -1,5 +1,95 @@
-p {
-  color: green;
-  font-size: 2rem;
-  font-weight: bold;
+#header_logo_img{
+  width: 34px;
+  height:34px;
+}
+#logo_img{
+  display : flex;
+  position: absolute;
+  top:30px;
+  left:45px;
+}
+body{
+  background-color: #FFFEEA;
+}
+.menu{
+  position: absolute;
+  top: 43px;
+  right: 55px;
+  display: flex;
+  align-items: end;
+  flex-direction: column;
+}
+.item{
+  width: 100%; 
+  text-align: right;
+  display: flex;
+  flex-wrap: wrap;
+  color:#FFC85D;
+  font-weight: 600;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  max-width: fit-content;
+  min-width: 0;
+  font-size: 20px;
+}
+.real_menu{
+  position : relative; 
+  display: flex;
+}
+.menu_images{
+    position: absolute;
+    top: 39px;
+    right:180px;
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+}
+.menu_img{ 
+  margin-top: 26px;
+  margin-bottom: 26px; 
+}
+.ari_img{/*이걸 수정해야함*/
+  height: auto;
+  position: absolute; 
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+
+  top: 0px;
+  left: 60px;
+
+  border: solid 1px black;
+
+}
+.ari_image{
+  width:65%;
+  position: relative;
+  top:-170px;
+  left:65px;
+  display: flex;
+  flex-shrink: 1;
+  flex-basis : 900px;
+  border: solid 1px red;
+}
+.shadow{
+  display: flex;
+  order:1;
+  flex-shrink: 1;
+  position: relative; 
+  top: -300px;
+  left: 40px;
+  width: 300px;
+  border:solid 1px blue;
+}
+.eclipse{
+ 
+  height: 75%;
+  position: absolute; 
+  top:45px;
+  left:150px; 
+  display:flex;
+  flex-shrink: 1;
+  border: solid 1px purple;
+  
 }
