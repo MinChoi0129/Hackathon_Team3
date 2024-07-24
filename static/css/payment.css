@@ -1,0 +1,162 @@
+header {
+  height: 90px;
+  background-color: #c6c052;
+}
+#apply_discount {
+  width: 60px;
+  height: 38px;
+  border-radius: 5px;
+  background-color: #f3b8ab;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  border: 1px solid #e5e5e5;
+  font-family: "Pretendard";
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.left {
+  margin-right: 50px;
+  width: 800px;
+}
+
+.right {
+  width: 300px;
+  margin-left: 50px;
+}
+
+#go_pay {
+  width: 104px;
+  height: 55px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 800;
+  border-radius: 15px;
+  color: #ff4673;
+  background-color: white;
+  border: 1px solid #e5e5e5;
+  margin-top: 1rem;
+  position: relative;
+  left: 50%;
+  transform: translateX(-52px);
+}
+.right_child {
+  border: 1px solid gray;
+  border-radius: 10px;
+  /* height: 590px; */
+  margin-top: 80px;
+}
+
+.price_sub_detail {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  margin-left: 10%;
+}
+
+.price_sub_detail_title {
+  color: #cbcbcb;
+  font-weight: 800;
+  font-size: 20px;
+}
+
+.more_discount {
+  display: inline-block;
+  color: #ffc85d;
+  font-weight: 500;
+  font-size: 18px;
+}
+.price_sub_detail_number {
+  margin-top: 1rem;
+  margin-right: 0.5rem;
+  font-size: 30px;
+}
+#bill_title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  margin-top: 2rem;
+}
+
+#final_price {
+  font-size: 30px;
+  font-weight: 700;
+  margin-top: 0.8rem;
+}
+
+.big_title {
+  font-weight: 800;
+  font-size: 40px;
+  margin-top: 32px;
+}
+
+.counselor_detail {
+  font-weight: 500;
+  font-size: 18px;
+  display: inline-block;
+}
+
+.counselor_detail_sub_item {
+  margin-top: 2rem;
+}
+
+.counselor_detail_sub_item p {
+  margin-top: 0.5rem;
+}
+
+.counselor_detail_sub_item input {
+  border: 1px solid #e5e5e5;
+  border-radius: 5px;
+  width: 300px;
+  height: 38px;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.counselor_detail_sub_item input::placeholder {
+  color: #f3b8ab;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+#counselor_img {
+  float: right;
+  width: 232px;
+  height: 281px;
+  border-radius: 13px;
+  border: 1px solid gray;
+  margin-top: 2rem;
+}
+
+/* -------------- */
+.radio-group {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.radio-group input[type="radio"] {
+  display: none;
+}
+
+.radio-group label {
+  cursor: pointer;
+  border: 2px solid transparent;
+  padding: 5px;
+  transition: border-color 0.2s;
+  margin-right: 2rem;
+  margin-top: 0.5rem;
+}
+
+.radio-group input[type="radio"]:checked + label {
+  border: 2px solid #f3b8ab;
+  border-radius: 10px;
+}
+
+.radio-group img {
+  display: block;
+  max-width: 100px; /* 이미지 최대 너비 설정 */
+}

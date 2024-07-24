@@ -2,8 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Speech Detection</title>
     <link
       rel="stylesheet"
       href="{{ url_for('static', path='css/reset.css') }}"
@@ -13,22 +12,24 @@
     <!-- CSS 연결 -->
     <link
       rel="stylesheet"
-      href="{{ url_for('static', path='css/main.css') }}"
+      href="{{ url_for('static', path='css/journal.css') }}"
     />
 
     <!-------------------------------------------------------------------------->
 
     <!-- Javascript 연결 -->
     <script
-      src="{{ url_for('static', path='javascript/main.js') }}"
+      src="{{ url_for('static', path='javascript/journal.js') }}"
       defer
     ></script>
 
     <!-------------------------------------------------------------------------->
   </head>
   <body>
-    <p>멋사 해커톤 메인 페이지</p>
-    <img src="{{ url_for('static', path='images/gnu.png') }}" alt="" />
-    <hr />
+    <div class="controls">
+      <button id="startButton">Start</button>
+      <button id="stopButton" disabled>Stop</button>
+    </div>
+    <div class="words" contenteditable></div>
   </body>
 </html>
