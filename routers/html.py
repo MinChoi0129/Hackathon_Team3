@@ -48,3 +48,17 @@ async def payment(request: Request, counselor_item: int, username: str = Cookie(
         "payment.html",
         {"request": request, "username": username, "counselor_item": counselor_item},
     )
+
+
+@router.get("/jack", response_class=HTMLResponse)
+async def jack(request: Request, username: str = Cookie(None)):
+    if not isLogined(username):
+        return RedirectResponse(url="/")
+    return templates.TemplateResponse(request=request, name="jack.html")
+
+
+@router.get("/monthreport", response_class=HTMLResponse)
+async def monthreport(request: Request, username: str = Cookie(None)):
+    if not isLogined(username):
+        return RedirectResponse(url="/")
+    return templates.TemplateResponse(request=request, name="monthreport.html")
