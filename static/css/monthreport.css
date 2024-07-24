@@ -76,3 +76,94 @@ h2{
     margin-right: 500px;
     text-align: center;
 }
+header{
+    display: flex;
+    background-color: #FFFEEA;
+    height: 106px;
+    border: solid #FFC85D;
+    border-width: 0px 0px 2px 0px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+  }
+  .header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+  }
+  #header_logo_img{
+    width: 34px;
+    height:34px;
+  }
+  #menu_img{
+    display : flex;
+    position: absolute;
+    top:30px;
+    left:45px;
+  }
+   .menu{
+    display: flex;
+    justify-content: center; /*가운데 정렬 후 갭을 준다.*/
+    flex-wrap: wrap;
+    gap: 40px;
+   }
+  .item{
+    font-weight: 500;
+    color:#FFC85D; 
+    margin-top: 50px;
+    padding: 45px;
+    max-width: fit-content;
+    min-width: 0;
+    position: relative; /* 가상 요소를 위한 상대 위치 */
+    display: inline-block; /* 인라인 블록 요소로 설정 */
+  }
+  .item:hover{
+    color: transparent; /* 텍스트 색상을 투명하게 설정 */
+  }
+  #my_page:hover::after {
+    content: "";
+    display: block;
+    width: 25px; /* 이미지의 너비 */
+    height: 25px; /* 이미지의 높이 */
+    background-image: url('../images/main_img/mypage.svg'); /* 대체할 이미지 URL */
+    background-size: contain; /* 이미지가 잘리지 않도록 설정 */
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: 50%; /* 수직 중앙 정렬 */
+    left: 50%; /* 수평 중앙 정렬 */
+    transform: translate(-50%, -50%); /* 중앙으로부터 이동하여 정확히 중앙에 위치 */
+  }
+  #counselor:hover:after {
+    content: "";
+    display: block;
+    width: 25px; /* 이미지의 너비 */
+    height: 25px; /* 이미지의 높이 */
+    background-image: url('../images/main_img/counselor.svg'); /* 대체할 이미지 URL */
+    background-size: contain; /* 이미지가 잘리지 않도록 설정 */
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: 50px; /* 수직 중앙 정렬 */
+    left: 50%; /* 수평 중앙 정렬 */
+    transform: translate(-50%, -50%); /* 중앙 정렬을 위한 변환 */
+  }
+  #record:hover::after {
+    content: "";
+    display: block;
+    width: 25px; /* 이미지의 너비 */
+    height: 25px; /* 이미지의 높이 */
+    background-image: url('../images/main_img/record.svg'); /* 대체할 이미지 URL */
+    background-size: contain; /* 이미지가 잘리지 않도록 설정 */
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: 50%; /* 수직 중앙 정렬 */
+    left: 50%; /* 수평 중앙 정렬 */
+    transform: translate(-50%, -50%); /* 중앙으로부터 이동하여 정확히 중앙에 위치 */
+  }
+  
+  

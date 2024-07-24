@@ -14,6 +14,25 @@
     ></script>
   </head>
   <body>
+    <header>
+      <div class="header">
+        <div id="menu_img">
+          <img
+            id="header_logo_img"
+            src="{{ url_for('static', path ='images/main_img/ari_log.svg')}}"
+            alt="ari_logo"
+          />
+        </div>
+
+        <div class="menu_bar">
+          <div class="menu">
+            <span class="item" id="my_page">마이페이지</span>
+            <span class="item" id="counselor">상담사 목록</span>
+            <span class="item" id="record">앓이 기록</span>
+          </div>
+        </div>
+      </div>
+    </header>
     <div class="title">
       <img
         class="graph"
@@ -24,13 +43,18 @@
     </div>
     <div class="navigation">
       <img
-      src="{{ url_for('static', path='images/imgfolder/leftgo.svg') }}"
-      alt="" width="30px" height="30px" />
+        src="{{ url_for('static', path='images/imgfolder/leftgo.svg') }}"
+        alt=""
+        width="30px"
+        height="30px"
+      />
       <h2>2024년 7월</h2>
       <img
-      src="{{ url_for('static', path='images/rightgo.svg') }}"
-      alt="" width="30px" height="30px" />
-
+        src="{{ url_for('static', path='images/rightgo.svg') }}"
+        alt=""
+        width="30px"
+        height="30px"
+      />
     </div>
     <div class="data">
       <table>
@@ -51,14 +75,14 @@
         </tr>
         <tr>
           <td>
-          <img
-            src="{{ url_for('static', path='images/imgfolder/positive.svg') }}"
-            alt=""
-          />
-        </td>
-        <td>홈런</td>
-        <td>40%</td>
-      </tr>
+            <img
+              src="{{ url_for('static', path='images/imgfolder/positive.svg') }}"
+              alt=""
+            />
+          </td>
+          <td>홈런</td>
+          <td>40%</td>
+        </tr>
         <tr>
           <td>
             <img
@@ -76,8 +100,9 @@
               alt=""
             />
           </td>
-        <td>단디💙</td>
-        <td>15%</td></tr>
+          <td>단디💙</td>
+          <td>15%</td>
+        </tr>
         <tr>
           <td>
             <img
@@ -85,17 +110,24 @@
               alt=""
             />
           </td>
-        <td>싫다싫어</td><td>5%</td></tr>
+          <td>싫다싫어</td>
+          <td>5%</td>
         </tr>
       </table>
     </div>
+
     <div>
-    <div class="desult">
-      <div class="who">방아리</div> 님은 <br>
-      <div class="or">부정적</div> 단어가 <br>
-      <div class="percentage">65%</div> 로 <br>
-      <div class="solution">전문가의 상담이 필요합니다.
-    </div></div>
-<div class="consultants">상담사 목록 바로가기</div>
+      <div class="desult">
+        <div class="who">방아리</div>
+        님은 <br />
+        <div class="or">부정적</div>
+        단어가 <br />
+        <div class="percentage">65%</div>
+        로 <br />
+        <div class="solution">전문가의 상담이 필요합니다.</div>
+      </div>
+
+      <div class="consultants">상담사 목록 바로가기</div>
+    </div>
   </body>
 </html>
