@@ -22,6 +22,12 @@ async def main(request: Request):
 async def my_page(request: Request):
     return templates.TemplateResponse(request=request, name="my_page.html")
 
+@app.get("/jack", response_class=HTMLResponse)
+async def jack(request: Request):
+    return templates.TemplateResponse(request=request, name="jack.html")
 
+@app.get("/monthreport", response_class=HTMLResponse)
+async def monthreport(request: Request):
+    return templates.TemplateResponse(request=request, name="monthreport.html")
 # API 연결
 # (추후 개발)
