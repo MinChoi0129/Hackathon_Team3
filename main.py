@@ -22,6 +22,16 @@ async def main(request: Request):
 async def my_page(request: Request):
     return templates.TemplateResponse(request=request, name="my_page.html")
 
+@app.get("/counselors_list", response_class=HTMLResponse)
+async def counselors_list(request: Request):
+    return templates.TemplateResponse(request=request, name="counselors_list.html")
+
+@app.get("/counselor_detailed", response_class=HTMLResponse)
+async def counselor_detailed(request: Request):
+    return templates.TemplateResponse(request=request, name="counselor_detailed.html")
 
 # API 연결
 # (추후 개발)
+@app.get("/api/counselor_list", response_class=HTMLResponse)
+async def counselor_list(request: Request):
+    return {}
