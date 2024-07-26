@@ -7,6 +7,23 @@
     <link rel="stylesheet" href="/static/css/counselors_list.css">
 </head>
 <body>
+    <header>
+        <div class ="header">
+          <div id ="menu_img">
+            <img id= "header_logo_img" src = "{{ url_for('static', path ='images/main_img/ari_log.svg')}}" alt="ari_logo" /> 
+          </div>
+    
+          <div class = "menu_bar">
+            <div class = "menu">
+              <span class="item" id ="my_page">마이페이지</span>
+              <span class="item" id="counselor">상담사 목록</span>
+              <span class ="item" id="record">앓이 기록</span>
+            </div>
+          </div>
+        </div>
+         
+           
+      </header>
     <div class="container">
         <h1>상담사 목록</h1>
         <div class="search-bar-container">
