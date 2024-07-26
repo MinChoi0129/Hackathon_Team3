@@ -1,7 +1,8 @@
 from sqlalchemy import Column, Integer, String, Float, Date, Boolean, ForeignKey
 from sqlalchemy.orm import relationship
 from config.database import Base
-from pydantic import BaseModel
+
+######################## 유저 ########################
 
 ######################## 유저 ########################
 
