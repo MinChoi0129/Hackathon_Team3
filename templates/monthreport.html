@@ -27,9 +27,15 @@
         </div>
         <div class="menu_bar">
           <div class="menu">
-            <span class="item" id="my_page">마이페이지</span>
-            <span class="item" id="counselor">상담사 목록</span>
-            <span class="item" id="record">앓이 기록</span>
+            <span class="item" id="my_page">
+              <a href="{{ url_for('my_page') }}">마이페이지</a></span
+            >
+            <span class="item" id="counselor"
+              ><a href="{{ url_for('counselors_list') }}">상담사 목록</a></span
+            >
+            <span class="item" id="record"
+              ><a href="{{ url_for('jack') }}">앓이 기록</a></span
+            >
           </div>
         </div>
       </div>

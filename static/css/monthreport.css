@@ -162,3 +162,7 @@ header{
 a{
   color: black
 }
+a{
+  color: #FFC85D;
+  text-decoration-line: none;
+}
