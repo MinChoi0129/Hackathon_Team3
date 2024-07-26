@@ -79,22 +79,30 @@ body {
   font-weight: 350;
   font-size: 18px;
   color: #a27979;
+  z-index: 2;
 }
-
 #hi_im_ari {
   width: 230px;
   position: relative;
   left: 840px;
   bottom: 330px;
 }
-.buttons {
-  display: inline-block;
-  padding: 20px;
-  background: #ffc85d;
-  border-radius: 4em;
-}
-
 a {
   color: #ffc85d;
   text-decoration-line: none;
+}
+.wrapper{
+  display: flex;
+  width: 500px;
+  height: auto;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #ffc85d;
+  border-radius: 10rem;
+}
+.left , .right{
+  display: flex;
+
 }
