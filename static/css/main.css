@@ -1,17 +1,17 @@
-#header_logo_img{
+#header_logo_img {
   width: 34px;
-  height:34px;
+  height: 34px;
 }
-#logo_img{
-  display : flex;
+#logo_img {
+  display: flex;
   position: absolute;
-  top:30px;
-  left:45px;
+  top: 30px;
+  left: 45px;
 }
-body{
-  background-color: #FFFEEA;
+body {
+  background-color: #fffeea;
 }
-.menu{
+.menu {
   position: absolute;
   top: 43px;
   right: 55px;
@@ -19,12 +19,12 @@ body{
   align-items: end;
   flex-direction: column;
 }
-.item{
-  width: 100%; 
+.item {
+  width: 100%;
   text-align: right;
   display: flex;
   flex-wrap: wrap;
-  color:#FFC85D;
+  color: #ffc85d;
   font-weight: 600;
   margin-top: 30px;
   margin-bottom: 30px;
@@ -32,90 +32,69 @@ body{
   min-width: 0;
   font-size: 20px;
 }
-.real_menu{
-  position : relative; 
+.real_menu {
+  position: relative;
   display: flex;
-  z-index:3;
+  z-index: 3;
 }
-.menu_images{
-    position: absolute;
-    top: 39px;
-    right:180px;
-    display: flex;
-    align-items: center;
-    flex-direction: column; 
+.menu_images {
+  position: absolute;
+  top: 39px;
+  right: 180px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
-.menu_img{ 
+.menu_img {
   margin-top: 26px;
-  margin-bottom: 26px; 
+  margin-bottom: 26px;
 }
-.ari_image{
-  width: 870px; 
+.ari_image {
+  width: 870px;
   height: auto;
-  display: block; 
+  display: block;
   position: relative;
   transform: translate(-80%, -4%);
-  z-index: 2; 
+  z-index: 2;
 }
-.eclipse{
+.eclipse {
   height: 600px;
   width: auto;
   display: block;
-  position: relative; 
+  position: relative;
   z-index: 1;
 }
 
-.background{
+.background {
   position: relative;
-  top:55px;
+  top: 55px;
   left: 155px;
   display: flex;
 }
-.ari_text{
+.ari_text {
   position: absolute;
-  top: 50px; 
-  left: 310px; 
+  top: 50px;
+  left: 310px;
   font-size: 20px;
   font-weight: 350;
   font-size: 18px;
-  color: #A27979; 
+  color: #a27979;
 }
 
-/* .bubble {
-
-  display: inline-block;
-	position: absolute;
-  padding : 20px;
-	background: #00aabb;
-  font-size: 30px;
-	border-radius: 4em;
-}
-
-.bubble:after {
-	content: '';
-	position: relative;
-	left: 0;
-	top: 50%;
-	width: 0;
-	height: 0;
-	border: 38px solid transparent;
-	border-right-color: #00aabb;
-	border-left: 0;
-	border-top: 0;
-	margin-top: -19px;
-	margin-left: -38px;
-
-} */
-
-#hi_im_ari{
+#hi_im_ari {
   width: 230px;
   position: relative;
   left: 840px;
   bottom: 330px;
 }
-.buttons{
+.buttons {
   display: inline-block;
   padding: 20px;
-  background :#FFC85D;
+  background: #ffc85d;
   border-radius: 4em;
+}
+
+a {
+  color: #ffc85d;
+  text-decoration-line: none;
 }

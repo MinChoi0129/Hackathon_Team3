@@ -4,8 +4,6 @@ from config.database import Base
 
 ######################## 유저 ########################
 
-######################## 유저 ########################
-
 
 class User(Base):
     __tablename__ = "users"
