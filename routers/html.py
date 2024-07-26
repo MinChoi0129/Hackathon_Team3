@@ -1,14 +1,21 @@
-from fastapi import APIRouter, Request, Cookie
+from fastapi import APIRouter, Form, Response, Depends, HTTPException, Request, Cookie
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
-from urllib.parse import unquote
+from api.models import User, Conversation, Diary, Payment, Counselor
+from config.database import get_db
+from sqlalchemy.orm import Session
+from pydantic import BaseModel
+from datetime import datetime
+import re
 
 
-def isLogined(username):
+def isLogined(user_id: str):
     try:
-        tmp_username = unquote(username)
-        if tmp_username:
+        int(user_id)
+        if user_id:
             return True
+        else:
+            return False
     except:
         return False
 
@@ -19,9 +26,9 @@ templates = Jinja2Templates(directory="templates")
 
 @router.get("/", response_class=HTMLResponse)
 async def landing(
-    request: Request, login_error: bool = False, username: str = Cookie(None)
+    request: Request, login_error: bool = False, user_id: str = Cookie(None)
 ):
-    if isLogined(username):
+    if isLogined(user_id):
         return RedirectResponse(url="/main")
     else:
         return templates.TemplateResponse(
@@ -30,72 +37,72 @@ async def landing(
 
 
 @router.get("/main", response_class=HTMLResponse)
-async def main(request: Request, username: str = Cookie(None)):
-    if not isLogined(username):
+async def main(request: Request, user_id: str = Cookie(None)):
+    if not isLogined(user_id):
         return RedirectResponse(url="/")
 
-    return templates.TemplateResponse(
-        "main.html", {"request": request, "username": username}
-    )
+    return templates.TemplateResponse("main.html", {"request": request})
 
 
 @router.get("/my_page", response_class=HTMLResponse)
-async def my_page(request: Request, username: str = Cookie(None)):
-    if not isLogined(username):
+async def my_page(request: Request, user_id: str = Cookie(None)):
+    if not isLogined(user_id):
         return RedirectResponse(url="/")
 
-    return templates.TemplateResponse(
-        "my_page.html", {"request": request, "username": username}
-    )
+    return templates.TemplateResponse("my_page.html", {"request": request})
 
 
 @router.get("/payment", response_class=HTMLResponse)
-async def payment(request: Request, counselor_item: int, username: str = Cookie(None)):
-    if not isLogined(username):
+async def payment(request: Request, counselor_item: int, user_id: str = Cookie(None)):
+    if not isLogined(user_id):
         return RedirectResponse(url="/")
 
     return templates.TemplateResponse(
         "payment.html",
-        {"request": request, "username": username, "counselor_item": counselor_item},
+        {"request": request, "counselor_item": counselor_item},
     )
 
 
 @router.get("/payment_over", response_class=HTMLResponse)
 async def payment_over(
-    request: Request, counselor_item: int, username: str = Cookie(None)
+    request: Request, counselor_item: int, user_id: str = Cookie(None)
 ):
-    if not isLogined(username):
+    if not isLogined(user_id):
         return RedirectResponse(url="/")
 
     return templates.TemplateResponse(
         "payment_over.html",
-        {"request": request, "username": username, "counselor_item": counselor_item},
+        {"request": request, "counselor_item": counselor_item},
     )
 
 
 @router.get("/jack", response_class=HTMLResponse)
-async def jack(request: Request, username: str = Cookie(None)):
-    if not isLogined(username):
+async def jack(request: Request, user_id: str = Cookie(None)):
+    if not isLogined(user_id):
         return RedirectResponse(url="/")
-    return templates.TemplateResponse(request=request, name="jack.html")
+
+    return templates.TemplateResponse("jack.html", {"request": request})
 
 
 @router.get("/monthreport", response_class=HTMLResponse)
-async def monthreport(request: Request, username: str = Cookie(None)):
-    if not isLogined(username):
+async def monthreport(request: Request, user_id: str = Cookie(None)):
+    if not isLogined(user_id):
         return RedirectResponse(url="/")
-    return templates.TemplateResponse(request=request, name="monthreport.html")
+
+    return templates.TemplateResponse("monthreport.html", {"request": request})
 
 
 @router.get("/counselors_list", response_class=HTMLResponse)
-async def counselors_list(request: Request, username: str = Cookie(None)):
-    if not isLogined(username):
+async def counselors_list(request: Request, user_id: str = Cookie(None)):
+    if not isLogined(user_id):
         return RedirectResponse(url="/")
-    return templates.TemplateResponse(request=request, name="counselors_list.html")
+
+    return templates.TemplateResponse("counselors_list.html", {"request": request})
 
 
 @router.get("/counselor_detailed", response_class=HTMLResponse)
-async def counselor_detailed(request: Request, username: str = Cookie(None)):
-    if not isLogined(username):
+async def counselor_detailed(request: Request, user_id: str = Cookie(None)):
+    if not isLogined(user_id):
         return RedirectResponse(url="/")
-    return templates.TemplateResponse(request=request, name="counselor_detailed.html")
+
+    return templates.TemplateResponse("counselor_detailed.html", {"request": request})

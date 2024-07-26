@@ -91,7 +91,7 @@ a {
   color: #ffc85d;
   text-decoration-line: none;
 }
-.wrapper{
+.wrapper {
   display: flex;
   width: 500px;
   height: auto;
@@ -102,7 +102,7 @@ a {
   background-color: #ffc85d;
   border-radius: 10rem;
 }
-.left , .right{
+.left,
+.right {
   display: flex;
-
 }

@@ -75,8 +75,8 @@ class Payment(Base):
     __tablename__ = "payments"
 
     id = Column(Integer, primary_key=True)
-    QR_img_path = Column(String)  # 결제 QR 경로
     paid_user_id = Column(Integer, ForeignKey("users.id"))  # 결제자 id
+    counselor_id = Column(Integer, ForeignKey("counselors.id"))
     is_used = Column(Boolean)  # 상담 완료 여부
     when_paid = Column(Date)  # 결제 일시
 

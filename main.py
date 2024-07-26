@@ -12,9 +12,9 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 Base.metadata.create_all(bind=engine)
 
 # 라우터 포함
-app.include_router(auth.router)
-app.include_router(payment.router)
 app.include_router(html.router)
-app.include_router(conversation.router)
+app.include_router(auth.router)
 app.include_router(diary.router)
+app.include_router(conversation.router)
 app.include_router(counselor.router)
+app.include_router(payment.router)
