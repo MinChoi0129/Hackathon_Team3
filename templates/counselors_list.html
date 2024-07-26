@@ -7,14 +7,28 @@
     <link rel="stylesheet" href="/static/css/counselors_list.css">
 </head>
 <body>
-      <header>
-    <div class ="header">
-      <div id ="menu_img">
-        <img id= "header_logo_img" src = "{{ url_for('static', path ='images/main_img/ari_log.svg')}}" alt="ari_logo" /> 
-      </div>
-
-      <div class = "menu_bar"
-       placeholder="번아웃" id="search-input">
+    <header>
+        <div class ="header">
+          <div id ="menu_img">
+            <img id= "header_logo_img" src = "{{ url_for('static', path ='images/main_img/ari_log.svg')}}" alt="ari_logo" /> 
+          </div>
+    
+          <div class = "menu_bar">
+            <div class = "menu">
+              <span class="item" id ="my_page">마이페이지</span>
+              <span class="item" id="counselor">상담사 목록</span>
+              <span class ="item" id="record">앓이 기록</span>
+            </div>
+          </div>
+        </div>
+         
+           
+      </header>
+    <div class="container">
+        <h1>상담사 목록</h1>
+        <div class="search-bar-container">
+            <div class="search-bar">
+                <input type="text" placeholder="번아웃" id="search-input">
             </div>
             <div class="sort-button-container">
                 <button id="sort-button">추천순</button>
