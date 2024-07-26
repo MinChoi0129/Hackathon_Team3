@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
-from routers import auth, payment, html
+from routers import auth, payment, html, conversation, diary, counselor
 from config.database import engine, Base
 
 app = FastAPI()
@@ -15,3 +15,6 @@ Base.metadata.create_all(bind=engine)
 app.include_router(auth.router)
 app.include_router(payment.router)
 app.include_router(html.router)
+app.include_router(conversation.router)
+app.include_router(diary.router)
+app.include_router(counselor.router)

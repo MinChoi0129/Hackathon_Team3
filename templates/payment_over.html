@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', path='css/reset.css') }}"
+    />
+    <!-------------------------------------------------------------------------->
+
+    <!-- CSS 연결 -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', path='css/payment_over.css') }}"
+    />
+
+    <!-------------------------------------------------------------------------->
+
+    <script>
+      let counselor_item = "{{ counselor_item }}";
+    </script>
+
+    <!-- Javascript 연결 -->
+    <script
+      src="{{ url_for('static', path='javascript/payment_over.js') }}"
+      defer
+    ></script>
+
+    <!-------------------------------------------------------------------------->
+  </head>
+  <body>
+    <header>
+      <div class="header">
+        <div id="menu_img">
+          <img
+            id="header_logo_img"
+            src="{{ url_for('static', path ='images/main_img/ari_log.svg')}}"
+            alt="ari_logo"
+          />
+        </div>
+
+        <div class="menu_bar">
+          <div class="menu">
+            <span class="item" id="my_page">마이페이지</span>
+            <span class="item" id="counselor">상담사 목록</span>
+            <span class="item" id="record">앓이 기록</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="payment_over_bold">결제 완료</div>
+
+    <hr />
+
+    <div class="payment_over_extrabold">결제가 완료되었습니다.</div>
+
+    <div class="info_div center_info_div">
+      <p class="black_info">주문번호</p>
+      <p class="gray_info">2024071214230COUNSEL1308</p>
+    </div>
+
+    <div id="two_boxes_container">
+      <div class="two_boxes">
+        <p class="title_info">상담사 정보</p>
+        <div class="info_div">
+          <p class="gray_info">이름</p>
+          <p class="black_info">김상담</p>
+        </div>
+        <div class="info_div">
+          <p class="gray_info">기간</p>
+          <p class="black_info">2024년 07월 10일 ~ 2025년 07월 09일 (365일)</p>
+        </div>
+        <div class="info_div">
+          <p class="gray_info">상담유형</p>
+          <p class="black_info">비대면상담</p>
+        </div>
+        <div class="info_div">
+          <p class="gray_info">주소</p>
+          <p class="black_info">경상남도 진주시 진주대로 501</p>
+        </div>
+      </div>
+
+      <div class="two_boxes">
+        <p class="title_info">결제 정보</p>
+        <div class="info_div">
+          <p class="gray_info">금액</p>
+          <p class="black_info">96,900원</p>
+        </div>
+        <div class="info_div">
+          <p class="gray_info">결제 수단</p>
+          <img
+            class="black_info"
+            src="{{ url_for('static', path='images/k-pay.svg')}}"
+            alt="카카오페이"
+          />
+        </div>
+        <div class="info_div">
+          <p class="gray_info">결제 일시</p>
+          <p class="black_info">2024. 07. 12. 14:23:30</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="go_home">
+      <button id="go_home_btn" onclick="location.href='/main'">홈으로</button>
+    </div>
+  </body>
+</html>

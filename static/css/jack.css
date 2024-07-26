@@ -1,16 +1,18 @@
+
+
 body{
     background-color: #FFFEEA;
+    width: 100vw;
+    height: 100vh;
 }
 .a{font-weight: 900;
     font-size: xx-large;
-    color: #FF4673;}
+    color: #FF4673;
+    }
 .jack1{
-    display: flex;
+    display:flex;
     padding-left: 75%;
-}
-.uderlist{
-    display: flex;
-    margin-top: 900px;
+
 }
 .monthly{
     font-weight: bold;
@@ -29,15 +31,11 @@ body{
     margin-top: 30px;
     display: flex;
     padding: 0;
-}
-.underlist{
-    display: flex;
-    margin-left: 78%;
+    height: 5vw;
+    width: 100vw;   
 }
 .beantree{
     align-items: center;
-    width: 500px;
-    height: 500px;
     display: flex;
 }
 .when{
@@ -49,10 +47,11 @@ body{
     color: #FFC85D;
     font-size: 30px;
 }
-.beantreeimgs{
-    position: relative;
-    z-index: 5;
-}
+#beantreeimgs{
+    display: flex;
+    width: 80vw;
+    height: 90vh;
+    }
 .word1{
     position: absolute;
     z-index: 10;
@@ -72,3 +71,36 @@ a{
     color: #FFC85D;
     text-decoration-line: none;
 }
+.head{
+    width: 100vw;
+    height: 10vh;
+}
+.underlist{ width: 10vw;
+    float: right;
+    position: relative;
+    z-index: 5;
+    padding-top: 70vh;
+    padding-right: 10vh;
+    }
+.pictures{
+    width: 80vw;
+    position: absolute;
+    z-index: 10
+}
+.ariari{
+    margin-top: 15px;
+}
+#head{
+    width: 100vw;
+    height: 5vh;
+}
+a{
+  color: #FFC85D;
+  text-decoration-line: none;
+}
+.logogo{width: 34px;
+height: 34px;}
+#header_logo_img{
+    width: 34px;
+    height:34px;
+  }
