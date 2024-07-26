@@ -31,6 +31,7 @@ body{
   max-width: fit-content;
   min-width: 0;
   font-size: 20px;
+
 }
 .real_menu{
   position : relative; 
@@ -93,3 +94,6 @@ body{
   border: solid 1px purple;
   
 }
+a{
+  color: #FFC85D;
+  text-decoration-line: none;}

@@ -57,8 +57,12 @@
         />
       </div>
       <div class="menu">
-        <div class="item">마이 페이지</div>
-        <div class="item">상담사 목록</div>
+        <div class="item">
+          <a href="{{ url_for('my_page') }}">마이페이지</a>
+        </div>
+        <div class="item">
+          <a href="{{ url_for('counselors_list') }}">상담사 목록</a>
+        </div>
         <div class="item">앓이 기록</div>
       </div>
     </div>

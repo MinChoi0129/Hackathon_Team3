@@ -18,13 +18,13 @@
     <header>
       <div class="header">
         <div id="menu_img">
-          <img
-            id="header_logo_img"
-            src="{{ url_for('static', path ='images/main_img/ari_log.svg')}}"
-            alt="ari_logo"
-          />
+          <a href="{{ url_for('main') }}"
+            ><img
+              id="header_logo_img"
+              src="{{ url_for('static', path ='images/main_img/ari_log.svg')}}"
+              alt="ari_logo"
+          /></a>
         </div>
-
         <div class="menu_bar">
           <div class="menu">
             <span class="item" id="my_page">마이페이지</span>
@@ -34,29 +34,36 @@
         </div>
       </div>
     </header>
-    <div class="title">
-      <img
-        class="graph"
-        src="{{ url_for('static', path='images/imgfolder/graph.svg') }}"
-        alt=""
-      />
-      월별 현황
+
+    <div>
+      <div class="title">
+        <img
+          class="graph"
+          src="{{ url_for('static', path='images/imgfolder/graph.svg') }}"
+          alt=""
+        />
+        월별 현황
+      </div>
     </div>
-    <div class="navigation">
-      <img
-        src="{{ url_for('static', path='images/imgfolder/leftgo.svg') }}"
-        alt=""
-        width="30px"
-        height="30px"
-      />
-      <h2>2024년 7월</h2>
-      <img
-        src="{{ url_for('static', path='images/rightgo.svg') }}"
-        alt=""
-        width="30px"
-        height="30px"
-      />
+
+    <div>
+      <div class="navigation">
+        <img
+          src="{{ url_for('static', path='images/imgfolder/leftgo.svg') }}"
+          alt=""
+          width="30px"
+          height="30px"
+        />
+        <h2>2024년 7월</h2>
+        <img
+          src="{{ url_for('static', path='images/rightgo.svg') }}"
+          alt=""
+          width="30px"
+          height="30px"
+        />
+      </div>
     </div>
+
     <div class="data">
       <table>
         <tr>
@@ -125,10 +132,12 @@
         단어가 <br />
         <div class="percentage">65%</div>
         로 <br />
-        <div class="solution">전문가의 상담이 필요합니다.</div>
+        <div class="solution">
+          <a href="{{ url_for('counselors_list') }}"
+            >전문가의 상담이 필요합니다.</a
+          >
+        </div>
       </div>
-
-      <div class="consultants">상담사 목록 바로가기</div>
     </div>
   </body>
 </html>

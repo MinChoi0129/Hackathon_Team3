@@ -316,3 +316,7 @@ footer p {
   cursor: pointer;
   text-decoration: underline;
 }
+a{
+  color: #FFC85D;
+  text-decoration-line: none;
+}
