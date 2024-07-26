@@ -6,7 +6,7 @@ from api.models import User, Conversation, Diary
 router = APIRouter()
 
 
-@router.post("/conversations", response_model=Conversation)
+@router.post("/conversations")
 def create_conversation(user_id: int, db: Session = Depends(get_db)):
     db_conversation = Conversation(conversation_user_id=user_id)
     db.add(db_conversation)
@@ -15,7 +15,7 @@ def create_conversation(user_id: int, db: Session = Depends(get_db)):
     return db_conversation
 
 
-@router.get("/conversations/{user_id}", response_model=list[Conversation])
+@router.get("/conversations/{user_id}")
 def read_conversations_by_user(user_id: int, db: Session = Depends(get_db)):
     return (
         db.query(Conversation)

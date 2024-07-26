@@ -17,10 +17,6 @@ async def login(
     PINCode: str = Form(...),
     db: Session = Depends(get_db),
 ):
-    username
-    login_error
-    welcome_new_user
-    form_error
 
     phone_pattern = re.compile(r"^010-\d{4}-\d{4}$")
     pin_pattern = re.compile(r"^\d{4}$")
