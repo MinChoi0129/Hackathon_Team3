@@ -24,6 +24,10 @@ async def login(
     if not phone_pattern.match(phonenumber) or not pin_pattern.match(PINCode):
         response = RedirectResponse(url="/", status_code=302)
         response.set_cookie(key="form_error", value=True)
+
+        response.delete_cookie(key="username")
+        response.delete_cookie(key="login_error")
+        response.delete_cookie(key="welcome_new_user")
         return response
 
     user = db.query(User).filter(User.phonenumber == phonenumber).first()
@@ -36,19 +40,31 @@ async def login(
         db.refresh(new_user)
 
         response = RedirectResponse(url="/main", status_code=302)
+
         response.set_cookie(key="username", value=quote(username))
         response.set_cookie(key="welcome_new_user", value=True)
+
+        response.delete_cookie(key="login_error")
+        response.delete_cookie(key="form_error")
         return response
     else:  # 기존 유저
         if user.username == username and user.pincode == PINCode:  # 로그인 성공
             print("기존 유저, 로그인 성공")
             response = RedirectResponse(url="/main", status_code=302)
             response.set_cookie(key="username", value=quote(username))
+
+            response.delete_cookie(key="welcome_new_user")
+            response.delete_cookie(key="login_error")
+            response.delete_cookie(key="form_error")
             return response
         else:  # 로그인 정보 일치 안함
             print("기존 유저, 로그인 실패")
             response = RedirectResponse(url="/", status_code=302)
             response.set_cookie(key="login_error", value=True)
+
+            response.delete_cookie(key="username")
+            response.delete_cookie(key="welcome_new_user")
+            response.delete_cookie(key="form_error")
             return response
 
 
@@ -56,4 +72,7 @@ async def login(
 async def logout(response: Response):
     response = RedirectResponse(url="/", status_code=302)
     response.delete_cookie(key="username")
+    response.delete_cookie(key="welcome_new_user")
+    response.delete_cookie(key="form_error")
+    response.delete_cookie(key="login_error")
     return response

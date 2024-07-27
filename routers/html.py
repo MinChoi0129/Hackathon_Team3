@@ -60,6 +60,17 @@ async def payment(request: Request, counselor_item: int, username: str = Cookie(
     )
 
 
+@router.get("/payment_over", response_class=HTMLResponse)
+async def payment(request: Request, counselor_item: int, username: str = Cookie(None)):
+    if not isLogined(username):
+        return RedirectResponse(url="/")
+
+    return templates.TemplateResponse(
+        "payment_over.html",
+        {"request": request, "username": username, "counselor_item": counselor_item},
+    )
+
+
 @router.get("/jack", response_class=HTMLResponse)
 async def jack(request: Request, username: str = Cookie(None)):
     if not isLogined(username):
