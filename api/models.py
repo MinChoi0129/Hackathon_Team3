@@ -79,6 +79,7 @@ class Payment(Base):
     counselor_id = Column(Integer, ForeignKey("counselors.id"))
     is_used = Column(Boolean)  # 상담 완료 여부
     when_paid = Column(Date)  # 결제 일시
+    paid_price = Column(Integer)  # 결제 금액
 
     # Relationships
     user = relationship("User", back_populates="payments")
@@ -92,6 +93,7 @@ class Conversation(Base):
 
     id = Column(Integer, primary_key=True)
     conversation_user_id = Column(Integer, ForeignKey("users.id"))  # 대화한 유저 id
+    date = Column(Date)
 
     # Relationships
     user = relationship("User", back_populates="conversations")

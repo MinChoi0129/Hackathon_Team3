@@ -1,12 +1,9 @@
-from fastapi import APIRouter, Form, Response, Depends, HTTPException, Request, Cookie
-from fastapi.responses import HTMLResponse, RedirectResponse
-from fastapi.templating import Jinja2Templates
-from api.models import User, Conversation, Diary, Payment, Counselor
+from fastapi import APIRouter, Depends, HTTPException, Cookie, Form
+from api.models import Payment
 from config.database import get_db
 from sqlalchemy.orm import Session
 from pydantic import BaseModel
 from datetime import datetime
-import re
 
 
 router = APIRouter()
@@ -33,13 +30,17 @@ async def check_coupon(coupon: CouponCode):
 
 @router.post("/api/payment/{counselor_id}")
 async def create_payment_by_user(
-    counselor_id: int, user_id: str = Cookie(None), db: Session = Depends(get_db)
+    counselor_id: int,
+    paid_price: int = Form(...),
+    user_id: str = Cookie(None),
+    db: Session = Depends(get_db),
 ):
     db_payment = Payment(
         counselor_id=counselor_id,
         paid_user_id=int(user_id),
         is_used=False,
         when_paid=datetime.now(),
+        paid_price=paid_price,
     )
     db.add(db_payment)
     db.commit()

@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
-from routers import auth, payment, html, conversation, diary, counselor
+from routers import Gemini, auth, payment, html, conversation, diary, counselor
 from config.database import engine, Base
 
 app = FastAPI()
@@ -18,3 +18,4 @@ app.include_router(diary.router)
 app.include_router(conversation.router)
 app.include_router(counselor.router)
 app.include_router(payment.router)
+app.include_router(Gemini.router)

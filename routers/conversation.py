@@ -1,12 +1,8 @@
-from fastapi import APIRouter, Form, Response, Depends, HTTPException, Request, Cookie
-from fastapi.responses import HTMLResponse, RedirectResponse
-from fastapi.templating import Jinja2Templates
-from api.models import User, Conversation, Diary, Payment, Counselor, ConversationString
+from fastapi import APIRouter, Form, Depends, Cookie
+from api.models import Conversation, ConversationString
 from config.database import get_db
 from sqlalchemy.orm import Session
-from pydantic import BaseModel
 from datetime import datetime
-import re
 
 
 router = APIRouter()
@@ -21,11 +17,15 @@ def create_conversation_by_user(
     conversation_string_list = conversations.split("|||")
 
     # Conversation 객체 생성
-    db_conversation = Conversation(conversation_user_id=int(user_id))
+    db_conversation = Conversation(
+        conversation_user_id=int(user_id), date=datetime.now()
+    )
 
     # ConversationString 객체를 생성하고 Conversation에 추가
     for text in conversation_string_list:
-        conversation_string = ConversationString(text=text)
+        conversation_string = ConversationString(
+            text=text, conversation_id=db_conversation.id
+        )
         db_conversation.conversation_string_list.append(conversation_string)
 
     db.add(db_conversation)
