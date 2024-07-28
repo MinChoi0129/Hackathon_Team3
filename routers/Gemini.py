@@ -1,11 +1,11 @@
 from fastapi import APIRouter, Form, Depends, Request, Cookie
-from api.models import User, Conversation, ConversationString, Review
+from api.models import User, Conversation, ConversationString, Review, Diary
 from config.database import get_db
 from typing import Dict, List
 from sqlalchemy.orm import Session
 from datetime import datetime
 import google.generativeai as genai
-import json
+import json, random, httpx
 
 
 async def classify_words(words: List[str]) -> Dict[str, List[str]]:
@@ -38,7 +38,51 @@ chat = model.start_chat(history=[])
 user_chats = dict()
 
 
-@router.post("/api/extract-emotions/")
+@router.get("/api/monthreport_by_user")
+async def monthreport_by_user(
+    request: Request, user_id: int = Cookie(None), db: Session = Depends(get_db)
+):
+    start_date = datetime(2024, 6, 1)
+    end_date = datetime(2024, 8, 31)
+
+    db_conversations = (
+        db.query(Conversation)
+        .filter(
+            Conversation.conversation_user_id == int(user_id),
+            Conversation.date >= start_date,
+            Conversation.date <= end_date,
+        )
+        .all()
+    )
+
+    db_diaries = (
+        db.query(Diary)
+        .filter(
+            Diary.diary_user_id == int(user_id),
+            Diary.date >= start_date,
+            Diary.date <= end_date,
+        )
+        .all()
+    )
+
+    result = []
+    for conversation in db_conversations:
+        result += [
+            cs.text
+            for cs in conversation.conversation_string_list
+            if cs.who_said == "user"
+        ]
+    for diary in db_diaries:
+        result.append(diary.diary_string)
+
+    result = list(set(result))
+    result.remove("exit_chat")
+    analysis = await classify_words(result)
+
+    return analysis
+
+
+@router.post("/api/extract-emotions")
 async def extract_emotions(text: str = Form(...), db: Session = Depends(get_db)):
     unique_words = list(set(text.split()))
     result = await classify_words(unique_words)
@@ -61,7 +105,7 @@ async def summarize_reviews(counselor_id: int, db: Session = Depends(get_db)):
     return {"summary": summary}
 
 
-@router.post("/chat/")
+@router.post("/api/chat/")
 async def chat(
     user_message: str = Form(...),
     user_id: int = Cookie(None),
@@ -80,16 +124,16 @@ async def chat(
 
     if user_message == "exit_chat":
         conversation_string_list = [
-            str(item.parts[0])[7:-2].strip() for item in chat.history
+            [str(item.parts[0])[7:-2].strip(), item.role] for item in chat.history
         ]
 
         db_conversation = Conversation(
             conversation_user_id=int(user_id), date=datetime.now()
         )
 
-        for text in conversation_string_list:
+        for text, role in conversation_string_list:
             conversation_string = ConversationString(
-                text=text, conversation_id=db_conversation.id
+                text=text, who_said=role, conversation_id=db_conversation.id
             )
             db_conversation.conversation_string_list.append(conversation_string)
 

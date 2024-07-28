@@ -111,6 +111,7 @@ class ConversationString(Base):
     id = Column(Integer, primary_key=True)
     text = Column(String, nullable=False)
     conversation_id = Column(Integer, ForeignKey("conversations.id"))
+    who_said = Column(String)
 
     # Relationships
     conversation = relationship(
@@ -127,6 +128,7 @@ class Diary(Base):
     id = Column(Integer, primary_key=True)
     diary_user_id = Column(Integer, ForeignKey("users.id"))  # 일기 쓴 유저 id
     diary_string = Column(String)  # 일기 내용
+    date = Column(Date)  # 일기 쓴 날짜
 
     # Relationships
     user = relationship("User", back_populates="diaries")
