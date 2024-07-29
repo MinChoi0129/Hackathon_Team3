@@ -14,7 +14,7 @@ def isLogined(user_id: str):
         return False
 
 
-router = APIRouter()
+router = APIRouter(tags=["HTML 연결"])
 templates = Jinja2Templates(directory="templates")
 
 

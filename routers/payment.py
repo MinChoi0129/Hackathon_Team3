@@ -6,7 +6,7 @@ from pydantic import BaseModel
 from datetime import datetime
 
 
-router = APIRouter()
+router = APIRouter(tags=["결제"])
 
 
 class CouponCode(BaseModel):

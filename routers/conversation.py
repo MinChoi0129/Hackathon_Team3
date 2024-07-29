@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 from datetime import datetime
 
 
-router = APIRouter()
+router = APIRouter(tags=["대화"])
 
 
 @router.post("/api/conversations")

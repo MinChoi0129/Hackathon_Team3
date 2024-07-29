@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 from datetime import datetime
 import random
 
-router = APIRouter()
+router = APIRouter(tags=["상담사"])
 
 
 hash_tags_samples = [

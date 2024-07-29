@@ -6,7 +6,7 @@ from sqlalchemy.orm import Session
 import re
 
 
-router = APIRouter()
+router = APIRouter(tags=["로그인/로그아웃/회원탈퇴"])
 
 
 @router.post("/api/login")

@@ -4,7 +4,7 @@ from config.database import get_db
 from sqlalchemy.orm import Session
 import datetime
 
-router = APIRouter()
+router = APIRouter(tags=["일기"])
 
 
 @router.post("/api/diaries")

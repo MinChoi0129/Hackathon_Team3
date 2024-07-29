@@ -29,7 +29,7 @@ async def classify_words(words: List[str]) -> Dict[str, List[str]]:
     return response_dict
 
 
-router = APIRouter()
+router = APIRouter(tags=["AI 분석/대화"])
 
 with open("API_KEY.txt", mode="r") as f:
     GOOGLE_API_KEY = f.readline().strip()
