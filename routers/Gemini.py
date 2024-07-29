@@ -12,12 +12,13 @@ async def classify_words(words: List[str]) -> Dict[str, List[str]]:
     if not words:
         return {}
     prompt = (
-        """Classify the following words into positive, negative. if the word is not related to emotions, ignore it. Return the results in given format. "Positive": [word1, word2, ...] ||| "Negative": [word3, word4, ...]
+        """Classify the following words into positive, negative. if the word is not related to emotions, ignore it. The maximum  Return the results in given format. "Positive": [word1, word2, ...] ||| "Negative": [word3, word4, ...]
         """
         + f"Words: {', '.join(words)}"
     )
 
     response = model.generate_content(prompt).text
+
     parts = response.split(" ||| ")
 
     response_dict = {}
@@ -34,8 +35,20 @@ router = APIRouter(tags=["AI 분석/대화"])
 with open("API_KEY.txt", mode="r") as f:
     GOOGLE_API_KEY = f.readline().strip()
 
+safety_settings = [
+    {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "BLOCK_NONE",
+    },
+    {
+        "category": "HARM_CATEGORY_HATE_SPEECH",
+        "threshold": "BLOCK_NONE",
+    },
+]
+
+
 genai.configure(api_key=GOOGLE_API_KEY)
-model = genai.GenerativeModel("gemini-1.5-flash")
+model = genai.GenerativeModel("gemini-1.5-flash", safety_settings=safety_settings)
 chat = model.start_chat(history=[])
 user_chats = dict()
 
@@ -83,11 +96,17 @@ async def monthreport_by_user(
             result.append(diary.diary_string)
 
         result = list(set(result))
+
         try:
             result.remove("exit_chat")
         except:
             pass
-        analysis = await classify_words(result)
+
+        pure_words = []
+        for s in result:
+            pure_words.extend(s.split())
+
+        analysis = await classify_words(pure_words)
         month_result[idx + 6] = analysis
 
     return month_result
