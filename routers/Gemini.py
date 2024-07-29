@@ -5,10 +5,12 @@ from typing import Dict, List
 from sqlalchemy.orm import Session
 from datetime import datetime
 import google.generativeai as genai
-import json, random, httpx
+import json
 
 
 async def classify_words(words: List[str]) -> Dict[str, List[str]]:
+    if not words:
+        return {}
     prompt = (
         """Classify the following words into positive, negative. if the word is not related to emotions, ignore it. Return the results in given format. "Positive": [word1, word2, ...] ||| "Negative": [word3, word4, ...]
         """
@@ -40,56 +42,65 @@ user_chats = dict()
 
 @router.get("/api/monthreport_by_user")
 async def monthreport_by_user(
-    request: Request, user_id: int = Cookie(None), db: Session = Depends(get_db)
+    user_id: int = Cookie(None), db: Session = Depends(get_db)
 ):
-    start_date = datetime(2024, 6, 1)
-    end_date = datetime(2024, 8, 31)
-
-    db_conversations = (
-        db.query(Conversation)
-        .filter(
-            Conversation.conversation_user_id == int(user_id),
-            Conversation.date >= start_date,
-            Conversation.date <= end_date,
-        )
-        .all()
-    )
-
-    db_diaries = (
-        db.query(Diary)
-        .filter(
-            Diary.diary_user_id == int(user_id),
-            Diary.date >= start_date,
-            Diary.date <= end_date,
-        )
-        .all()
-    )
-
-    result = []
-    for conversation in db_conversations:
-        result += [
-            cs.text
-            for cs in conversation.conversation_string_list
-            if cs.who_said == "user"
+    month_result = dict()
+    for idx, (start_date, end_date) in enumerate(
+        [
+            (datetime(2024, 6, 1), datetime(2024, 6, 30)),
+            (datetime(2024, 7, 1), datetime(2024, 7, 31)),
+            (datetime(2024, 8, 1), datetime(2024, 8, 31)),
         ]
-    for diary in db_diaries:
-        result.append(diary.diary_string)
+    ):
+        db_conversations = (
+            db.query(Conversation)
+            .filter(
+                Conversation.conversation_user_id == int(user_id),
+                Conversation.date >= start_date,
+                Conversation.date <= end_date,
+            )
+            .all()
+        )
 
-    result = list(set(result))
-    result.remove("exit_chat")
-    analysis = await classify_words(result)
+        db_diaries = (
+            db.query(Diary)
+            .filter(
+                Diary.diary_user_id == int(user_id),
+                Diary.date >= start_date,
+                Diary.date <= end_date,
+            )
+            .all()
+        )
 
-    return analysis
+        result = []
+        for conversation in db_conversations:
+            result += [
+                cs.text
+                for cs in conversation.conversation_string_list
+                if cs.who_said == "user"
+            ]
+        for diary in db_diaries:
+            result.append(diary.diary_string)
+
+        result = list(set(result))
+        try:
+            result.remove("exit_chat")
+        except:
+            pass
+        analysis = await classify_words(result)
+        month_result[idx + 6] = analysis
+
+    return month_result
 
 
-@router.post("/api/extract-emotions")
+@router.post("/api/extract_emotions")
 async def extract_emotions(text: str = Form(...), db: Session = Depends(get_db)):
     unique_words = list(set(text.split()))
     result = await classify_words(unique_words)
     return result
 
 
-@router.post("/api/summarize-reviews/{counselor_id}")
+@router.post("/api/summarize_reviews/{counselor_id}")
 async def summarize_reviews(counselor_id: int, db: Session = Depends(get_db)):
     reviews = db.query(Review).filter(Review.counselor_id == counselor_id).all()
     review_texts = [review.review_text for review in reviews]
