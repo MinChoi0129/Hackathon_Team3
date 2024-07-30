@@ -1,80 +1,109 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>상담 페이지</title>
-    <link rel="stylesheet" href="static/css/counselor_detailed.css">
-</head>
-<body>
+    <link rel="stylesheet" href="static/css/counselor_detailed.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header">
+        <div id="menu_img">
+          <img
+            id="header_logo_img"
+            src="{{ url_for('static', path ='images/main_img/ari_log.svg')}}"
+            alt="ari_logo"
+          />
+        </div>
+
+        <div class="menu_bar">
+          <div class="menu">
+            <span class="item" id="my_page">마이페이지</span>
+            <span class="item" id="counselor">상담사 목록</span>
+            <span class="item" id="record">앓이 기록</span>
+          </div>
+        </div>
+      </div>
+    </header>
     <div class="profile">
-        <div class="left">
-            <h1>윤아리<span class="title"> 정신과 전문의</span></h1>
-            <div class="reviews">
-                <span>상담 후기: 123</span>
-                <span>⭐ 4.5</span>
-            </div>
-            <div class="pricing">
-                <p>30분 세션: 70,000원</p>
-                <p>1시간 세션: 120,000원</p>
-                <button class="btn-reserve">예약</button>
-            </div>
+      <div class="left">
+        <h1>윤아리<span class="title"> 정신과 전문의</span></h1>
+        <div class="reviews">
+          <span>상담 후기: 123</span>
+          <span>⭐ 4.5</span>
         </div>
+        <div class="pricing">
+          <p>30분 세션: 70,000원</p>
+          <p>1시간 세션: 120,000원</p>
+          <button class="btn-reserve">예약</button>
+        </div>
+      </div>
     </div>
-    <hr>
+    <hr />
     <div class="introduction">
-        <div class="intro-left">
-            <h2>소개 및 철학</h2>
-            <p>
-                안녕하세요! 저는 다양한 분들의 심리적 안정을 도와 드리고 있습니다. 특히 학교나 직장 내의 인간 관계로 인한 스트레스를 겪으시거나 번아웃 증상이 있으신 분들을 주로 상담하고 있습니다.<br>
-                저는 내담자분들의 이야기에 귀 기울이며, 그들의 감정과 생각을 존중하는 것을 최우선으로 합니다. 각 개인의 독특한 경험과 배경을 고려하여 맞춤형 상담을 제공하고자 노력하고 있습니다.
-            </p>
+      <div class="intro-left">
+        <h2>소개 및 철학</h2>
+        <p>
+          안녕하세요! 저는 다양한 분들의 심리적 안정을 도와 드리고 있습니다.
+          특히 학교나 직장 내의 인간 관계로 인한 스트레스를 겪으시거나 번아웃
+          증상이 있으신 분들을 주로 상담하고 있습니다.<br />
+          저는 내담자분들의 이야기에 귀 기울이며, 그들의 감정과 생각을 존중하는
+          것을 최우선으로 합니다. 각 개인의 독특한 경험과 배경을 고려하여 맞춤형
+          상담을 제공하고자 노력하고 있습니다.
+        </p>
+      </div>
+      <div class="intro-right">
+        <div class="counselor-card">
+          <img src="static/images/kim.png" alt="상담사 사진" />
+          <ul>
+            <li>✔ 윤아리 경상국립대학교 심리학과 석사</li>
+            <li>✔ 스트레스 관리 및 번아웃 치료 전문</li>
+            <li>✔ 한국 상담심리사 자격증 보유</li>
+            <li>✔ 10년 이상의 상담 경력</li>
+            <li>
+              ✔ 진주시 심리상담센터 (2013-2018), 현재 진주 마음클리닉 근무 중
+            </li>
+          </ul>
         </div>
-        <div class="intro-right">
-            <div class="counselor-card">
-                <img src="static/images/kim.png" alt="상담사 사진">
-                <ul>
-                    <li>✔ 윤아리 경상국립대학교 심리학과 석사</li>
-                    <li>✔ 스트레스 관리 및 번아웃 치료 전문</li>
-                    <li>✔ 한국 상담심리사 자격증 보유</li>
-                    <li>✔ 10년 이상의 상담 경력</li>
-                    <li>✔ 진주시 심리상담센터 (2013-2018), 현재 진주 마음클리닉 근무 중</li>
-                </ul>
-            </div>
-        </div>
+      </div>
     </div>
     <div class="consultation">
-        <h2>상담 방법 및 일정</h2>
-        <div class="consultation-content">
-            <img src="static/images/hangari.png" alt="항아리 그림" class="jar">
-            <div class="consultation-info">
-                <p>내담자의 이야기에 귀 기울이는 김상담 상담사와 함께 마음의 짐을 덜어보세요.</p>
-                <div class="consultation-methods">
-                    <div class="method">
-                        <span>👤</span>
-                        <strong>대면 상담</strong>
-                        <p>당신의 고민거리를 직접 전해주세요.</p>
-                    </div>
-                    <div class="method">
-                        <span>🏠</span>
-                        <strong>온라인 상담</strong>
-                        <p>직접 찾아가기 어렵거나 부담된다면 온라인으로 진행할 수 있어요.</p>
-                    </div>
-                    <div class="method">
-                        <span>⏰</span>
-                        <strong>상담 가능 시간</strong>
-                        <p>월요일 ~ 금요일 : 10:00 ~ 18:00</p>
-                    </div>
-                </div>
+      <h2>상담 방법 및 일정</h2>
+      <div class="consultation-content">
+        <img src="static/images/hangari.png" alt="항아리 그림" class="jar" />
+        <div class="consultation-info">
+          <p>
+            내담자의 이야기에 귀 기울이는 김상담 상담사와 함께 마음의 짐을
+            덜어보세요.
+          </p>
+          <div class="consultation-methods">
+            <div class="method">
+              <span>👤</span>
+              <strong>대면 상담</strong>
+              <p>당신의 고민거리를 직접 전해주세요.</p>
             </div>
+            <div class="method">
+              <span>🏠</span>
+              <strong>온라인 상담</strong>
+              <p>
+                직접 찾아가기 어렵거나 부담된다면 온라인으로 진행할 수 있어요.
+              </p>
+            </div>
+            <div class="method">
+              <span>⏰</span>
+              <strong>상담 가능 시간</strong>
+              <p>월요일 ~ 금요일 : 10:00 ~ 18:00</p>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-    <hr>
+    <hr />
     <div class="feedback">
-        <h2>상담 후기</h2>
-        <!-- 상담 후기는 여기에 추가 -->
+      <h2>상담 후기</h2>
+      <!-- 상담 후기는 여기에 추가 -->
     </div>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
-

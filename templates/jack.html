@@ -8,33 +8,45 @@
       rel="stylesheet"
       href="{{ url_for('static', path='css/jack.css') }}"
     />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', path='css/reset.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+    />
     <script
       src="{{ url_for('static', path='javascript/jack.js') }}"
       defer
     ></script>
   </head>
   <body>
-    <div id="logobar">
-      <img
-        class="logobar"
-        src="{{ url_for('static', path='images/imgfolder/mainlogo.svg') }}"
-        alt=""
-        width="30px"
-        height="30px"
-      />
+    <div class="head">
+      <div id="logobar">
+        <a href="{{ url_for('main') }}"
+          ><img
+            id="header_logo_img"
+            src="{{ url_for('static', path ='images/main_img/ari_log.svg')}}"
+            alt="ari_logo"
+        /></a>
+      </div>
       <div class="jack1">
         <div class="a">방아리</div>
-        <p>님의 앓이 기록</p>
+        <div class="ariari">님의 앓이 기록</div>
       </div>
     </div>
-    <div class="words">
-      <div class="word1">단디</div>
-      <div class="word2">팀장놈</div>
-    </div>
-    <div class="beantree">
-      <div class="when">3월</div>
+    <div class="pictures">
+      <!-- <div class="words">
+        <div class="word1">단디</div>
+        <div class="word2">팀장놈</div>
+      </div>
+      <div class="beantree">
+        <div class="when">3월</div> -->
       <img
-        class="beantreeimgs"
+        id="beantreeimgs"
         src="{{ url_for('static', path='images/beantreeimg.svg') }}"
         alt=""
       />
@@ -60,7 +72,7 @@
             width="20px"
             height="20px"
           />
-          상담사 목록
+          <a href="{{ url_for('counselors_list') }}">상담사 목록</a>
         </div>
         <div class="mypage">
           <img
@@ -70,7 +82,7 @@
             width="20px"
             height="20px"
           />
-          마이 페이지
+          <a href="{{ url_for('my_page') }}">마이 페이지</a>
         </div>
       </div>
     </div>

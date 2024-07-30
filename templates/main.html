@@ -57,52 +57,70 @@
         />
       </div>
       <div class="menu">
-        <div class="item">마이 페이지</div>
-        <div class="item">상담사 목록</div>
-        <div class="item">앓이 기록</div>
+        <div class="item">
+          <a href="{{ url_for('my_page') }}">마이페이지</a>
+        </div>
+        <div class="item">
+          <a href="{{ url_for('counselors_list') }}">상담사 목록</a>
+        </div>
+        <div class="item">
+          <a href="{{ url_for('jack') }}">앓이 기록</a>
+        </div>
       </div>
     </div>
-    
+
     <div class="background">
-        <img
-          class="eclipse"
-          src="{{ url_for('static', path ='images/main_img/eclipse.svg')}}"
-          alt="loading.."
-        />
-      
+      <img
+        class="eclipse"
+        src="{{ url_for('static', path ='images/main_img/eclipse.svg')}}"
+        alt="loading.."
+      />
+
       <div class="ari_text">아리에게 원하는 말을 해보세요!</div>
 
-       <div class="ari_img">
-         <img
-           class="ari_image"
+      <div class="ari_img">
+        <img
+          class="ari_image"
           src="{{ url_for('static', path ='images/main_img/ari_with_shadow.svg')}}"
           alt="loading.."
-           />
-        </div>
-    </div>
-
-    <div class ="buttons">
-      <img id="hi_im_ari"
-      src="{{ url_for('static', path ='images/main_img/hi_im_ari.svg')}}"
-      alt="loading.."/>
-      <div>
-        <img id="talk_ari"
-        src="{{ url_for('static', path ='images/main_img/ari_talk_logo.svg')}}"
-        alt="loading.."/>
-        <span style="font-size: 40px;">
-          아리와 대화할래
-        </span>
-        <img id="diary"
-        src="{{ url_for('static', path ='images/main_img/diary.svg')}}"
-        alt="loading.."/>
-        <span style="font-size: 40px;">
-          일기 쓸래
-        </span>
+        />
       </div>
     </div>
-      
-    
 
+    <div class="bubbles">
+      <img
+        id="hi_im_ari"
+        src="{{ url_for('static', path ='images/main_img/hi_im_ari.svg')}}"
+        alt="loading.."
+      />
+    </div>
 
+    <div class="wrapper">
+      <div class="left">
+        <img
+          id="talk_ari"
+          src="{{ url_for('static', path ='images/main_img/ari_talk_logo.svg')}}"
+          alt="loading.."
+        />
+        <span style="font-size: 40px"> 아리와 대화할래 </span>
+      </div>
+
+      <span class="button-seprator">
+        <img
+          id="seprator"
+          src="{{ url_for('static', path ='images/main_img/seprator.svg')}}"
+          alt="loading.."
+        />
+      </span>
+
+      <div class="right">
+        <img
+          id="diary"
+          src="{{ url_for('static', path ='images/main_img/diary.svg')}}"
+          alt="loading.."
+        />
+        <span style="font-size: 40px"> 일기 쓸래 </span>
+      </div>
+    </div>
   </body>
 </html>

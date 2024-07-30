@@ -1,123 +1,216 @@
+header {
+  display: flex;
+  background-color: #fffeea;
+  height: 106px;
+  border: solid #ffc85d;
+  border-width: 0px 0px 2px 0px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#header_logo_img {
+  width: 34px;
+  height: 34px;
+}
+#menu_img {
+  display: flex;
+  position: absolute;
+  top: 30px;
+  left: 45px;
+}
+.menu {
+  display: flex;
+  justify-content: center; /*가운데 정렬 후 갭을 준다.*/
+  flex-wrap: wrap;
+  gap: 40px;
+}
+.item {
+  font-weight: 500;
+  color: #ffc85d;
+  margin-top: 50px;
+  padding: 45px;
+  max-width: fit-content;
+  min-width: 0;
+  position: relative; /* 가상 요소를 위한 상대 위치 */
+  display: inline-block; /* 인라인 블록 요소로 설정 */
+}
+.item:hover {
+  color: transparent; /* 텍스트 색상을 투명하게 설정 */
+}
+#my_page:hover::after {
+  content: "";
+  display: block;
+  width: 25px; /* 이미지의 너비 */
+  height: 25px; /* 이미지의 높이 */
+  background-image: url("../images/main_img/mypage.svg"); /* 대체할 이미지 URL */
+  background-size: contain; /* 이미지가 잘리지 않도록 설정 */
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 50%; /* 수직 중앙 정렬 */
+  left: 50%; /* 수평 중앙 정렬 */
+  transform: translate(
+    -50%,
+    -50%
+  ); /* 중앙으로부터 이동하여 정확히 중앙에 위치 */
+}
+#counselor:hover:after {
+  content: "";
+  display: block;
+  width: 25px; /* 이미지의 너비 */
+  height: 25px; /* 이미지의 높이 */
+  background-image: url("../images/main_img/counselor.svg"); /* 대체할 이미지 URL */
+  background-size: contain; /* 이미지가 잘리지 않도록 설정 */
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 50px; /* 수직 중앙 정렬 */
+  left: 50%; /* 수평 중앙 정렬 */
+  transform: translate(-50%, -50%); /* 중앙 정렬을 위한 변환 */
+}
+#record:hover::after {
+  content: "";
+  display: block;
+  width: 25px; /* 이미지의 너비 */
+  height: 25px; /* 이미지의 높이 */
+  background-image: url("../images/main_img/record.svg"); /* 대체할 이미지 URL */
+  background-size: contain; /* 이미지가 잘리지 않도록 설정 */
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 50%; /* 수직 중앙 정렬 */
+  left: 50%; /* 수평 중앙 정렬 */
+  transform: translate(
+    -50%,
+    -50%
+  ); /* 중앙으로부터 이동하여 정확히 중앙에 위치 */
+}
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .profile {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
 }
 
 .left h1 {
-    font-size: 2em;
-    font-weight: bold;
+  font-size: 2em;
+  font-weight: bold;
 }
 
 .left .title {
-    font-size: 0.5em;
-    color: gray;
+  font-size: 0.5em;
+  color: gray;
 }
 
 .reviews {
-    margin: 10px 0;
+  margin: 10px 0;
 }
 
 .pricing {
-    margin: 10px 0;
+  margin: 10px 0;
 }
 
 .btn-reserve {
-    background-color: pink;
-    border: none;
-    border-radius: 25px;
-    padding: 10px 20px;
-    cursor: pointer;
+  background-color: pink;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  cursor: pointer;
 }
 
 .introduction {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
 }
 
 .intro-left {
-    width: 60%;
+  width: 60%;
 }
 
 .intro-right {
-    width: 35%;
+  width: 35%;
 }
 
 .counselor-card {
-    background-color: #fffacd;
-    padding: 20px;
-    border-radius: 15px;
-    text-align: center;
+  background-color: #fffacd;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
 }
 
 .counselor-card img {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    margin-bottom: 10px;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
 }
 
 ul {
-    list-style: none;
-    padding: 0;
-    text-align: left;
+  list-style: none;
+  padding: 0;
+  text-align: left;
 }
 
 .consultation {
-    padding: 20px;
-    background-color: #f9f9f9;
-    position: relative;
+  padding: 20px;
+  background-color: #f9f9f9;
+  position: relative;
 }
 
 .consultation h2 {
-    color: green;
-    font-weight: bold;
+  color: green;
+  font-weight: bold;
 }
 
 .consultation-content {
-    display: flex;
+  display: flex;
 }
 
 .jar {
-    position: absolute;
-    left: 10%;
-    bottom: 10%;
-    width: 100px;
-    height: auto;
+  position: absolute;
+  left: 10%;
+  bottom: 10%;
+  width: 100px;
+  height: auto;
 }
 
 .consultation-info {
-    margin-left: auto;
-    width: 70%;
+  margin-left: auto;
+  width: 70%;
 }
 
 .consultation-methods {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
 }
 
 .method {
-    text-align: center;
-    width: 30%;
+  text-align: center;
+  width: 30%;
 }
 
 .method span {
-    display: block;
-    font-size: 2em;
-    margin-bottom: 10px;
+  display: block;
+  font-size: 2em;
+  margin-bottom: 10px;
 }
 
 .feedback {
-    padding: 20px;
+  padding: 20px;
 }
-

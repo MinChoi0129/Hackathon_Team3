@@ -74,11 +74,12 @@ class Review(Base):
 class Payment(Base):
     __tablename__ = "payments"
 
-    id = Column(Integer, primary_key=True, index=True)
-    QR_img_path = Column(String)
-    paid_user_id = Column(Integer, ForeignKey("users.id"))
-    is_used = Column(Boolean)
-    when_paid = Column(Date)
+    id = Column(Integer, primary_key=True)
+    paid_user_id = Column(Integer, ForeignKey("users.id"))  # 결제자 id
+    counselor_id = Column(Integer, ForeignKey("counselors.id"))
+    is_used = Column(Boolean)  # 상담 완료 여부
+    when_paid = Column(Date)  # 결제 일시
+    paid_price = Column(Integer)  # 결제 금액
 
     user = relationship("User", back_populates="payments")
 
@@ -91,6 +92,7 @@ class Conversation(Base):
 
     id = Column(Integer, primary_key=True)
     conversation_user_id = Column(Integer, ForeignKey("users.id"))  # 대화한 유저 id
+    date = Column(Date)
 
     # Relationships
     user = relationship("User", back_populates="conversations")
@@ -108,6 +110,7 @@ class ConversationString(Base):
     id = Column(Integer, primary_key=True)
     text = Column(String, nullable=False)
     conversation_id = Column(Integer, ForeignKey("conversations.id"))
+    who_said = Column(String)
 
     # Relationships
     conversation = relationship(
@@ -124,6 +127,7 @@ class Diary(Base):
     id = Column(Integer, primary_key=True)
     diary_user_id = Column(Integer, ForeignKey("users.id"))  # 일기 쓴 유저 id
     diary_string = Column(String)  # 일기 내용
+    date = Column(Date)  # 일기 쓴 날짜
 
     # Relationships
     user = relationship("User", back_populates="diaries")
