@@ -8,12 +8,8 @@
       rel="stylesheet"
       href="{{ url_for('static', path='css/monthreport.css') }}"
     />
-    <link
-      rel="stylesheet"
-      as="style"
-      crossorigin
-      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
-    />
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script
       src="{{ url_for('static', path='javascript/monthreport.js') }}"
       defer
@@ -33,10 +29,10 @@
         <div class="menu_bar">
           <div class="menu">
             <span class="item" id="my_page">
-              <a href="{{ url_for('my_page') }}">마이페이지</a></span
+              <a href="{{ url_for('my_page') }}"></a>마이 페이지</span
             >
             <span class="item" id="counselor"
-              ><a href="{{ url_for('counselors_list') }}">상담사 목록</a></span
+              ><a href="{{ url_for('counselors_list') }}"></a>상담사 목록</span
             >
             <span class="item" id="record"
               ><a href="{{ url_for('jack') }}">앓이 기록</a></span
@@ -134,8 +130,10 @@
         </tr>
       </table>
     </div>
-
-    <div>
+    <div class="chart-wrapper">
+      <div class="chart-container">
+        <canvas id="myBarChart" width="400" height="200"></canvas>
+      </div>
       <div class="desult">
         <div class="who">방아리</div>
         님은 <br />
@@ -144,7 +142,7 @@
         <div class="percentage">65%</div>
         로 <br />
         <div class="solution">
-          <a id="need_help" href="{{ url_for('counselors_list') }}"
+          <a href="{{ url_for('counselors_list') }}"
             >전문가의 상담이 필요합니다.</a
           >
         </div>
