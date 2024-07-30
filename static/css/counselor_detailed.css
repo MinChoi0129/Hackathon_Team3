@@ -154,34 +154,37 @@ body {
 .stars {
   display: flex;
   align-items: center;
-  margin-top: 10px;
+  /* margin-top: 10px; */
 }
 
 
-.partial-star {
-  width: 20px; /* 전체 별의 너비와 동일하게 설정 */
-  height: 20px;
-  overflow: hidden; /* 넘치는 부분을 숨김 */
-  position: relative;
-}
+/* .partial-star { */
+  /* width: 20px; 전체 별의 너비와 동일하게 설정 */
+  /* height: 20px; */
+  /* overflow: hidden; 넘치는 부분을 숨김 */
+  /* position: relative; */
+/* } */
 
-.partial-star img {
-  width: 20px; /* 전체 별의 너비와 동일하게 설정 */
-  height: 20px;
-  clip-path: polygon(0 0, 30% 0, 30% 100%, 0% 100%); /* 0.3개의 별만 표시되도록 자름 */
-}
+/* .partial-star img { */
+  /* width: 20px; 전체 별의 너비와 동일하게 설정 */
+  /* height: 20px; */
+  /* clip-path: polygon(0 0, 30% 0, 30% 100%, 0% 100%); 0.3개의 별만 표시되도록 자름 */
+/* } */
 
 .stars img {
   height: 20px;
   margin-right: 5px;
 }
 
-.star-rating {
+
+.star-rating#first {
   font-size: 14px;
   color: #000000;
   margin-left: 5px;
-  font-weight: semibold;
+  font-weight: 600;
+  align-items: center;
 }
+
 .pricing {
   display: flex;
   margin: 10px 0;
@@ -423,7 +426,7 @@ body {
   margin-left: 20px; /* 좌측 여백 추가 */
 }
 
-.star-rating {
+.star-rating#four {
   display: flex;
   justify-content: center; /* 가로 기준 가운데 정렬 */
   align-items: center;
@@ -432,15 +435,16 @@ body {
   gap: 20px;
 }
 
-.stars {
+.stars#feedback {
   margin-top: 0;
 }
 
-.stars img {
+.stars#feedback img {
   height: 34px;
 }
 
-.star-rating span {
+.star-rating#four span {
+  
   font-size: 24px;
   font-weight: 600;
   /* margin-right: 5px; */
@@ -547,16 +551,21 @@ body {
   margin-bottom: 14px;
   width: 100%;
   gap: 25px;
+  font-size: 20px;
+  font-weight: 400;
 }
 
 .bottom-star-rating {
   display: flex;
   justify-content: flex-start;
   margin-right: 0px;
+  margin-top: 20px;
 }
 .feedback-text {
   text-align: center;
   padding: 0 20px;
   width: 100%;
   text-align: left;
+  font-size: 20px;
+  font-weight: 400;
 }
