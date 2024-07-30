@@ -93,3 +93,23 @@ async def counselors_list(request: Request):
 @router.get("/counselor_detailed", response_class=HTMLResponse)
 async def counselor_detailed(request: Request):
     return templates.TemplateResponse(request=request, name="counselor_detailed.html")
+
+#내가 추가한 라우트
+
+@router.get("/main/ari_talk", response_class=HTMLResponse)
+async def ari_talk(request: Request, username: str = Cookie(None)):
+    if not isLogined(username):
+        return RedirectResponse(url="/")
+
+    return templates.TemplateResponse(
+        "main2.html", {"request": request, "username": username}
+    )
+
+@router.get("/main/diary", response_class=HTMLResponse)
+async def diary(request: Request, username: str = Cookie(None)):
+    if not isLogined(username):
+        return RedirectResponse(url="/")
+
+    return templates.TemplateResponse(
+        "main3.html", {"request": request, "username": username}
+    )

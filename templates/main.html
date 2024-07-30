@@ -93,32 +93,57 @@
       />
     </div>
 
-    <div class="wrapper">
+    <div class="wrapper" >
       <div class="left">
-        <img
+        <img 
           id="talk_ari"
           src="{{ url_for('static', path ='images/main_img/ari_talk_logo.svg')}}"
           alt="loading.."
         />
-        <span style="font-size: 40px"> 아리와 대화할래 </span>
+      <button id = "lets_talk_ari">아리와 대화할래</button>
       </div>
 
-      <span class="button-seprator">
-        <img
+      <div class="button-seprator">
+
+        <img 
           id="seprator"
           src="{{ url_for('static', path ='images/main_img/seprator.svg')}}"
           alt="loading.."
         />
-      </span>
+      </div>
 
       <div class="right">
+        
         <img
           id="diary"
           src="{{ url_for('static', path ='images/main_img/diary.svg')}}"
           alt="loading.."
         />
-        <span style="font-size: 40px"> 일기 쓸래 </span>
+        <button class="writing"> 일기 쓸래 </button>
       </div>
     </div>
+
+  <div class="talk_ari_method">
+    <div class="how_to_talk_ari">
+      <img
+      id="mic"
+      src="{{ url_for('static', path ='images/main_img/mic.svg')}}"
+      alt="loading.."
+    />
+    </div>
+    <div class="how_to_talk_ari">
+      <img
+      id="cam"
+      src="{{ url_for('static', path ='images/main_img/cam.svg')}}"
+      alt="loading.."
+    />
+    </div>
+  </div>
+
+
+
+
+
+
   </body>
 </html>
