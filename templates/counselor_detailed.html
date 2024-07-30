@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>상담 페이지</title>
     <link rel="stylesheet" href="static/css/counselor_detailed.css" />
+    <script
+      src="{{ url_for('static', path='javascript/counselor_detailed.js') }}"
+      defer
+    ></script>
   </head>
   <body>
     <header>
@@ -55,11 +59,11 @@
          &nbsp;안녕하세요! 저는 다양한 분들의 심리적 안정을 도와 드리고 있습니다.<br/>
           특히 학교나 직장 내의 인간 관계로 인한 스트레스를 겪으시거나 번아웃
           증상이 있으신 분들을 주로 상담하고 있습니다.<br /></p>
-        <p>
+        <!-- <p>
          &nbsp;저는 내담자분들의 이야기에 귀 기울이며, 그들의 감정과 생각을 존중하는
          것을 최우선으로 합니다. 각 개인의 독특한 경험과 배경을 고려하여 맞춤형
          상담을 제공하고자 노력하고 있습니다.
-        </p>
+        </p> -->
       </div>
       <div class="intro-right">
         <div class="counselor-card">
@@ -199,6 +203,6 @@
         </div>
       </div>
     </div>
-    <script src="script.js"></script>
+    
   </body>
 </html>
