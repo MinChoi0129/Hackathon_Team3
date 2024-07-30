@@ -17,11 +17,9 @@
     />
 
     <!-------------------------------------------------------------------------->
-
     <script>
-      let counselor_item = "{{ counselor_item }}";
+      var counselor_item = `{{ counselor_item | tojson }}`;
     </script>
-
     <!-- Javascript 연결 -->
     <script
       src="{{ url_for('static', path='javascript/payment.js') }}"
@@ -142,7 +140,7 @@
           <div class="price_sub_detail">
             <p class="price_sub_detail_title">기본 할인</p>
             <p class="price_sub_detail_number">5%</p>
-            <p class="more_discount">(-5,100원)</p>
+            <p class="more_discount">(-5100원)</p>
           </div>
 
           <div class="price_sub_detail">
@@ -154,11 +152,11 @@
           <hr style="width: 80%" />
           <div class="price_sub_detail">
             <p class="price_sub_detail_title">결제금액</p>
-            <p id="final_price">96,000원</p>
+            <p id="final_price">96000원</p>
           </div>
         </div>
         <div>
-          <button id="go_pay">결제</button>
+          <button id="go_pay" onclick="start_payment()">결제</button>
         </div>
       </div>
     </div>

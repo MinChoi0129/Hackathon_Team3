@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', path='css/monthreport.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+    />
+    <script
+      src="{{ url_for('static', path='javascript/monthreport.js') }}"
+      defer
+    ></script>
+  </head>
+  <body>
+    <header>
+      <div class="header">
+        <div id="menu_img">
+          <a href="{{ url_for('main') }}"
+            ><img
+              id="header_logo_img"
+              src="{{ url_for('static', path ='images/main_img/ari_log.svg')}}"
+              alt="ari_logo"
+          /></a>
+        </div>
+        <div class="menu_bar">
+          <div class="menu">
+            <span class="item" id="my_page">
+              <a href="{{ url_for('my_page') }}">마이페이지</a></span
+            >
+            <span class="item" id="counselor"
+              ><a href="{{ url_for('counselors_list') }}">상담사 목록</a></span
+            >
+            <span class="item" id="record"
+              ><a href="{{ url_for('jack') }}">앓이 기록</a></span
+            >
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div>
+      <div class="title">
+        <img
+          class="graph"
+          src="{{ url_for('static', path='images/imgfolder/graph.svg') }}"
+          alt=""
+        />
+        월별 현황
+      </div>
+    </div>
+
+    <div>
+      <div class="navigation">
+        <img
+          src="{{ url_for('static', path='images/imgfolder/leftgo.svg') }}"
+          alt=""
+          width="30px"
+          height="30px"
+        />
+        <h2>2024년 7월</h2>
+        <img
+          src="{{ url_for('static', path='images/rightgo.svg') }}"
+          alt=""
+          width="30px"
+          height="30px"
+        />
+      </div>
+    </div>
+
+    <div class="data">
+      <table>
+        <tr>
+          <th>긍/부정</th>
+          <th>단어</th>
+          <th>비율</th>
+        </tr>
+        <tr>
+          <td>
+            <img
+              src="{{ url_for('static', path='images/imgfolder/negative.svg') }}"
+              alt=""
+            />
+          </td>
+          <td>개진상</td>
+          <td>40%</td>
+        </tr>
+        <tr>
+          <td>
+            <img
+              src="{{ url_for('static', path='images/imgfolder/positive.svg') }}"
+              alt=""
+            />
+          </td>
+          <td>홈런</td>
+          <td>40%</td>
+        </tr>
+        <tr>
+          <td>
+            <img
+              src="{{ url_for('static', path='images/imgfolder/negative.svg') }}"
+              alt=""
+            />
+          </td>
+          <td>팀장놈</td>
+          <td>20%</td>
+        </tr>
+        <tr>
+          <td>
+            <img
+              src="{{ url_for('static', path='images/imgfolder/negative.svg') }}"
+              alt=""
+            />
+          </td>
+          <td>단디💙</td>
+          <td>15%</td>
+        </tr>
+        <tr>
+          <td>
+            <img
+              src="{{ url_for('static', path='images/imgfolder/positive.svg') }}"
+              alt=""
+            />
+          </td>
+          <td>싫다싫어</td>
+          <td>5%</td>
+        </tr>
+      </table>
+    </div>
+
+    <div>
+      <div class="desult">
+        <div class="who">방아리</div>
+        님은 <br />
+        <div class="or">부정적</div>
+        단어가 <br />
+        <div class="percentage">65%</div>
+        로 <br />
+        <div class="solution">
+          <a id="need_help" href="{{ url_for('counselors_list') }}"
+            >전문가의 상담이 필요합니다.</a
+          >
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,17 +1,17 @@
-#header_logo_img{
+#header_logo_img {
   width: 34px;
-  height:34px;
+  height: 34px;
 }
-#logo_img{
-  display : flex;
+#logo_img {
+  display: flex;
   position: absolute;
-  top:30px;
-  left:45px;
+  top: 30px;
+  left: 45px;
 }
-body{
-  background-color: #FFFEEA;
+body {
+  background-color: #fffeea;
 }
-.menu{
+.menu {
   position: absolute;
   top: 43px;
   right: 55px;
@@ -19,81 +19,90 @@ body{
   align-items: end;
   flex-direction: column;
 }
-.item{
-  width: 100%; 
+.item {
+  width: 100%;
   text-align: right;
   display: flex;
   flex-wrap: wrap;
-  color:#FFC85D;
+  color: #ffc85d;
   font-weight: 600;
   margin-top: 30px;
   margin-bottom: 30px;
   max-width: fit-content;
   min-width: 0;
   font-size: 20px;
-
 }
-.real_menu{
-  position : relative; 
-  display: flex;
-}
-.menu_images{
-    position: absolute;
-    top: 39px;
-    right:180px;
-    display: flex;
-    align-items: center;
-    flex-direction: column; 
-}
-.menu_img{ 
-  margin-top: 26px;
-  margin-bottom: 26px; 
-}
-.ari_img{/*이걸 수정해야함*/
-  height: auto;
-  position: absolute; 
-  display:flex;
-  flex-direction: column;
-  justify-content: flex-start;
-
-
-  top: 0px;
-  left: 60px;
-
-  border: solid 1px black;
-
-}
-.ari_image{
-  width:65%;
+.real_menu {
   position: relative;
-  top:-170px;
-  left:65px;
   display: flex;
-  flex-shrink: 1;
-  flex-basis : 900px;
-  border: solid 1px red;
+  z-index: 3;
 }
-.shadow{
+.menu_images {
+  position: absolute;
+  top: 39px;
+  right: 180px;
   display: flex;
-  order:1;
-  flex-shrink: 1;
-  position: relative; 
-  top: -300px;
-  left: 40px;
-  width: 300px;
-  border:solid 1px blue;
+  align-items: center;
+  flex-direction: column;
 }
-.eclipse{
- 
-  height: 75%;
-  position: absolute; 
-  top:45px;
-  left:150px; 
-  display:flex;
-  flex-shrink: 1;
-  border: solid 1px purple;
-  
+.menu_img {
+  margin-top: 26px;
+  margin-bottom: 26px;
 }
-a{
-  color: #FFC85D;
-  text-decoration-line: none;}
+.ari_image {
+  width: 870px;
+  height: auto;
+  display: block;
+  position: relative;
+  transform: translate(-80%, -4%);
+  z-index: 2;
+}
+.eclipse {
+  height: 600px;
+  width: auto;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+.background {
+  position: relative;
+  top: 55px;
+  left: 155px;
+  display: flex;
+}
+.ari_text {
+  position: absolute;
+  top: 50px;
+  left: 310px;
+  font-size: 20px;
+  font-weight: 350;
+  font-size: 18px;
+  color: #a27979;
+  z-index: 2;
+}
+#hi_im_ari {
+  width: 230px;
+  position: relative;
+  left: 840px;
+  bottom: 330px;
+}
+a {
+  color: #ffc85d;
+  text-decoration-line: none;
+}
+.wrapper {
+  display: flex;
+  width: 500px;
+  height: auto;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #ffc85d;
+  border-radius: 10rem;
+}
+.left,
+.right {
+  display: flex;
+}

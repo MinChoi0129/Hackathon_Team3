@@ -1,0 +1,110 @@
+body {
+  background-color: #fffeea;
+  width: 100vw;
+  height: 100vh;
+}
+.a {
+  font-weight: 900;
+  font-size: xx-large;
+  color: #ff4673;
+}
+.jack1 {
+  display: flex;
+  padding-left: 75%;
+}
+.monthly {
+  font-weight: bold;
+  color: #ffc85d;
+}
+.consultant {
+  font-weight: bold;
+  color: #ffc85d;
+}
+.mypage {
+  font-weight: bold;
+  color: #ffc85d;
+}
+#logobar {
+  margin-left: 50px;
+  margin-top: 30px;
+  display: flex;
+  padding: 0;
+  height: 5vw;
+  width: 100vw;
+}
+.beantree {
+  align-items: center;
+  display: flex;
+}
+.when {
+  position: absolute;
+  z-index: 10;
+  margin: 500px 200px 280px 658px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-weight: bolder;
+  color: #ffc85d;
+  font-size: 30px;
+}
+#beantreeimgs {
+  display: flex;
+  width: 80vw;
+  height: 90vh;
+}
+.word1 {
+  position: absolute;
+  z-index: 10;
+  color: blue;
+  font-weight: bold;
+  margin: 300px 0px 0px 800px;
+  font-size: large;
+}
+.word2 {
+  position: absolute;
+  z-index: 10;
+  color: red;
+  font-weight: bold;
+  margin: 250px 0px 0px 900px;
+  font-size: x-large;
+}
+
+a {
+  color: #ffc85d;
+  text-decoration-line: none;
+}
+.head {
+  width: 100vw;
+  height: 10vh;
+}
+.underlist {
+  width: 10vw;
+  float: right;
+  position: relative;
+  z-index: 5;
+  padding-top: 70vh;
+  padding-right: 10vh;
+}
+.pictures {
+  width: 80vw;
+  position: absolute;
+  z-index: 10;
+}
+.ariari {
+  margin-top: 15px;
+}
+#head {
+  width: 100vw;
+  height: 5vh;
+}
+a {
+  color: #ffc85d;
+  text-decoration-line: none;
+}
+.logogo {
+  width: 34px;
+  height: 34px;
+}
+#header_logo_img {
+  width: 34px;
+  height: 34px;
+}

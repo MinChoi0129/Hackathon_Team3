@@ -1,0 +1,205 @@
+body {
+  background-color: #fffeea;
+  font-family: "Pretendard";
+}
+table {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  padding: 50px 50px 30px 50px;
+  border-radius: 20px;
+  align-items: center;
+  background-color: white;
+}
+table,
+th,
+td {
+  border: 1px solid #cbcbcb;
+  border-radius: 10px;
+}
+th,
+td {
+  padding: 15px;
+  text-align: left;
+}
+th {
+  background-color: #ffc85d;
+  text-align: center;
+}
+.title {
+  font-weight: bold;
+  font-size: large;
+  color: #ff4673;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.desult {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.who {
+  font-weight: 900;
+  font-size: xx-large;
+  color: #ffc85d;
+  margin-right: 10px;
+}
+.or {
+  font-weight: 900;
+  font-size: xx-large;
+  color: #ff4673;
+  margin-right: 10px;
+  margin-left: 20px;
+}
+.percentage {
+  font-weight: 900;
+  font-size: xx-large;
+  color: #ff4673;
+  margin-right: 10px;
+  margin-left: 20px;
+}
+.solution {
+  font-weight: 900;
+  font-size: large;
+  color: black;
+  margin-right: 10px;
+  margin-left: 20px;
+  border: 1px solid #777777;
+  height: 1.5rem;
+  width: fit-content;
+  border-radius: 8px;
+  background-color: #ffc85d;
+  padding: 5px;
+}
+header {
+  display: flex;
+  background-color: #fffeea;
+  height: 106px;
+  border: solid #ffc85d;
+  border-width: 0px 0px 2px 0px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#header_logo_img {
+  width: 34px;
+  height: 34px;
+}
+#menu_img {
+  display: flex;
+  position: absolute;
+  top: 30px;
+  left: 45px;
+}
+.menu {
+  display: flex;
+  justify-content: center; /*가운데 정렬 후 갭을 준다.*/
+  flex-wrap: wrap;
+  gap: 40px;
+}
+.item {
+  font-weight: 500;
+  color: #ffc85d;
+  margin-top: 50px;
+  padding: 45px;
+  max-width: fit-content;
+  min-width: 0;
+  position: relative; /* 가상 요소를 위한 상대 위치 */
+  display: inline-block; /* 인라인 블록 요소로 설정 */
+}
+.item:hover {
+  color: transparent; /* 텍스트 색상을 투명하게 설정 */
+}
+#my_page:hover::after {
+  content: "";
+  display: block;
+  width: 25px; /* 이미지의 너비 */
+  height: 25px; /* 이미지의 높이 */
+  background-image: url("../images/main_img/mypage.svg"); /* 대체할 이미지 URL */
+  background-size: contain; /* 이미지가 잘리지 않도록 설정 */
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 50%; /* 수직 중앙 정렬 */
+  left: 50%; /* 수평 중앙 정렬 */
+  transform: translate(
+    -50%,
+    -50%
+  ); /* 중앙으로부터 이동하여 정확히 중앙에 위치 */
+}
+#counselor:hover:after {
+  content: "";
+  display: block;
+  width: 25px; /* 이미지의 너비 */
+  height: 25px; /* 이미지의 높이 */
+  background-image: url("../images/main_img/counselor.svg"); /* 대체할 이미지 URL */
+  background-size: contain; /* 이미지가 잘리지 않도록 설정 */
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 50px; /* 수직 중앙 정렬 */
+  left: 50%; /* 수평 중앙 정렬 */
+  transform: translate(-50%, -50%); /* 중앙 정렬을 위한 변환 */
+}
+#record:hover::after {
+  content: "";
+  display: block;
+  width: 25px; /* 이미지의 너비 */
+  height: 25px; /* 이미지의 높이 */
+  background-image: url("../images/main_img/record.svg"); /* 대체할 이미지 URL */
+  background-size: contain; /* 이미지가 잘리지 않도록 설정 */
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 50%; /* 수직 중앙 정렬 */
+  left: 50%; /* 수평 중앙 정렬 */
+  transform: translate(
+    -50%,
+    -50%
+  ); /* 중앙으로부터 이동하여 정확히 중앙에 위치 */
+}
+.solution {
+  display: inline;
+}
+.navigation {
+  align-items: center;
+}
+
+a {
+  color: #ffc85d;
+  text-decoration-line: none;
+}
+
+#need_help {
+  color: black;
+  animation: blink-animation 1s steps(2, start) 5;
+}
+
+#need_help:hover {
+  color: #ff4673;
+}
+
+@keyframes blink-animation {
+  0% {
+    color: #000000;
+  }
+  100% {
+    color: #ff4673;
+  }
+}

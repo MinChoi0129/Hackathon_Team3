@@ -1,98 +1,268 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>상담사 목록</title>
-    <link rel="stylesheet" href="/static/css/counselors_list.css">
-</head>
-<body>
+    <link rel="stylesheet" href="/static/css/counselors_list.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header">
+        <div id="menu_img">
+          <img
+            id="header_logo_img"
+            src="{{ url_for('static', path ='images/main_img/ari_log.svg')}}"
+            alt="ari_logo"
+          />
+        </div>
+
+        <div class="menu_bar">
+          <div class="menu">
+            <span class="item" id="my_page">마이페이지</span>
+            <span class="item" id="counselor">상담사 목록</span>
+            <span class="item" id="record">앓이 기록</span>
+          </div>
+        </div>
+      </div>
+    </header>
     <div class="container">
         <h1>상담사 목록</h1>
         <div class="search-bar-container">
-            <div class="search-bar">
-                <input type="text" placeholder="번아웃" id="search-input">
+          <div class="search-bar">
+            <input type="text" placeholder="번아웃" id="search-input" />
+            <div class="search-logo">
+              <img src="static/images/record_logo.png" alt="Record Logo">
             </div>
-            <div class="sort-button-container">
-                <button id="sort-button">추천순</button>
-            </div>
+          </div>
+          <div class="sort-button-container">
+            <button id="sort-button">추천순</button>
+          </div>
         </div>
         <div class="counselor-list">
-            <div class="counselor-card">
-                <div class="image-wrapper">
-                    <img src="/static/images/kim.png" alt="김상담">
-                </div>
-                <div class="counselor-details">
-                    <span class="counselor-name">김상담</span>
-                    <span class="hashtags">#번아웃 #직장생활</span>
-                </div>
-                <p>진정성 있는 상담을 드립니다.</p>
-                <div class="rating">후기 136 <img src="/static/images/stars4.5.png" alt="4.5 stars"></div>
-                <button class="details-btn">상세보기</button>
+          <div class="counselor-card">
+            <div class="image-wrapper">
+              <img src="static/images/Counselor_hwang.png" alt="황지은" />
             </div>
-            <div class="counselor-card">
-                <div class="image-wrapper">
-                    <img src="/static/images/choi.png" alt="최상담">
-                </div>
-                <div class="counselor-details">
-                    <span class="counselor-name">최상담</span>
-                    <span class="hashtags">#부부관계 #인간관계 #번아웃</span>
-                </div>
-                <p>당신의 마음을 헤아려 드립니다.</p>
-                <div class="rating">후기 80 <img src="/static/images/stars3.5.png" alt="3.5 stars"></div>
-                <button class="details-btn">상세보기</button>
+            <div class="counselor-details">
+              <div class="counselor-name">황지은</div>
+              <div class="hashtags">
+                <span>#번아웃</span> 
+                <span>#직장생활</span>
+              </div>
             </div>
-            <div class="counselor-card">
-                <div class="image-wrapper">
-                    <img src="/static/images/bu.png" alt="부상담">
-                </div>
-                <div class="counselor-details">
-                    <span class="counselor-name">부상담</span>
-                    <span class="hashtags">#심리장애 #자존감 #번아웃</span>
-                </div>
-                <p>당신의 삶에 빛이 되어 드리겠습니다.</p>
-                <div class="rating">후기 102 <img src="/static/images/stars4.0.png" alt="4.0 stars"></div>
-                <button class="details-btn">상세보기</button>
+            <div class="counselor-intro">
+              <p>진정성 있는 상담을 드립니다.</p>
             </div>
-            <!-- 두 행 더 추가 -->
-            <div class="counselor-card">
-                <div class="image-wrapper">
-                    <img src="/static/images/kim.png" alt="김상담">
-                </div>
-                <div class="counselor-details">
-                    <span class="counselor-name">김상담</span>
-                    <span class="hashtags">#번아웃 #직장생활</span>
-                </div>
-                <p>진정성 있는 상담을 드립니다.</p>
-                <div class="rating">후기 136 <img src="/static/images/stars4.5.png" alt="4.5 stars"></div>
-                <button class="details-btn">상세보기</button>
+            <div class="reviews">
+              <div class="review-text">후기 
+                <span class="review-number">136</span>
+              </div>
+              <div class="stars">
+                <img src="static/images/로고2svg.svg" alt="star"/>
+                <img src="static/images/로고2svg.svg" alt="star"/>
+                <img src="static/images/로고2svg.svg" alt="star"/>
+                <img src="static/images/로고2svg.svg" alt="star"/>
+                <img src="static/images/로고2svg.svg" alt="star"/>
+                <span class="star-rating">4.5</span>
+              </div>
             </div>
-            <div class="counselor-card">
-                <div class="image-wrapper">
-                    <img src="/static/images/choi.png" alt="최상담">
-                </div>
-                <div class="counselor-details">
-                    <span class="counselor-name">최상담</span>
-                    <span class="hashtags">#부부관계 #인간관계 #번아웃</span>
-                </div>
-                <p>당신의 마음을 헤아려 드립니다.</p>
-                <div class="rating">후기 80 <img src="/static/images/stars3.5.png" alt="3.5 stars"></div>
-                <button class="details-btn">상세보기</button>
+            <button class="details-btn">상세보기</button>
+          </div>
+          <div class="counselor-card">
+            <div class="image-wrapper">
+              <img src="static/images/Counselor_kim.png" alt="김민주" />
             </div>
-            <div class="counselor-card">
-                <div class="image-wrapper">
-                    <img src="/static/images/bu.png" alt="부상담">
-                </div>
-                <div class="counselor-details">
-                    <span class="counselor-name">부상담</span>
-                    <span class="hashtags">#심리장애 #자존감 #번아웃</span>
-                </div>
-                <p>당신의 삶에 빛이 되어 드리겠습니다.</p>
-                <div class="rating">후기 102 <img src="/static/images/stars4.0.png" alt="4.0 stars"></div>
-                <button class="details-btn">상세보기</button>
+            <div class="counselor-details">
+              <div class="counselor-name">김민주</div>
+              <div class="hashtags">
+                <span>#부부관계</span>
+                <span>#인간관계</span>
+                <span>#번아웃</span>
+              </div>
             </div>
+            <div class="counselor-intro">
+              <p>당신의 마음을 헤아려 드립니다.</p>
+            </div>
+            <div class="reviews">
+                <div class="review-text">후기 <span class="review-number">136</span></div>
+                <div class="stars">
+                  <img src="static/images/로고2svg.svg" alt="star"/>
+                  <img src="static/images/로고2svg.svg" alt="star"/>
+                  <img src="static/images/로고2svg.svg" alt="star"/>
+                  <img src="static/images/로고2svg.svg" alt="star"/>
+                  <img src="static/images/로고2svg.svg" alt="star"/>
+                  <span class="star-rating">4.5</span>
+                </div>
+              </div>
+            <button class="details-btn">상세보기</button>
+          </div>
+          <div class="counselor-card">
+            <div class="image-wrapper">
+              <img src="static/images/Counselor_wu.png" alt="우채인" />
+            </div>
+            <div class="counselor-details">
+              <div class="counselor-name">우채인</div>
+              <div class="hashtags">
+                <span>#심리장애</span>
+                <span>#자존감</span>
+                <span>#번아웃</span>  
+              </div>
+            </div>
+            <div class="counselor-intro">
+              <p>당신의 삶에 빛이 되어 드리겠습니다.</p>
+            </div>
+            <div class="reviews">
+                <div class="review-text">후기 <span class="review-number">136</span></div>
+                <div class="stars">
+                  <img src="static/images/로고2svg.svg" alt="star"/>
+                  <img src="static/images/로고2svg.svg" alt="star"/>
+                  <img src="static/images/로고2svg.svg" alt="star"/>
+                  <img src="static/images/로고2svg.svg" alt="star"/>
+                  <img src="static/images/로고2svg.svg" alt="star"/>
+                  <span class="star-rating">4.5</span>
+                </div>
+              </div>
+            <button class="details-btn">상세보기</button>
+          </div>
+          <div class="counselor-card">
+            <div class="image-wrapper">
+              <img src="static/images/Counselor_an.png" alt="안윤정" />
+            </div>
+            <div class="counselor-details">
+              <div class="counselor-name">안윤정</div>
+              <div class="hashtags">
+                <span>#번아웃</span>
+                <span>#직장생활</span> 
+              </div>
+            </div>
+            <div class="counselor-intro">
+              <p>진정성 있는 상담을 드립니다.</p>
+            </div>
+            <div class="reviews">
+                <div class="review-text">후기 <span class="review-number">136</span></div>
+                <div class="stars">
+                  <img src="static/images/로고2svg.svg" alt="star"/>
+                  <img src="static/images/로고2svg.svg" alt="star"/>
+                  <img src="static/images/로고2svg.svg" alt="star"/>
+                  <img src="static/images/로고2svg.svg" alt="star"/>
+                  <img src="static/images/로고2svg.svg" alt="star"/>
+                  <span class="star-rating">4.5</span>
+                </div>
+              </div>
+            <button class="details-btn">상세보기</button>
+          </div>
+          <div class="counselor-card">
+            <div class="image-wrapper">
+              <img src="static/images/Counselor_hu.png" alt="허원경" />
+            </div>
+            <div class="counselor-details">
+              <div class="counselor-name">허원경</div>
+              <div class="hashtags">
+                <span>#부부관계</span>
+                <span>#인간관계</span>
+                <span>#번아웃</span>  
+              </div>
+            </div>
+            <div class="counselor-intro">
+              <p>당신의 마음을 헤아려 드립니다.</p>
+            </div>
+            <div class="reviews">
+                <div class="review-text">후기 <span class="review-number">136</span></div>
+                <div class="stars">
+                  <img src="static/images/로고2svg.svg" alt="star"/>
+                  <img src="static/images/로고2svg.svg" alt="star"/>
+                  <img src="static/images/로고2svg.svg" alt="star"/>
+                  <img src="static/images/로고2svg.svg" alt="star"/>
+                  <img src="static/images/로고2svg.svg" alt="star"/>
+                  <span class="star-rating">4.5</span>
+                </div>
+              </div>
+            <button class="details-btn">상세보기</button>
+          </div>
+          <div class="counselor-card">
+            <div class="image-wrapper">
+              <img src="static/images/Counselor_han.png" alt="한인숙" />
+            </div>
+            <div class="counselor-details">
+              <div class="counselor-name">한인숙</div>
+              <div class="hashtags">
+                <span>#심리장애</span> 
+                <span>#자존감</span> 
+                <span>#번아웃</span>
+              </div>
+            </div>
+            <div class="counselor-intro">
+              <p>당신의 삶에 빛이 되어 드리겠습니다.</p>
+            </div>
+            <div class="reviews">
+                <div class="review-text">후기 <span class="review-number">136</span></div>
+                <div class="stars">
+                  <img src="static/images/로고2svg.svg" alt="star"/>
+                  <img src="static/images/로고2svg.svg" alt="star"/>
+                  <img src="static/images/로고2svg.svg" alt="star"/>
+                  <img src="static/images/로고2svg.svg" alt="star"/>
+                  <img src="static/images/로고2svg.svg" alt="star"/>
+                  <span class="star-rating">4.5</span>
+                </div>
+              </div>
+            <button class="details-btn">상세보기</button>
+          </div>
+          <div class="counselor-card">
+            <div class="image-wrapper">
+              <img src="static/images/Counselor_park.png" alt="박채연" />
+            </div>
+            <div class="counselor-details">
+              <div class="counselor-name">박채연</div>
+              <div class="hashtags">
+                <span>#심리장애</span> 
+                <span>#자존감</span> 
+                <span>#번아웃</span>
+              </div>
+            </div>
+            <div class="counselor-intro">
+              <p>당신의 삶에 빛이 되어 드리겠습니다.</p>
+            </div>
+            <div class="reviews">
+                <div class="review-text">후기 <span class="review-number">136</span></div>
+                <div class="stars">
+                  <img src="static/images/로고2svg.svg" alt="star"/>
+                  <img src="static/images/로고2svg.svg" alt="star"/>
+                  <img src="static/images/로고2svg.svg" alt="star"/>
+                  <img src="static/images/로고2svg.svg" alt="star"/>
+                  <img src="static/images/로고2svg.svg" alt="star"/>
+                  <span class="star-rating">4.5</span>
+                </div>
+              </div>
+            <button class="details-btn">상세보기</button>
+          </div>
+          <div class="counselor-card">
+            <div class="image-wrapper">
+              <img src="static/images/Counselor_lee.png" alt="이미연" />
+            </div>
+            <div class="counselor-details">
+              <div class="counselor-name">이미연</div>
+              <div class="hashtags">
+                <span>#심리장애</span> 
+                <span>#자존감</span> 
+                <span>#번아웃</span>
+              </div>
+            </div>
+            <div class="counselor-intro">
+              <p>당신의 삶에 빛이 되어 드리겠습니다.</p>
+            </div>
+            <div class="reviews">
+                <div class="review-text">후기 <span class="review-number">136</span></div>
+                <div class="stars">
+                  <img src="static/images/로고2svg.svg" alt="star"/>
+                  <img src="static/images/로고2svg.svg" alt="star"/>
+                  <img src="static/images/로고2svg.svg" alt="star"/>
+                  <img src="static/images/로고2svg.svg" alt="star"/>
+                  <img src="static/images/로고2svg.svg" alt="star"/>
+                  <span class="star-rating">4.5</span>
+                </div>
+              </div>
+            <button class="details-btn">상세보기</button>
+          </div>
         </div>
-    </div>
-    <script src="/static/javascript/counselors_list.js"></script>
-</body>
-</html>
+      </div>
