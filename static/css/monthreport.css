@@ -1,6 +1,5 @@
 body {
   background-color: #fffeea;
-  font-family: "Pretendard";
 }
 table {
   position: relative;
@@ -40,13 +39,6 @@ th {
   justify-content: center;
   align-items: center;
 }
-.desult {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
 
 .who {
   font-weight: 900;
@@ -74,12 +66,6 @@ th {
   color: black;
   margin-right: 10px;
   margin-left: 20px;
-  border: 1px solid #777777;
-  height: 1.5rem;
-  width: fit-content;
-  border-radius: 8px;
-  background-color: #ffc85d;
-  padding: 5px;
 }
 header {
   display: flex;
@@ -180,26 +166,39 @@ header {
 .navigation {
   align-items: center;
 }
-
+a {
+  color: black;
+}
 a {
   color: #ffc85d;
   text-decoration-line: none;
 }
-
-#need_help {
-  color: black;
-  animation: blink-animation 1s steps(2, start) 5;
+.chart-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
 }
 
-#need_help:hover {
-  color: #ff4673;
+.chart-container {
+  display: flex;
+  justify-content: center;
+  width: 60vw;
+  height: 60vh;
 }
 
-@keyframes blink-animation {
-  0% {
-    color: #000000;
-  }
-  100% {
-    color: #ff4673;
-  }
+#myBarChart {
+  width: 100%;
+  height: 100%;
+}
+
+.desult {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 100%;
 }
