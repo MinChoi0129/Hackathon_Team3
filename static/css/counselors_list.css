@@ -218,8 +218,8 @@ h1 {
   color: #ff4673;
   text-align: center;
   line-height: 1.5;
-  width: 150px; /* 고정된 가로 길이 */
-  justify-content: right;
+  width: 110px; /* 고정된 가로 길이 */
+  justify-content: left;
   /* align-items: flex-end; */
   gap: 3px;
 }
@@ -290,7 +290,7 @@ h1 {
   background: #fffeea;
   color: #000000;
   opacity: 0.6;
-  border: none;
+  border: #e5e5e5 solid;
   padding: 5px 10px;
   border-radius: 15px;
   cursor: pointer;
@@ -301,5 +301,5 @@ h1 {
 }
 
 .details-btn:hover {
-  background: #e5a800;
+  background: #ffc85d;
 }
