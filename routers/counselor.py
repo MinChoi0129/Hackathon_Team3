@@ -1,38 +1,11 @@
-from fastapi import APIRouter, Form, Response, Depends, HTTPException, Request, Cookie
-from fastapi.responses import HTMLResponse, RedirectResponse
-from fastapi.templating import Jinja2Templates
-from api.models import User, Conversation, Diary, Payment, Counselor
+from fastapi import APIRouter, Form, Depends
+from api.models import Counselor, Review
 from config.database import get_db
 from sqlalchemy.orm import Session
-from pydantic import BaseModel
 from datetime import datetime
-import re
 import random
 
-router = APIRouter()
-
-# id = Column(Integer, primary_key=True)
-# profile_img_path = Column(String)  # 프로필 이미지 경로
-# counselor_name = Column(String)  # 상담사 이름
-# hash_tags = Column(String)  # 상담사 해시태그
-# short_info = Column(String)  # 한줄 소개
-# num_of_reviews = Column(Integer)  # 후기 개수
-# star_ratio = Column(Float)  # 별점
-# profession_part = Column(String)  # 전문의 파트
-# introduction = Column(String)  # 소개 및 철학
-# counsel_info = Column(String)  # 상담 방법 및 일정
-# counselor_history = Column(String)  # 약력
-# phone_number = Column(String)
-# X_id = Column(String)  # X(구 트위터) 아이디
-# insta_id = Column(String)  # 인스타 아이디
-# email_address = Column(String)  # 이메일 주소
-# counsel_date = Column(Date)  # 상담 날짜
-# counsel_type = Column(String)  # 상담 유형
-# address = Column(String)  # 상담지 주소
-# counsel_price = Column(Integer)  # 상담 가격
-
-# # Relationships
-# reviews = relationship("Review", back_populates="counselor")  # 리뷰들
+router = APIRouter(tags=["상담사"])
 
 
 hash_tags_samples = [
@@ -107,3 +80,22 @@ async def read_counselor(counselor_id: int, db: Session = Depends(get_db)):
 async def read_counselors(db: Session = Depends(get_db)):
     counselors = db.query(Counselor).all()
     return counselors
+
+
+@router.post("/api/reviews/{counselor_id}")
+async def create_review(
+    counselor_id: int, review_text: str = Form(...), db: Session = Depends(get_db)
+):
+    db_review = Review(review_text=review_text, counselor_id=counselor_id)
+    db.add(db_review)
+    db.commit()
+    db.refresh(db_review)
+    return db_review
+
+
+@router.get("/api/reviews/{counselor_id}")
+async def read_reviews_by_counselor(counselor_id: int, db: Session = Depends(get_db)):
+    counselor_reviews = (
+        db.query(Review).filter(Review.counselor_id == counselor_id).all()
+    )
+    return counselor_reviews

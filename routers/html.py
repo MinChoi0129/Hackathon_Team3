@@ -1,12 +1,6 @@
-from fastapi import APIRouter, Form, Response, Depends, HTTPException, Request, Cookie
+from fastapi import APIRouter, Request, Cookie
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
-from api.models import User, Conversation, Diary, Payment, Counselor
-from config.database import get_db
-from sqlalchemy.orm import Session
-from pydantic import BaseModel
-from datetime import datetime
-import re
 
 
 def isLogined(user_id: str):
@@ -20,7 +14,7 @@ def isLogined(user_id: str):
         return False
 
 
-router = APIRouter()
+router = APIRouter(tags=["HTML 연결"])
 templates = Jinja2Templates(directory="templates")
 
 

@@ -1,15 +1,12 @@
-from fastapi import APIRouter, Form, Response, Depends, HTTPException, Request, Cookie
-from fastapi.responses import HTMLResponse, RedirectResponse
-from fastapi.templating import Jinja2Templates
-from api.models import User, Conversation, Diary, Payment, Counselor
+from fastapi import APIRouter, Form, Response, Depends, Cookie
+from fastapi.responses import RedirectResponse
+from api.models import User
 from config.database import get_db
 from sqlalchemy.orm import Session
-from pydantic import BaseModel
-from datetime import datetime
 import re
 
 
-router = APIRouter()
+router = APIRouter(tags=["로그인/로그아웃/회원탈퇴"])
 
 
 @router.post("/api/login")
@@ -82,10 +79,7 @@ async def logout(response: Response):
 
 
 @router.delete("/api/user_delete")
-async def delete_user(
-    response: Response, user_id: str = Cookie(None), db: Session = Depends(get_db)
-):
-
+async def delete_user(user_id: str = Cookie(None), db: Session = Depends(get_db)):
     db_user = db.query(User).filter(User.id == int(user_id)).first()
     db.delete(db_user)
     db.commit()
