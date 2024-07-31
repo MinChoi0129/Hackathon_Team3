@@ -94,9 +94,14 @@ async def counselors_list(request: Request, user_id: str = Cookie(None)):
     return templates.TemplateResponse("counselors_list.html", {"request": request})
 
 
-@router.get("/counselor_detailed", response_class=HTMLResponse)
-async def counselor_detailed(request: Request, user_id: str = Cookie(None)):
+@router.get("/counselor_detailed/{counselor_id}", response_class=HTMLResponse)
+async def counselor_detailed(
+    request: Request, counselor_id: int, user_id: str = Cookie(None)
+):
     if not isLogined(user_id):
         return RedirectResponse(url="/")
 
-    return templates.TemplateResponse("counselor_detailed.html", {"request": request})
+    return templates.TemplateResponse(
+        "counselor_detailed.html",
+        {"request": request, "current_counselor_id": counselor_id},
+    )

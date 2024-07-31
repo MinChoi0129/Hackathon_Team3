@@ -10,9 +10,10 @@ import json
 
 async def classify_words(words: List[str]) -> Dict[str, List[str]]:
     if not words:
-        return {}
+        return {"Positive": [], "Negative": []}
+
     prompt = (
-        """Classify the following words into positive, negative. if the word is not related to emotions, ignore it. The maximum  Return the results in given format. "Positive": [word1, word2, ...] ||| "Negative": [word3, word4, ...]
+        """Classify the following words into positive, negative. if the word is not related to emotions, ignore it. Return the results in given format. "Positive": [word1, word2, ...] ||| "Negative": [word3, word4, ...]
         """
         + f"Words: {', '.join(words)}"
     )
@@ -44,6 +45,10 @@ safety_settings = [
         "category": "HARM_CATEGORY_HATE_SPEECH",
         "threshold": "BLOCK_NONE",
     },
+    {
+        "category": "HARM_CATEGORY_DANGEROUS",
+        "threshold": "BLOCK_NONE",
+    },
 ]
 
 
@@ -53,10 +58,13 @@ chat = model.start_chat(history=[])
 user_chats = dict()
 
 
-@router.get("/api/monthreport_by_user")
-async def monthreport_by_user(
-    user_id: int = Cookie(None), db: Session = Depends(get_db)
+@router.get("/api/report/{mode}")
+async def user_report_by_mode(
+    mode: str, user_id: int = Cookie(None), db: Session = Depends(get_db)
 ):
+    if mode not in ["jack", "month"]:
+        return {"Error": "API 경로가 잘못되었습니다. mode를 올바르게 입력하세요."}
+
     month_result = dict()
     for idx, (start_date, end_date) in enumerate(
         [
@@ -85,29 +93,61 @@ async def monthreport_by_user(
             .all()
         )
 
-        result = []
+        user_words = dict()
+
         for conversation in db_conversations:
-            result += [
-                cs.text
-                for cs in conversation.conversation_string_list
-                if cs.who_said == "user"
-            ]
+            for cs in conversation.conversation_string_list:
+                if cs.who_said == "user":
+                    words = cs.text.split()
+                    for word in words:
+                        current_word = word.strip()
+                        if current_word == "exit_chat":
+                            continue
+
+                        if current_word not in user_words:
+                            user_words[current_word] = 1
+                        else:
+                            user_words[current_word] += 1
+
         for diary in db_diaries:
-            result.append(diary.diary_string)
+            words = diary.diary_string.split()
+            for word in words:
+                current_word = word.strip()
 
-        result = list(set(result))
+                if current_word not in user_words:
+                    user_words[current_word] = 1
+                else:
+                    user_words[current_word] += 1
 
-        try:
-            result.remove("exit_chat")
-        except:
-            pass
+        sorted_dict = dict(
+            sorted(user_words.items(), key=lambda item: item[1], reverse=True)[:30]
+        )
+        analysis = await classify_words(list(user_words.keys()))
+        print(analysis)
 
-        pure_words = []
-        for s in result:
-            pure_words.extend(s.split())
+        result = dict()
+        if mode == "jack":
+            result = analysis
+            result["Positive"] = result["Positive"][:8]
+            result["Negative"] = result["Negative"][:8]
+        elif mode == "month":
+            result = {"Positive": [], "Negative": []}
+            for p_word in analysis["Positive"]:
+                try:
+                    num_of_p_word = sorted_dict[p_word]
+                    result["Positive"].append([p_word, num_of_p_word])
+                except:
+                    pass
+            for n_word in analysis["Negative"]:
+                try:
+                    num_of_n_word = sorted_dict[n_word]
+                    result["Negative"].append([n_word, num_of_n_word])
+                except:
+                    pass
+        else:
+            print("잘못된 모드")
 
-        analysis = await classify_words(pure_words)
-        month_result[idx + 6] = analysis
+        month_result[idx + 6] = result
 
     return month_result
 
