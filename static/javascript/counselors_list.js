@@ -12,55 +12,66 @@ document.getElementById("sort-button").addEventListener("click", function () {
 // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 console.log("정정현");
 
-let counselor_id = 1;
-
-let pics = document.getElementsByClassName("image-wrapper");
+let pics = document.getElementsByClassName("counselorimg");
 let names = document.getElementsByClassName("counselor-name")
 let reviews = document.getElementsByClassName("review-number")
 let stars = document.getElementsByClassName("stars")
-// let rn = document.getElementsByClassName("review-number")[0];
-// let sr = document.getElementsByClassName("star-rating")[0];
-// let it = document.getElementsByTagName("p")[1]
-
-// const formData = new FormData();
-// formData.append("name", name);
-// formData.append("email", email);
+let shortinfo = document.getElementsByClassName("counselor-intro")
+let hashtags = document.getElementsByClassName("hashtags")
+ // 도큐먼트랑 연결할게요 ~~ ~~~~~
 
 fetch(`/api/counselors/`, {
   method: "GET",
-  //   body: formData,
 })
   .then((response) => response.json())
   .then((data) => {
     console.log("Success:", data);
 
     for (let i = 0; i < data.length; i++) {
-      let counselor = data[i];
-      pics[2 + 6 * i].src = counselor.profile_img_path
-      names[i].innerHTML = counselor.counselor_name
-      reviews[i].innerHTML = counselor.num_of_reviews
+      let counselor = data[i]; // counselor 배열에는 "각" 상담사 정보가 들어있음
 
+      // 상담사 사진 
+      pics[i].src = counselor.profile_img_path // "src" 추가
+      // 상담사 이름
+      names[i].innerHTML = counselor.counselor_name // >< 안에 추가
+      // 상담사 후기 갯수
+      reviews[i].innerHTML = counselor.num_of_reviews // >< 안에 추가
+      // 상담사 별점 그림
       for (let j = 0; j < Math.floor(counselor.star_ratio); j++) {
-        let star_img = document.createElement("img")
-        star_img.src = "/static/images/로고2svg.svg"
-        stars[i].appendChild(star_img)
+        let star_img = document.createElement("img") // img 태그를 생성할게요~~~ 변수명은 star_img
+        star_img.src = "/static/images/로고2svg.svg" // img 태그에 'src' 속성 추가
+        stars[i].appendChild(star_img) // 별점 그림을 넣을 '횟수'를 정하는 메소드
+                                       // 생성된 태그를 도큐먼트에 연결
+      }
+      // 상담사 별점
+      let star_span = document.createElement("span")
+      star_span.className = "star-rating" // 생성된 span 태그의 classname 부여(css와 동일한 이름)
+      star_span.innerHTML = counselor.star_ratio.toFixed(2) //생성된 태그의 >< //소수 점 둘째 자리까지만
+      stars[i].appendChild(star_span) // 생성된 태그를 도큐먼트에 연결
+
+      
+      // 상담사 소개
+      let shortinfofo = document.createElement('p')
+      shortinfofo.innerHTML = counselor.short_info
+      shortinfo[i].appendChild(shortinfofo)
+
+    // //   // 상담사 해쉬태그
+    //   let phstg = document.createElement("span")
+    //   phstg.innerHTML = counselor.hash_tags
+    //   hashtags[i].appendChild(phstg)
+    
+      // 상담사 해쉬태그
+      let split_hashtags = counselor.hash_tags.split(" "); // 해시태그 문자열을 공백을 기준으로 나눔
+      for (let k = 0; k < split_hashtags.length; k++) { // 나눠진 조각 수만큼 반복
+        let phstg = document.createElement("span"); // span 태그 생성
+        let hashtag_text = document.createTextNode(split_hashtags[k] + " "); // 각 해시태그에 대한 텍스트 노드 생성
+        phstg.appendChild(hashtag_text); // 텍스트 노드를 span 요소에 추가
+        hashtags[i].appendChild(phstg); // 생성된 span 요소를 부모 요소에 추가
       }
 
-      let star_span = document.createElement("span")
-      star_span.className = "star-rating"
-      star_span.innerHTML = counselor.star_ratio
-      stars[i].appendChild(star_span)
+      
     }
-    // let 상담사이름 = data.counselor_name;
-    // let 리뷰개수 = data.num_of_reviews;
-    // let 별개수 = data.star_ratio;
-    // let 상담사소개 = data.introduction;
 
-
-    // name_h1.innerHTML = 상담사이름;
-    // rn.innerHTML = 리뷰개수;
-    // sr.innerHTML = 별개수;
-    // it.innerHTML = 상담사소개;
   })
   .catch((error) => {
     console.error("Error:", error);
