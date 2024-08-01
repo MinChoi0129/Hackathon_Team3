@@ -9,7 +9,6 @@ body {
   width: 80%;
   margin: 0 auto;
 }
-
 header {
   display: flex;
   background-color: #fffeea;
@@ -17,60 +16,53 @@ header {
   border: solid #ffc85d;
   border-width: 0px 0px 2px 0px;
   width: 100%;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
-
 .header {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%; /* 부모 요소의 너비를 100%로 설정 */
 }
-
 #header_logo_img {
   width: 34px;
   height: 34px;
 }
-
 #menu_img {
   display: flex;
   position: absolute;
   top: 30px;
   left: 45px;
 }
-
-.menu_bar {
-  display: flex;
-  justify-content: center;
-  width: 100%; /* 전체 너비를 차지하도록 설정 */
-}
-
 .menu {
   display: flex;
-  justify-content: center; /* 가운데 정렬 */
-  gap: 120px; /* 아이템 간격을 10px로 설정 */
+  justify-content: center; /*가운데 정렬 후 갭을 준다.*/
+  flex-wrap: wrap;
+  gap: 40px;
 }
-
 .item {
   font-weight: 500;
   color: #ffc85d;
-  padding: 45px 20px; /* 상하 45px, 좌우 20px padding */
+  margin-top: 50px;
+  padding: 45px;
+  max-width: fit-content;
+  min-width: 0;
   position: relative; /* 가상 요소를 위한 상대 위치 */
   display: inline-block; /* 인라인 블록 요소로 설정 */
 }
-
 .item:hover {
   color: transparent; /* 텍스트 색상을 투명하게 설정 */
 }
-
-#my_page:hover::after,
-#counselor:hover::after,
-#record:hover::after {
+#my_page {
+  position: relative;
+}
+#my_page:hover::after {
   content: "";
   display: block;
   width: 25px; /* 이미지의 너비 */
   height: 25px; /* 이미지의 높이 */
+  background-image: url("../images/main_img/mypage.svg"); /* 대체할 이미지 URL */
   background-size: contain; /* 이미지가 잘리지 않도록 설정 */
   background-repeat: no-repeat;
   background-position: center;
@@ -81,18 +73,40 @@ header {
     -50%,
     -50%
   ); /* 중앙으로부터 이동하여 정확히 중앙에 위치 */
+  cursor: pointer;
 }
-
-#my_page:hover::after {
-  background-image: url("../images/main_img/mypage.svg");
+#counselor:hover:after {
+  content: "";
+  display: block;
+  width: 25px; /* 이미지의 너비 */
+  height: 25px; /* 이미지의 높이 */
+  background-image: url("../images/main_img/counselor.svg"); /* 대체할 이미지 URL */
+  background-size: contain; /* 이미지가 잘리지 않도록 설정 */
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 50px; /* 수직 중앙 정렬 */
+  left: 50%; /* 수평 중앙 정렬 */
+  transform: translate(-50%, -50%); /* 중앙 정렬을 위한 변환 */
+  cursor: pointer;
 }
-
-#counselor:hover::after {
-  background-image: url("../images/main_img/counselor.svg");
-}
-
 #record:hover::after {
-  background-image: url("../images/main_img/record.svg");
+  content: "";
+  display: block;
+  width: 25px; /* 이미지의 너비 */
+  height: 25px; /* 이미지의 높이 */
+  background-image: url("../images/main_img/record.svg"); /* 대체할 이미지 URL */
+  background-size: contain; /* 이미지가 잘리지 않도록 설정 */
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 50%; /* 수직 중앙 정렬 */
+  left: 50%; /* 수평 중앙 정렬 */
+  transform: translate(
+    -50%,
+    -50%
+  ); /* 중앙으로부터 이동하여 정확히 중앙에 위치 */
+  cursor: pointer;
 }
 /* id는 # class는 .  */
 body {
@@ -176,6 +190,7 @@ main {
   border: 5px solid #ffc85d;
   border-radius: 15px;
   padding: 20px;
+  width: 1150px;
 }
 
 .profile-pic {
@@ -228,6 +243,7 @@ main {
 .encouragement {
   margin: 20px 0;
   position: relative;
+  width: 1000px;
 }
 
 .bubble {
@@ -265,9 +281,10 @@ h3 {
   border: 5px solid #ffc85d;
   border-radius: 15px;
   padding: 20px;
+  width: 1150px;
 }
 
-.reservation-management p{
+.reservation-management p {
   font-size: 1.3em;
   margin-top: 40px;
 }
@@ -287,7 +304,12 @@ h3 {
   padding: 0;
   margin-top: 30px;
   margin-bottom: 0px;
-  margin-left: 1400px;
+  margin-left: 1030px;
+  display: flex;
+  flex-direction: column;
+}
+.entire .consultation-history {
+  width: 1200px;
 }
 
 .consultation-history h2 {
@@ -363,6 +385,42 @@ h3 {
   margin-top: 10px;
   margin-left: 60px;
 }
+/* Modal */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 
 footer {
   text-align: center;

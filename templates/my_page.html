@@ -24,18 +24,34 @@
     <header>
       <div class="header">
         <div id="menu_img">
-          <img
-            id="header_logo_img"
-            src="{{ url_for('static', path='images/main_img/ari_log.svg') }}"
-            alt="ari_logo"
-          />
+          <a href="{{ url_for('main') }}"
+            ><img
+              id="header_logo_img"
+              src="{{ url_for('static', path ='images/main_img/ari_log.svg')}}"
+              alt="ari_logo"
+          /></a>
         </div>
-
         <div class="menu_bar">
           <div class="menu">
-            <span class="item" id="my_page">마이페이지</span>
-            <span class="item" id="counselor">상담사 목록</span>
-            <span class="item" id="record">앓이 기록</span>
+            <span
+              class="item"
+              id="my_page"
+              onclick="window.location.href='/my_page'"
+            >
+              마이 페이지</span
+            >
+            <span
+              class="item"
+              id="counselor"
+              onclick="window.location.href='/counselors_list'"
+              >상담사 목록</span
+            >
+            <span
+              class="item"
+              id="record"
+              onclick="window.location.href='/monthreport'"
+              >앓이 기록</span
+            >
           </div>
         </div>
       </div>
@@ -80,64 +96,77 @@
           </p>
           <button class="modify-reservation">예약변경 / 예약취소</button>
         </div>
-
-        <div class="consultation-history">
-          <h2>상담이력 및 결제 내역</h2>
-          <div class="history-list">
-            <div class="history-item paid">
-              <div class="history-header">
-                <p class="consultant-name">최우식</p>
-                <p class="consultant-role">상담사</p>
+        <div class="entire consultation-history">
+          <div class="consultation-history">
+            <h2>상담이력 및 결제 내역</h2>
+            <div class="history-list">
+              <div class="history-item paid">
+                <div class="history-header">
+                  <p class="consultant-name">최우식</p>
+                  <p class="consultant-role">상담사</p>
+                </div>
+                <p>1회차</p>
+                <p>◎ 자아찾기 프로그램</p>
+                <p>
+                  <span class="amount">12500원</span>
+                  <span class="status">결제완료</span>
+                </p>
+                <p>2024. 07. 16 (화)</p>
+                <button class="review-btn">후기 작성</button>
               </div>
-              <p>1회차</p>
-              <p>◎ 자아찾기 프로그램</p>
-              <p>
-                <span class="amount">12500원</span>
-                <span class="status">결제완료</span>
-              </p>
-              <p>2024. 07. 16 (화)</p>
-              <button class="review-btn">후기 작성</button>
-            </div>
-            <div class="history-item paid">
-              <div class="history-header">
-                <p class="consultant-name">변요한</p>
-                <p class="consultant-role">상담사</p>
+              <div class="history-item paid">
+                <div class="history-header">
+                  <p class="consultant-name">변요한</p>
+                  <p class="consultant-role">상담사</p>
+                </div>
+                <p>1회차</p>
+                <p>◎ 번아웃 극복 프로그램</p>
+                <p>
+                  <span class="amount">13800원</span>
+                  <span class="status">결제완료</span>
+                </p>
+                <p>2024. 07. 23 (화)</p>
+                <button class="review-btn">후기 작성</button>
               </div>
-              <p>1회차</p>
-              <p>◎ 번아웃 극복 프로그램</p>
-              <p>
-                <span class="amount">13800원</span>
-                <span class="status">결제완료</span>
-              </p>
-              <p>2024. 07. 23 (화)</p>
-              <button class="review-btn">후기 작성</button>
-            </div>
-            <div class="history-item">
-              <div class="history-header">
-                <p class="consultant-name">최우식</p>
-                <p class="consultant-role">상담사</p>
+              <div class="history-item">
+                <div class="history-header">
+                  <p class="consultant-name">최우식</p>
+                  <p class="consultant-role">상담사</p>
+                </div>
+                <p>2회차</p>
+                <p>◎ 자아찾기 프로그램</p>
+                <p><span class="amount">12500원</span></p>
+                <p>2024. 08. 02 (화)</p>
+                <button class="review-btn">후기 작성</button>
               </div>
-              <p>2회차</p>
-              <p>◎ 자아찾기 프로그램</p>
-              <p><span class="amount">12500원</span></p>
-              <p>2024. 08. 02 (화)</p>
-              <button class="review-btn">후기 작성</button>
-            </div>
-            <div class="history-item">
-              <div class="history-header">
-                <p class="consultant-name">최우식</p>
-                <p class="consultant-role">상담사</p>
+              <div class="history-item">
+                <div class="history-header">
+                  <p class="consultant-name">최우식</p>
+                  <p class="consultant-role">상담사</p>
+                </div>
+                <p>3회차</p>
+                <p>◎ 자아찾기 프로그램</p>
+                <p><span class="amount">12500원</span></p>
+                <p>2024. 08. 16 (목)</p>
+                <button class="review-btn">후기 작성</button>
               </div>
-              <p>3회차</p>
-              <p>◎ 자아찾기 프로그램</p>
-              <p><span class="amount">12500원</span></p>
-              <p>2024. 08. 16 (목)</p>
-              <button class="review-btn">후기 작성</button>
             </div>
           </div>
         </div>
       </div>
     </main>
+    <!-- 후기 작성 모달 -->
+    <div id="reviewModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>후기 작성</h2>
+        <form id="reviewForm">
+          <label for="reviewText">후기:</label>
+          <textarea id="reviewText" rows="4" cols="50"></textarea>
+          <button type="submit">제출</button>
+        </form>
+      </div>
+    </div>
 
     <footer>
       <button class="delete-account">회원탈퇴</button>
