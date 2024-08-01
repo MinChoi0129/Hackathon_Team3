@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS 연결 -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', path='css/main3.css') }}"
+    />
+
+    <!-------------------------------------------------------------------------->
+
+    <!-- Javascript 연결 -->
+    <script
+      src="{{ url_for('static', path='javascript/main3.js') }}"
+      defer
+    ></script>
+
+    <!-------------------------------------------------------------------------->
+</head>
+<body>
+    <header>
+        <div id="logo_img" onclick ="window.location.href='/main'">
+          <img
+            id="header_logo_img"
+            src="{{ url_for('static', path ='images/main_img/ari_log.svg')}}"
+            alt="ari_logo"
+          />
+        </div>
+      </header>
+    
+<div class="element">
+      <div class="background">
+        <img
+          class="eclipse"
+          src="{{ url_for('static', path ='images/main_img/eclipse.svg')}}"
+          alt="loading.."
+        />
+  
+        <div class="ari_img">
+          <img
+            class="ari_image"
+            src="{{ url_for('static', path ='images/main_img/ari_with_shadow.svg')}}"
+            alt="loading.."
+          />
+        </div>
+      </div>
+
+
+
+  <div class ="frame_zone">
+      <div class="wrapper">
+        <div class ="talk_ari_button" onclick ="window.location.href='/ari_talk'">아리와 대화하기 </div>
+        <div class="diary_button" onclick ="window.location.href='/diary'">일기 쓰기</div>
+      </div>
+
+     <div class ="iframe_talk">
+      <iframe >
+        <p>사용 중인 브라우저는 iframe을 지원하지 않습니다.</p>
+      </iframe>
+    </div>
+  </div>
+</div>
+
+<div class="talk_ari_method">
+    <div class="how_to_talk_ari">
+      <img
+      id="mic"
+      src="{{ url_for('static', path ='images/main_img/mic.svg')}}"
+      alt="loading.."
+    />
+    </div>
+    <div class="how_to_talk_ari">
+      <img
+      id="cam"
+      src="{{ url_for('static', path ='images/main_img/cam.svg')}}"
+      alt="loading.."
+    />
+    </div>
+  </div>
+
+</body>
+</html>

@@ -15,6 +15,7 @@ class User(Base):
     age = Column(Integer)  # 나이
     job = Column(String)  # 직업
     goal = Column(String)  # 목표
+    signup_date = Column(Date)  # 가입일
 
     # Relationships
     diaries = relationship("Diary", back_populates="user")  # 일기들
