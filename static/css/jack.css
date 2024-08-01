@@ -3,7 +3,7 @@ body {
   width: 100vw;
   height: 100vh;
 }
-.a {
+.abcde {
   font-weight: 900;
   font-size: xx-large;
   color: #ff4673;
@@ -40,7 +40,7 @@ body {
 
 #beantreeimgs {
   width: 1200px;
-  height: 800px;
+  height: 700px;
   position: absolute;
   z-index: 1;
   display: flex;
@@ -53,10 +53,40 @@ body {
   display: inline-flex;
 }
 
-.pictures {
-  display: inline-flex;
+.pictures1 {
+  /* display: inline-flex; */
   position: relative;
   z-index: 10;
+  background-color: #ff4673;
+  width: 300px;
+  height: 150px;
+  position: absolute;
+  top: 400px;
+  left: 150px;
+}
+
+.pictures2 {
+  /* display: inline-flex; */
+  position: relative;
+  z-index: 10;
+  background-color: #ff4673;
+  width: 300px;
+  height: 150px;
+  position: absolute;
+  top: 120px;
+  left: 250px;
+}
+
+.pictures3 {
+  /* display: inline-flex; */
+  position: relative;
+  z-index: 10;
+  background-color: #ff4673;
+  width: 300px;
+  height: 150px;
+  position: absolute;
+  top: 250px;
+  left: 800px;
 }
 
 a {
@@ -109,28 +139,35 @@ body {
 .sign {
   width: 60px;
   height: 60px;
-  position: relative;
+  position: absolute;
   z-index: 3;
-  top: 423px;
-  left: 346px;
+  top: 300px;
+  left: 700px;
 }
 .sign1 {
   width: 60px;
   height: 60px;
-  position: relative;
+  position: absolute;
   z-index: 3;
   top: 60px;
-  left: 346px;
+  left: 400px;
 }
 .sign2 {
   width: 60px;
   height: 60px;
-  position: relative;
+  position: absolute;
   z-index: 3;
-  top: 240px;
-  left: 540px;
+  top: 270px;
+  left: 300px;
 }
 .beantree {
   display: inline;
   width: 100vw;
+}
+
+.word_style {
+  font-family: "pretendard";
+  font-size: 20px;
+  font-weight: 700;
+  position: relative;
 }

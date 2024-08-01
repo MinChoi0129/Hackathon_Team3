@@ -75,7 +75,9 @@ async def jack(request: Request, user_id: str = Cookie(None)):
     if not isLogined(user_id):
         return RedirectResponse(url="/")
 
-    return templates.TemplateResponse("jack.html", {"request": request})
+    return templates.TemplateResponse(
+        "jack.html", {"request": request, "hello": user_id}
+    )
 
 
 @router.get("/monthreport", response_class=HTMLResponse)

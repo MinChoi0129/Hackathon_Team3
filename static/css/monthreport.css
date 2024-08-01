@@ -2,39 +2,46 @@ body {
   background-color: #fffeea;
   font-family: "pretendard";
 }
-table {
-  position: relative;
-  z-index: 5;
-  width: 100%;
-  padding: 50px 50px 30px 50px;
-  border-radius: 20px;
-  background-color: white;
-  justify-content: center;
-  align-items: center;
-}
+
+/* data 컨테이너 */
 .data {
-  width: 80vw;
   display: flex;
+  flex-direction: column; /* 세로 방향 정렬 */
   justify-content: center;
   align-items: center;
+  width: 100%; /* 너비를 100%로 설정 */
   padding-bottom: 50px;
 }
 
+/* 테이블 스타일 */
+table {
+  width: 80%;
+  padding: 50px 50px 30px 50px;
+  border-radius: 20px;
+  background-color: white;
+  margin: 0 auto; /* 중앙 정렬 */
+}
+
+/* 테이블 경계선 및 셀 스타일 */
 table,
 th,
 td {
   border: 1px solid #cbcbcb;
   border-radius: 10px;
 }
+
 th,
 td {
   padding: 15px;
   text-align: left;
 }
+
 th {
   background-color: #ffc85d;
   text-align: center;
 }
+
+/* 제목 스타일 */
 .title {
   font-weight: bold;
   font-size: large;
@@ -44,18 +51,22 @@ th {
   margin-bottom: 20px;
 }
 
+/* 내비게이션 스타일 */
 .navigation {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 20px;
 }
 
+/* 결과 섹션 스타일 */
 .who {
   font-weight: 900;
   font-size: xx-large;
   color: #ffc85d;
   margin-right: 10px;
 }
+
 .or {
   font-weight: 900;
   font-size: xx-large;
@@ -63,6 +74,7 @@ th {
   margin-right: 10px;
   margin-left: 20px;
 }
+
 .percentage {
   font-weight: 900;
   font-size: xx-large;
@@ -70,6 +82,7 @@ th {
   margin-right: 10px;
   margin-left: 20px;
 }
+
 .solution {
   font-weight: 900;
   font-size: large;
@@ -122,8 +135,8 @@ header {
 .item:hover {
   color: transparent; /* 텍스트 색상을 투명하게 설정 */
 }
-#my_page{
-  position:relative;
+#my_page {
+  position: relative;
 }
 #my_page:hover::after {
   content: "";
@@ -141,7 +154,7 @@ header {
     -50%,
     -50%
   ); /* 중앙으로부터 이동하여 정확히 중앙에 위치 */
-  cursor: pointer; 
+  cursor: pointer;
 }
 #counselor:hover:after {
   content: "";
@@ -176,33 +189,40 @@ header {
   ); /* 중앙으로부터 이동하여 정확히 중앙에 위치 */
   cursor: pointer;
 }
+/* 솔루션 스타일 */
 .solution {
   display: inline;
 }
+
 .navigation {
   align-items: center;
 }
+
+/* 링크 스타일 */
 a {
   color: black;
 }
+
 a {
   color: #ffc85d;
   text-decoration-line: none;
 }
+
+/* 차트 래퍼 스타일 */
 .chart-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 30vh;
+  margin-top: 50px; /* table 아래에 위치하게 하기 위한 여백 추가 */
 }
 
 .chart-container {
   display: flex;
   justify-content: center;
   width: 60vw;
-  height: 90vh;
+  height: 60vh;
 }
 
 #myBarChart {
@@ -210,9 +230,18 @@ a {
   height: 100%;
 }
 
+/* 결과 섹션 스타일 */
 .desult {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin-top: 20px; /* 결과 섹션을 table 아래로 이동 */
+}
+
+#currentMonth {
+  font-weight: bold;
+  font-size: large;
+  padding-left: 10px;
+  padding-right: 10px;
 }
