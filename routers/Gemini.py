@@ -13,7 +13,7 @@ async def classify_words(words: List[str]) -> Dict[str, List[str]]:
         return {"Positive": [], "Negative": []}
 
     prompt = (
-        """Classify the following words into positive, negative. if the word is not related to emotions, ignore it. Return the results in given format. "Positive": [word1, word2, ...] ||| "Negative": [word3, word4, ...]
+        """단어를 긍정과 부정으로 분류해. 그러나 단어가 감정과 관련 없으면 반드시 무시해. 전치사, 접두사, 접미사, 부사어 같은건 다 제거해줘. 다음 형식에 따라 답변해. "Positive": [word1, word2, ...] ||| "Negative": [word3, word4, ...]
         """
         + f"Words: {', '.join(words)}"
     )
@@ -120,10 +120,9 @@ async def user_report_by_mode(
                     user_words[current_word] += 1
 
         sorted_dict = dict(
-            sorted(user_words.items(), key=lambda item: item[1], reverse=True)[:30]
+            sorted(user_words.items(), key=lambda item: item[1], reverse=True)[:15]
         )
-        analysis = await classify_words(list(user_words.keys()))
-        print(analysis)
+        analysis = await classify_words(list(sorted_dict.keys()))
 
         result = dict()
         if mode == "jack":
