@@ -2,21 +2,21 @@
 
 // 단어 위치
 let leaf = [
-  [40, 40],
-  [30, 42],
-  [28, 46],
-  [20, 48],
-  [75, 25],
-  [75, 20],
-  [74, 23],
-  [76, 20],
+  [20, 10],
+  [90, 10],
+  [40, 10],
+  [70, 10],
+  [100, 10],
+  [20, 10],
+  [20, 10],
+  [20, 10],
 ];
 
-// 월  표시 사인위치
+// 월 표시 사인위치
 let signwhere = [
-  [503, 45],
-  [740, 225],
-  [391, 410],
+  [625, 187],
+  [715, 316],
+  [494, 450],
 ];
 
 let monthdata = {
@@ -40,7 +40,7 @@ let leaf3 = document.getElementsByClassName("pictures3")[0];
 
 let leafs = [leaf1, leaf2, leaf3];
 
-//팻말 월 가져오기 (최근 3달)
+// 팻말 월 가져오기 (최근 3달)
 let today = new Date();
 let currentMonth = today.getMonth() + 1; // getMonth() is 0-based, so add 1
 let recentMonths = [];
@@ -56,19 +56,18 @@ for (let i = 0; i < 3; i++) {
 // ********************************************************************************************************************* //
 
 // 사람 이름 가져오기
-// fetch(`/api/user`, {
-//   method: "GET",
-//   //   body: formData,
-// })
-//   .then((response) => response.json())
-//   .then((data) => {
-//     ariname.innerHTML = data.username;
-//   })
-//   .catch((error) => {
-//     console.error("Error:", error);
-//   });
+fetch(`/api/user`, {
+  method: "GET",
+})
+  .then((response) => response.json())
+  .then((data) => {
+    ariname.innerHTML = data.username;
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  });
 
-// 긍정 부정 단어  월별 가져오기
+// 긍정 부정 단어 월별 가져오기
 fetch(`/api/report/jack`, {
   method: "GET",
 })
@@ -83,7 +82,12 @@ fetch(`/api/report/jack`, {
       let negatives = month_result.Negative;
       let positives = month_result.Positive;
 
-      for (let i = 0; i < negatives.length; i++) {
+      // 기존 div 요소들 제거
+      while (leafs[month - 6].firstChild) {
+        leafs[month - 6].removeChild(leafs[month - 6].firstChild);
+      }
+
+      for (let i = 0; i < negatives.length && i < leaf.length; i++) {
         let word = negatives[i];
 
         let div = document.createElement("div");
@@ -94,7 +98,7 @@ fetch(`/api/report/jack`, {
         leafs[month - 6].appendChild(div);
       }
 
-      for (let i = 0; i < positives.length; i++) {
+      for (let i = 0; i < positives.length && i < leaf.length; i++) {
         let word = positives[i];
 
         let div = document.createElement("div");
@@ -120,7 +124,11 @@ fetch(`/api/report/jack`, {
         signdiv.style.transform = `translate(${x}px, ${y}px)`;
         signindex++;
       }
-      signdiv.style.color = "black";
+      signdiv.style.color = "#ffc85d";
+      signdiv.style.fontFamily = "Ownglyph_ryurue-Rg";
+      signdiv.style.fontSize = "30px";
+      signdiv.style.position = "absolute";
+      signdiv.style.width = "70px";
       monthsigns.appendChild(signdiv);
     }
   })

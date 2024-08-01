@@ -1,76 +1,4 @@
-// Function to update the chart
-function updateChart() {
-  var tableRows = document.querySelectorAll(".data table tr");
-  var newLabels = [];
-  var newData = [];
-  tableRows.forEach((row, index) => {
-    if (index > 0) {
-      // skip header row
-      var cells = row.querySelectorAll("td");
-      newLabels.push(cells[1].textContent.trim());
-      newData.push(parseInt(cells[2].textContent.replace("%", "").trim()));
-    }
-  });
-  myBarChart.data.labels = newLabels;
-  myBarChart.data.datasets[0].data = newData;
-  myBarChart.update();
-}
-
-// 표 만들기
-var ctx = document.getElementById("myBarChart").getContext("2d");
-var chartData = {
-  labels: ["개진상", "홈런", "팀장놈", "단디💙", "싫다싫어"],
-  datasets: [
-    {
-      label: "단어 비율",
-      data: [40, 40, 20, 15, 5],
-      backgroundColor: [
-        "rgba(255, 99, 132, 0.2)",
-        "rgba(54, 162, 235, 0.2)",
-        "rgba(255, 206, 86, 0.2)",
-        "rgba(75, 192, 192, 0.2)",
-        "rgba(153, 102, 255, 0.2)",
-      ],
-      borderColor: [
-        "rgba(255, 99, 132, 1)",
-        "rgba(54, 162, 235, 1)",
-        "rgba(255, 206, 86, 1)",
-        "rgba(75, 192, 192, 1)",
-        "rgba(153, 102, 255, 1)",
-      ],
-      borderWidth: 1,
-    },
-  ],
-};
-
-// 차트 만들기
-var myBarChart = new Chart(ctx, {
-  type: "bar",
-  data: chartData,
-  options: {
-    scales: {
-      y: {
-        beginAtZero: true,
-      },
-    },
-  },
-});
-
-// Set up MutationObserver to watch for changes in the table cells
-var tableCells = document.querySelectorAll(
-  ".data table td[contenteditable='true']"
-);
-var observer = new MutationObserver(updateChart);
-
-tableCells.forEach((cell) => {
-  observer.observe(cell, {
-    childList: true,
-    subtree: true,
-    characterData: true,
-  });
-});
-
-// Set current month
+// 최근 연도 네비게이션
 const now = new Date();
 const year = now.getFullYear();
 const month = now.getMonth() + 1; // 월은 0부터 시작하므로 1을 더함
@@ -92,40 +20,93 @@ document.getElementById("currentMonth").textContent = `${year}년 ${
   monthNames[month - 1]
 }`;
 
-let tablew = document.getElementsByClassName("tableword");
+// Chart.js 차트 업데이트 함수
+function updateChart(labels, data) {
+  const ctx = document.getElementById("myBarChart").getContext("2d");
+  const myBarChart = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: "비율",
+          data: data,
+          backgroundColor: [
+            "rgba(255, 99, 132, 0.2)",
+            "rgba(54, 162, 235, 0.2)",
+            "rgba(255, 206, 86, 0.2)",
+            "rgba(75, 192, 192, 0.2)",
+            "rgba(153, 102, 255, 0.2)",
+            "rgba(255, 159, 64, 0.2)",
+          ],
+          borderColor: [
+            "rgba(255, 99, 132, 1)",
+            "rgba(54, 162, 235, 1)",
+            "rgba(255, 206, 86, 1)",
+            "rgba(75, 192, 192, 1)",
+            "rgba(153, 102, 255, 1)",
+            "rgba(255, 159, 64, 1)",
+          ],
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+      plugins: {
+        legend: {
+          display: false,
+        },
+      },
+    },
+  });
+}
 
-fetch(`/api/counselors`, {
+// 단어 및 비율 페치
+fetch(`/api/report/month`, {
   method: "GET",
-  //   body: formData,
 })
   .then((response) => response.json())
   .then((data) => {
     console.log("Success:", data);
 
-    let 단어 = data.counselor_name;
-    for (let i = 0; i < data.length; i++) {
-      const e = data[i];
+    // 모든 tableword 요소 가져오기
+    const tablewords = document.getElementsByClassName("tableword");
+    // 모든 tablepercent 요소 가져오기
+    const tablepercents = document.getElementsByClassName("tablepercent");
+    // 모든 pnimg 요소 가져오기
+    const pnimgs = document.getElementsByClassName("pnimg");
+
+    // 데이터를 순회하며 각 요소에 값 설정
+    const dataForMonth = data["6"]; // 예시로 6월 데이터를 사용
+    const words = [];
+    const percentages = [];
+    for (let i = 0; i < dataForMonth.length; i++) {
+      if (i < tablewords.length) {
+        tablewords[i].innerHTML = dataForMonth[i][0]; // 단어 설정
+      }
+      if (i < tablepercents.length) {
+        tablepercents[i].innerHTML = `${dataForMonth[i][1][0]}`; // 비율 설정
+      }
+      if (i < pnimgs.length) {
+        if (dataForMonth[i][1][1] === "P") {
+          pnimgs[i].src = "/static/images/imgfolder/positive.svg";
+          pnimgs[i].alt = "positive";
+        } else if (dataForMonth[i][1][1] === "N") {
+          pnimgs[i].src = "/static/images/imgfolder/negative.svg";
+          pnimgs[i].alt = "negative";
+        }
+      }
+      words.push(dataForMonth[i][0]);
+      percentages.push(dataForMonth[i][1][0]);
     }
 
-    tableword.innerHTML = 단어;
-  })
-  .catch((error) => {
-    console.error("Error:", error);
-  });
-
-let tablep = document.getElementsByClassName("tablepercent");
-
-fetch(`/api/counselors`, {
-  method: "GET",
-  //   body: formData,
-})
-  .then((response) => response.json())
-  .then((data) => {
-    console.log("Success:", data);
-
-    let 비율 = data.counselor_name;
-
-    tablepercent.innerHTML = 비율;
+    // Chart.js 업데이트
+    updateChart(words, percentages);
   })
   .catch((error) => {
     console.error("Error:", error);

@@ -8,6 +8,7 @@ body {
   font-size: xx-large;
   color: #ff4673;
   display: flex;
+  font-family: "Ownglyph_ryurue-Rg";
 }
 
 .monthly {
@@ -51,29 +52,30 @@ body {
   left: 0px;
   z-index: 4;
   display: inline-flex;
+  font-family: "Ownglyph_ryurue-Rg";
 }
 
 .pictures1 {
   /* display: inline-flex; */
   position: relative;
   z-index: 10;
-  background-color: #ff4673;
+  /* background-color: #ff4673; */
   width: 300px;
   height: 150px;
   position: absolute;
-  top: 400px;
-  left: 150px;
+  top: 370px;
+  left: 130px;
 }
 
 .pictures2 {
   /* display: inline-flex; */
   position: relative;
   z-index: 10;
-  background-color: #ff4673;
+  /* background-color: #ff4673; */
   width: 300px;
   height: 150px;
   position: absolute;
-  top: 120px;
+  top: 90px;
   left: 250px;
 }
 
@@ -81,7 +83,7 @@ body {
   /* display: inline-flex; */
   position: relative;
   z-index: 10;
-  background-color: #ff4673;
+  /* background-color: #ff4673; */
   width: 300px;
   height: 150px;
   position: absolute;
@@ -141,24 +143,24 @@ body {
   height: 60px;
   position: absolute;
   z-index: 3;
-  top: 300px;
-  left: 700px;
+  top: 250px;
+  left: 610px;
 }
 .sign1 {
   width: 60px;
   height: 60px;
   position: absolute;
   z-index: 3;
-  top: 60px;
-  left: 400px;
+  top: 380px;
+  left: 700px;
 }
 .sign2 {
   width: 60px;
   height: 60px;
   position: absolute;
   z-index: 3;
-  top: 270px;
-  left: 300px;
+  top: 515px;
+  left: 480px;
 }
 .beantree {
   display: inline;
@@ -166,8 +168,8 @@ body {
 }
 
 .word_style {
-  font-family: "pretendard";
-  font-size: 20px;
+  font-family: "Ownglyph_ryurue-Rg";
+  font-size: 40px;
   font-weight: 700;
   position: relative;
 }
