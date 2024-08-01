@@ -103,20 +103,34 @@ async def counselor_detailed(request: Request, user_id: str = Cookie(None)):
 
 #내가 추가한 라우트
 
-@router.get("/main/ari_talk", response_class=HTMLResponse)
-async def ari_talk(request: Request, username: str = Cookie(None)):
-    if not isLogined(username):
+@router.get("/ari_talk", response_class=HTMLResponse)
+async def ari_talk(request: Request, user_id: str = Cookie(None)):
+    if not isLogined(user_id):
         return RedirectResponse(url="/")
 
     return templates.TemplateResponse(
-        "main2.html", {"request": request, "username": username}
+        "main2.html", {"request": request, "user_id": user_id}
     )
 
-@router.get("/main/diary", response_class=HTMLResponse)
-async def diary(request: Request, username: str = Cookie(None)):
-    if not isLogined(username):
+@router.get("/diary", response_class=HTMLResponse)
+async def diary(request: Request, user_id: str = Cookie(None)):
+    if not isLogined(user_id):
         return RedirectResponse(url="/")
 
     return templates.TemplateResponse(
-        "main3.html", {"request": request, "username": username}
+        "main3.html", {"request": request, "user_id": user_id}
+    )
+
+@router.get("/iframe_talk", response_class=HTMLResponse)
+async def iframeTalk(request: Request, user_id: str = Cookie(None)):
+
+    return templates.TemplateResponse(
+        "iframe_talk.html", {"request": request, "user_id": user_id}
+    )
+
+@router.get("/diary_sheet", response_class=HTMLResponse)
+async def DiarySheet(request: Request, user_id: str = Cookie(None)):
+
+    return templates.TemplateResponse(
+        "diary_sheet.html", {"request": request, "user_id": user_id}
     )

@@ -29,7 +29,7 @@
 
   <body>
     <header>
-      <div id="logo_img">
+      <div id="logo_img" onclick ="window.location.href='/main'">
         <img
           id="header_logo_img"
           src="{{ url_for('static', path ='images/main_img/ari_log.svg')}}"
@@ -102,7 +102,7 @@
           src="{{ url_for('static', path ='images/main_img/ari_talk_logo.svg')}}"
           alt="loading.."
         />
-      <button id = "lets_talk_ari">아리와 대화할래</button>
+      <button id = "lets_talk_ari" onclick ="window.location.href='/ari_talk'">아리와 대화할래</button>
       </div>
 
       <div class="button-seprator">
@@ -121,11 +121,11 @@
           src="{{ url_for('static', path ='images/main_img/diary.svg')}}"
           alt="loading.."
         />
-        <button class="writing"> 일기 쓸래 </button>
+        <button class="writing" onclick ="window.location.href='/diary'"> 일기 쓸래 </button>
       </div>
     </div>
 
-  <div class="talk_ari_method">
+  <!-- <div class="talk_ari_method">
     <div class="how_to_talk_ari">
       <img
       id="mic"
@@ -140,12 +140,6 @@
       alt="loading.."
     />
     </div>
-  </div>
-
-
-
-
-
-
+  </div> -->
   </body>
 </html>

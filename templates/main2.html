@@ -22,7 +22,7 @@
 </head>
 <body>
     <header>
-        <div id="logo_img">
+        <div id="logo_img" onclick ="window.location.href='/main'">
           <img
             id="header_logo_img"
             src="{{ url_for('static', path ='images/main_img/ari_log.svg')}}"
@@ -48,20 +48,20 @@
         </div>
       </div>
 
+
+
+  <div class ="frame_zone">
       <div class="wrapper">
-        <div class ="talk_ari_button">아리와 대화하기 </div>
-        <div class="diary_button">일기 쓰기</div>
+        <div class ="talk_ari_button" onclick ="window.location.href='/ari_talk'">아리와 대화하기 </div>
+        <div class="diary_button" onclick ="window.location.href='/diary'">일기 쓰기</div>
       </div>
 
-
-
-
-
-      <div class ="iframe_talk">
-      <iframe src="https://www.youtube.com/embed/Rrf8uQFvICE" width="300px", height=200px>
-        <p>사용 중인 브라우저는 iframe을 지원하지 않습니다.</p>>
+     <div class ="iframe_talk">
+      <iframe src='/iframe_talk'>
+        <p>사용 중인 브라우저는 iframe을 지원하지 않습니다.</p>
       </iframe>
-      </div>
+    </div>
+  </div>
 </div>
 
 <div class="talk_ari_method">

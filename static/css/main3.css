@@ -1,4 +1,4 @@
-  #header_logo_img {
+#header_logo_img {
     width: 34px;
     height: 34px;
   }
@@ -124,27 +124,8 @@ iframe{
     gap:70px;
     padding: 10px;
     z-index: 3;
-    
 }
 .talk_ari_button{
-   color:#ffffff;
-    width: 100px;
-    height: fit-content;
-    background-color: #FF4545;
-    border-radius: 30rem;
-    text-wrap: nowrap;
-    padding:20px;
-    white-space: nowrap;
-    display: inline;
-    border: solid 1px #FF4545;
-    box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-    
-    
-    
-}
-.diary_button{
-
     width: 100px;
     height: fit-content;
     background-color: #EFEFE9;
@@ -152,12 +133,29 @@ iframe{
     text-wrap: nowrap;
     padding:20px;
     white-space: nowrap;
-    display: flex;
-    justify-content: center;
+    display: inline;
     border: solid 1px black;
-    
+    box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     
+    
+}
+.diary_button{
+
+    width: 100px;
+    height: fit-content;
+    background-color: #FF4545;
+    border-radius: 30rem;
+    text-wrap: nowrap;
+    padding:20px;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    border: solid 1px #FF4545;
+    color:#ffffff;
+    cursor: pointer;
+    
+
 }
 
 
