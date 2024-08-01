@@ -1,20 +1,22 @@
-// Position coordinates for displaying the words
+// ********************************************** 변수 설정 ******************************************************* //
+
+// 단어 위치
 let leaf = [
-  [380, 400],
-  [300, 420],
-  [280, 460],
-  [200, 480],
-  [750, 250],
-  [750, 200],
-  [740, 230],
-  [760, 200],
+  [20, 10],
+  [90, 10],
+  [40, 10],
+  [70, 10],
+  [100, 10],
+  [20, 10],
+  [20, 10],
+  [20, 10],
 ];
 
-// Coordinates for displaying the months
+// 월 표시 사인위치
 let signwhere = [
-  [503, 45],
-  [740, 225],
-  [391, 410],
+  [625, 187],
+  [715, 316],
+  [494, 450],
 ];
 
 let monthdata = {
@@ -32,12 +34,17 @@ let monthdata = {
   12: ["12월"],
 };
 
-// Calculate the recent three months
+let leaf1 = document.getElementsByClassName("pictures1")[0];
+let leaf2 = document.getElementsByClassName("pictures2")[0];
+let leaf3 = document.getElementsByClassName("pictures3")[0];
+
+let leafs = [leaf1, leaf2, leaf3];
+
+// 팻말 월 가져오기 (최근 3달)
 let today = new Date();
 let currentMonth = today.getMonth() + 1; // getMonth() is 0-based, so add 1
 let recentMonths = [];
-
-// Calculate recent 3 months
+let ariname = document.getElementsByClassName("abcde")[0];
 for (let i = 0; i < 3; i++) {
   let month = currentMonth - i;
   if (month <= 0) {
@@ -46,49 +53,60 @@ for (let i = 0; i < 3; i++) {
   recentMonths.push(month);
 }
 
-fetch(`/api/monthreport_by_user`, {
+// ********************************************************************************************************************* //
+
+// 사람 이름 가져오기
+fetch(`/api/user`, {
+  method: "GET",
+})
+  .then((response) => response.json())
+  .then((data) => {
+    ariname.innerHTML = data.username;
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  });
+
+// 긍정 부정 단어 월별 가져오기
+fetch(`/api/report/jack`, {
   method: "GET",
 })
   .then((response) => response.json())
   .then((data) => {
     console.log("Success:", data);
 
-    let picture = document.getElementsByClassName("pictures")[0];
-    let index = 0;
+    // 이파리에 단어 채워주기(근데 위치는 아직 지정안함)
+    for (let month = 6; month <= 8; month++) {
+      let month_result = data[month];
 
-    // Process positive words
-    if (data[7] && data[7].Positive) {
-      let positiveWords = data[7].Positive;
-      for (let word of positiveWords) {
-        let div = document.createElement("div");
-        div.innerText = word;
-        div.style.color = "blue";
+      let negatives = month_result.Negative;
+      let positives = month_result.Positive;
 
-        if (index < leaf.length) {
-          let x = leaf[index][0];
-          let y = leaf[index][1];
-          div.style.transform = `translate(${x}px, ${y}px)`;
-          index++;
-        }
-        picture.appendChild(div);
+      // 기존 div 요소들 제거
+      while (leafs[month - 6].firstChild) {
+        leafs[month - 6].removeChild(leafs[month - 6].firstChild);
       }
-    }
 
-    // Process negative words
-    if (data[7] && data[7].Negative) {
-      let negativeWords = data[7].Negative;
-      for (let word of negativeWords) {
+      for (let i = 0; i < negatives.length && i < leaf.length; i++) {
+        let word = negatives[i];
+
         let div = document.createElement("div");
         div.innerText = word;
         div.style.color = "red";
+        div.className = "word_style";
+        div.style.transform = `translate(${leaf[i][0]}px, ${leaf[i][1]}px)`;
+        leafs[month - 6].appendChild(div);
+      }
 
-        if (index < leaf.length) {
-          let x = leaf[index][0];
-          let y = leaf[index][1];
-          div.style.transform = `translate(${x}px, ${y}px)`;
-          index++;
-        }
-        picture.appendChild(div);
+      for (let i = 0; i < positives.length && i < leaf.length; i++) {
+        let word = positives[i];
+
+        let div = document.createElement("div");
+        div.innerText = word;
+        div.style.color = "blue";
+        div.className = "word_style";
+        div.style.transform = `translate(${leaf[i][0]}px, ${leaf[i][1]}px)`;
+        leafs[month - 6].appendChild(div);
       }
     }
 
@@ -106,7 +124,11 @@ fetch(`/api/monthreport_by_user`, {
         signdiv.style.transform = `translate(${x}px, ${y}px)`;
         signindex++;
       }
-      signdiv.style.color = "black";
+      signdiv.style.color = "#ffc85d";
+      signdiv.style.fontFamily = "Ownglyph_ryurue-Rg";
+      signdiv.style.fontSize = "30px";
+      signdiv.style.position = "absolute";
+      signdiv.style.width = "70px";
       monthsigns.appendChild(signdiv);
     }
   })
