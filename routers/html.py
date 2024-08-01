@@ -132,10 +132,3 @@ async def iframeTalk(request: Request, user_id: str = Cookie(None)):
     return templates.TemplateResponse(
         "iframe_talk.html", {"request": request, "user_id": user_id}
     )
-
-@router.get("/diary_sheet", response_class=HTMLResponse)
-async def DiarySheet(request: Request, user_id: str = Cookie(None)):
-
-    return templates.TemplateResponse(
-        "diary_sheet.html", {"request": request, "user_id": user_id}
-    )
