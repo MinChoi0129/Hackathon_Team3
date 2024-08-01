@@ -17,7 +17,9 @@
     />
 
     <!-------------------------------------------------------------------------->
-
+    <script>
+      var payment_id = `{{ payment_id | tojson }}`;
+    </script>
     <!-- Javascript 연결 -->
     <script
       src="{{ url_for('static', path='javascript/payment_over.js') }}"
@@ -82,7 +84,7 @@
           <p class="black_info">김상담</p>
         </div>
         <div class="info_div">
-          <p class="gray_info">기간</p>
+          <p class="gray_info">일자</p>
           <p class="black_info">2024년 07월 10일 ~ 2025년 07월 09일 (365일)</p>
         </div>
         <div class="info_div">

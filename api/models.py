@@ -81,6 +81,7 @@ class Payment(Base):
     is_used = Column(Boolean)  # 상담 완료 여부
     when_paid = Column(Date)  # 결제 일시
     paid_price = Column(Integer)  # 결제 금액
+    pay_type = Column(Integer)  # 결제 수단(카페, 네페, 토페)
 
     user = relationship("User", back_populates="payments")
 
