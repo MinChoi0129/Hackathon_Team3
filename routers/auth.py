@@ -3,10 +3,18 @@ from fastapi.responses import RedirectResponse
 from api.models import User
 from config.database import get_db
 from sqlalchemy.orm import Session
-import re
+import re, datetime
 
 
-router = APIRouter(tags=["로그인/로그아웃/회원탈퇴"])
+router = APIRouter(tags=["로그인/로그아웃/유저 관련"])
+
+
+@router.get("/api/user")
+async def get_user_information(
+    user_id: int = Cookie(None), db: Session = Depends(get_db)
+):
+    user = db.query(User).filter(User.id == user_id).first()
+    return user
 
 
 @router.post("/api/login")
@@ -34,7 +42,15 @@ async def login(
 
     if not user:  # 신규유저
         print("신규 유저")
-        new_user = User(username=username, phonenumber=phonenumber, pincode=PINCode)
+        new_user = User(
+            username=username,
+            phonenumber=phonenumber,
+            pincode=PINCode,
+            age=23,
+            job="대학생",
+            goal="정신 건강 짱짱한 사람 되기!",
+            signup_date=datetime.datetime.now(),
+        )
         db.add(new_user)
         db.commit()
         db.refresh(new_user)

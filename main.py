@@ -1,3 +1,4 @@
+import uvicorn
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from routers import Gemini, auth, payment, html, conversation, diary, counselor
@@ -19,3 +20,10 @@ app.include_router(conversation.router)
 app.include_router(payment.router)
 app.include_router(Gemini.router)
 app.include_router(html.router)
+
+# HOST와 PORT 설정
+HOST = "127.0.0.1"
+PORT = 8000
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", host=HOST, port=PORT, reload=True)

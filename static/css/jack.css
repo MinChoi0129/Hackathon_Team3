@@ -96,6 +96,11 @@ a {
 #header_logo_img {
   width: 34px;
   height: 34px;
+  display: flex;
+  position: absolute;
+  top: 30px;
+  left: 45px;
+  cursor: pointer;
 }
 html,
 body {

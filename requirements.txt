@@ -4,3 +4,5 @@ uvicorn[standard]
 sqlalchemy
 alembic
 google-generativeai
+grpcio==1.48.2
+grpcio-status
