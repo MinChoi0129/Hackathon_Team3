@@ -13,7 +13,9 @@
     overflow:hidden; 
   }
 .element{
+    position: relative;
     display: flex;
+    
 }
   .ari_image {
     width: 750px;
@@ -43,6 +45,11 @@
     display: flex;
   }
   
+#diary_bubble{
+  display: relative;
+  
+}
+
   .talk_ari_method{
     position: relative;
     left:39px;
@@ -80,7 +87,7 @@
 
   .frame_zone{
     position: absolute;
-    top:10px;
+    top: 7vh;
     right: 140px;
     width: fit-content; 
     height: fit-content;
@@ -99,19 +106,15 @@
     height: fit-content;
     display: inline-block;
     right:110px;
-    top:110px;
+    top:100px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
  
 }
-iframe{
-    position: relative;
-    top: 10px;
-    display: inline-block;
-    width: 450px;
-    height: 630px;
-    /* 450px; 600px; */
-    background-color:transparent;
-    
-}
+
 .wrapper{
     margin: 0 auto;
     text-align: center;
@@ -191,3 +194,41 @@ iframe{
     width:18px;
     height: auto;
   }
+
+
+/*  */
+.diary_sheet{
+  position: relative;
+  display: flex;
+  justify-content: center;
+}    
+#yello_sheet{
+  display: flex;
+  width: 450px;
+  height: auto;
+
+}
+.button{
+  display: flex;
+  width: fit-content; 
+  font-size: 13px;
+  background-color: #FF4545;
+  border-radius: 10rem;
+  padding-top: 10px;
+  padding-bottom: 8px;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center;
+  box-shadow: 2px 6px 6px rgba(0, 0, 0, 0.3);
+  text-wrap: nowrap;
+  font-weight: 600;
+}
+.content{
+  width: 370px;
+  height: 370px;
+  position: absolute;
+  top:90px;
+  display: flex;
+  overflow-y: scroll; 
+  
+}
