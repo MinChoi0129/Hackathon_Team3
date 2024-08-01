@@ -3,7 +3,7 @@ from fastapi.responses import RedirectResponse
 from api.models import User
 from config.database import get_db
 from sqlalchemy.orm import Session
-import re
+import re, datetime
 
 
 router = APIRouter(tags=["로그인/로그아웃/유저 관련"])
@@ -49,6 +49,7 @@ async def login(
             age=23,
             job="대학생",
             goal="정신 건강 짱짱한 사람 되기!",
+            signup_date=datetime.datetime.now(),
         )
         db.add(new_user)
         db.commit()
