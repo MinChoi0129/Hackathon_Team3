@@ -39,7 +39,7 @@ fetch(`/api/counselors/`, {
       // 상담사 별점 그림
       for (let j = 0; j < Math.floor(counselor.star_ratio); j++) {
         let star_img = document.createElement("img") // img 태그를 생성할게요~~~ 변수명은 star_img
-        star_img.src = "/static/images/로고2svg.svg" // img 태그에 'src' 속성 추가
+        star_img.src = "{{ url_for('static', path ='images/로고2svg.svg')}}" // img 태그에 'src' 속성 추가
         stars[i].appendChild(star_img) // 별점 그림을 넣을 '횟수'를 정하는 메소드
                                        // 생성된 태그를 도큐먼트에 연결
       }
