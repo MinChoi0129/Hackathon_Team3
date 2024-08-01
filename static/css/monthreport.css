@@ -122,6 +122,9 @@ header {
 .item:hover {
   color: transparent; /* 텍스트 색상을 투명하게 설정 */
 }
+#my_page{
+  position:relative;
+}
 #my_page:hover::after {
   content: "";
   display: block;
@@ -138,6 +141,7 @@ header {
     -50%,
     -50%
   ); /* 중앙으로부터 이동하여 정확히 중앙에 위치 */
+  cursor: pointer; 
 }
 #counselor:hover:after {
   content: "";
@@ -152,6 +156,7 @@ header {
   top: 50px; /* 수직 중앙 정렬 */
   left: 50%; /* 수평 중앙 정렬 */
   transform: translate(-50%, -50%); /* 중앙 정렬을 위한 변환 */
+  cursor: pointer;
 }
 #record:hover::after {
   content: "";
@@ -169,6 +174,7 @@ header {
     -50%,
     -50%
   ); /* 중앙으로부터 이동하여 정확히 중앙에 위치 */
+  cursor: pointer;
 }
 .solution {
   display: inline;

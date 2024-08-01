@@ -23,25 +23,23 @@
   <body>
     <header>
       <div class="header">
-        <div id="menu_img">
-          <a href="{{ url_for('main') }}"
-            ><img
+        <div id="menu_img" onclick ="window.location.href='/main'">
+            <img
               id="header_logo_img"
               src="{{ url_for('static', path ='images/main_img/ari_log.svg')}}"
               alt="ari_logo"
-          /></a>
+          />
         </div>
         <div class="menu_bar">
           <div class="menu">
-            <span class="item" id="my_page">
-              <a href="{{ url_for('my_page') }}"></a>마이 페이지</span
+            <span class="item" id="my_page" onclick="window.location.href='/my_page'">
+            마이 페이지</span
             >
-            <span class="item" id="counselor"
-              ><a href="{{ url_for('counselors_list') }}"></a>상담사 목록</span
+            <span class="item" id="counselor" onclick="window.location.href='/counselors_list'"
+              >상담사 목록</span
             >
-            <span class="item" id="record"
-              ><a href="{{ url_for('jack') }}">앓이 기록</a></span
-            >
+            <span class="item" id="record" onclick="window.location.href='/monthreport'"
+              >앓이 기록</span>
           </div>
         </div>
       </div>

@@ -1,0 +1,27 @@
+body{
+    width: 450px;
+    height: 630px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#yello_sheet{
+    display: flex;
+    width: 450px;
+    height: auto;
+
+}
+.button{
+    display: flex;
+    width: fit-content; 
+    font-size: 13px;
+    background-color: #FF4545;
+    border-radius: 10rem;
+    padding:5px;
+    text-align: center;
+    box-shadow: 2px 6px 6px rgba(0, 0, 0, 0.3);
+    text-wrap: nowrap;
+}

@@ -1,0 +1,195 @@
+  #header_logo_img {
+    width: 34px;
+    height: 34px;
+  }
+  #logo_img {
+    display: flex;
+    position: absolute;
+    top: 30px;
+    left: 45px;
+  }
+  body {
+    background-color: #fffeea;
+    overflow:hidden; 
+  }
+.element{
+    display: flex;
+}
+  .ari_image {
+    width: 750px;
+    height: auto;
+    display: block;
+    position: relative;
+    transform: translate(-80%, -4%);
+    z-index: 2;
+    top : 70px;
+    right :45px;
+
+  }
+  .eclipse {
+    height: 430px;
+    width: auto;
+    display: block;
+    position: relative;
+    z-index: 1;
+    top: 30px;
+    left:100px;
+  }
+  
+  .background {
+    position: relative;
+    top: 33px;
+    left: 155px;
+    display: flex;
+  }
+  
+  .talk_ari_method{
+    position: relative;
+    left:39px;
+    bottom:320px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 28px;
+  
+  }
+  .how_to_talk_ari{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 200px;
+    width:55px;
+    height:55px;
+    background-color: #F3B8AB;
+    border-radius: 50%;
+    box-shadow: 2px 6px 6px rgba(0, 0, 0, 0.3);
+  
+  }
+  #cam{
+    width: 27px;
+    height: auto;
+  }
+  #mic{
+    width:18px;
+    height: auto;
+  }
+
+
+
+
+  .frame_zone{
+    position: absolute;
+    top:10px;
+    right: 140px;
+    width: fit-content; 
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: inline-block; /* 이 줄을 추가하여 자식 요소를 감쌀 수 있게 함 */
+    width: fit-content;
+    align-self: flex-start; /
+   
+  }
+  
+
+.iframe_talk{
+    width: fit-content;
+    height: fit-content;
+    display: inline-block;
+    right:110px;
+    top:110px;
+ 
+}
+iframe{
+    position: relative;
+    top: 10px;
+    display: inline-block;
+    width: 450px;
+    height: 630px;
+    /* 450px; 600px; */
+    background-color:transparent;
+    
+}
+.wrapper{
+    margin: 0 auto;
+    text-align: center;
+    width:fit-content;
+    top: 20px;
+    right: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap:70px;
+    padding: 10px;
+    z-index: 3;
+    
+}
+.talk_ari_button{
+   color:#ffffff;
+    width: 100px;
+    height: fit-content;
+    background-color: #FF4545;
+    border-radius: 30rem;
+    text-wrap: nowrap;
+    padding:20px;
+    white-space: nowrap;
+    display: inline;
+    border: solid 1px #FF4545;
+    box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    
+    
+    
+}
+.diary_button{
+
+    width: 100px;
+    height: fit-content;
+    background-color: #EFEFE9;
+    border-radius: 30rem;
+    text-wrap: nowrap;
+    padding:20px;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    border: solid 1px black;
+    
+    cursor: pointer;
+    
+}
+
+
+.talk_ari_method{
+    
+    position: relative;
+    left:39px;
+    bottom:320px;
+    display:inline-flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 28px;
+  
+    
+  }
+  .how_to_talk_ari{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:55px;
+    height:55px;
+    background-color: #F3B8AB;
+    border-radius: 50%;
+    box-shadow: 2px 6px 6px rgba(0, 0, 0, 0.3);
+  
+  }
+  #cam{
+    width: 27px;
+    height: auto;
+  }
+  #mic{
+    width:18px;
+    height: auto;
+  }

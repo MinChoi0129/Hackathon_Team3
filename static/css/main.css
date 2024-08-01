@@ -1,3 +1,8 @@
+button{
+  background: inherit ; border:none; box-shadow:none; border-radius:0; padding:0; overflow:visible; cursor:pointer;
+  font-size: 15px;
+} 
+
 #header_logo_img {
   width: 34px;
   height: 34px;
@@ -7,9 +12,11 @@
   position: absolute;
   top: 30px;
   left: 45px;
+  cursor: pointer;
 }
 body {
   background-color: #fffeea;
+  overflow:hidden;
 }
 .menu {
   position: absolute;
@@ -67,7 +74,7 @@ body {
 
 .background {
   position: relative;
-  top: 55px;
+  top: 33px;
   left: 155px;
   display: flex;
 }
@@ -93,16 +100,98 @@ a {
 }
 .wrapper {
   display: flex;
-  width: 500px;
+  width: fit-content;
   height: auto;
-  padding: 10px;
+  position: absolute;
+  left:845px;
+  bottom: 74px;
+  padding: 10px 23px 10px 19px;
   justify-content: center;
   align-items: center;
-
   background-color: #ffc85d;
   border-radius: 10rem;
+  box-shadow: 4px 6px 7px rgba(0, 0, 0, 0.3);
+  z-index: 4;
 }
 .left,
 .right {
   display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  flex-basis: 0;
+  transition: 0.3s;
+}
+#talk_ari{
+  padding:9px;
+}
+#lets_talk_ari{
+  display: inline;
+  width: fit-content;
+  height: fit-content;
+  white-space: nowrap;
+  cursor: pointer; 
+}
+
+#diary{
+  padding:15px;
+}
+.writing{
+  display: inline;
+  height: fit-content;
+  padding-right: 3px;
+  cursor: pointer; 
+}
+.left{
+  width:fit-content;
+  display:flex;
+  align-items: center;
+  position:relative;
+  font-size: 18px;
+  padding:10px; 
+  padding-right: 28px;
+}
+.right{
+
+  display:flex;
+  align-items: center;
+  position: relative;
+  font-size: 18px;
+  padding:10px;
+  padding-left: 17px;
+}
+#seprator{
+  
+  display: flex;
+  height: 40px;
+
+}
+.talk_ari_method{
+  position: relative;
+  left:39px;
+  bottom:320px;
+  display:inline-flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 28px;
+
+}
+.how_to_talk_ari{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:55px;
+  height:55px;
+  background-color: #F3B8AB;
+  border-radius: 50%;
+  box-shadow: 2px 6px 6px rgba(0, 0, 0, 0.3);
+
+}
+#cam{
+  width: 27px;
+  height: auto;
+}
+#mic{
+  width:18px;
+  height: auto;
 }
