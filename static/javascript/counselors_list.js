@@ -64,7 +64,7 @@ fetch(`/api/counselors/`, {
       let split_hashtags = counselor.hash_tags.split(" "); // 해시태그 문자열을 공백을 기준으로 나눔
       for (let k = 0; k < split_hashtags.length; k++) { // 나눠진 조각 수만큼 반복
         let phstg = document.createElement("span"); // span 태그 생성
-        let hashtag_text = document.createTextNode(split_hashtags[k] + " "); // 각 해시태그에 대한 텍스트 노드 생성
+        let hashtag_text = document.createTextNode(split_hashtags[k].trim() + " "); // 각 해시태그에 대한 텍스트 노드 생성
         phstg.appendChild(hashtag_text); // 텍스트 노드를 span 요소에 추가
         hashtags[i].appendChild(phstg); // 생성된 span 요소를 부모 요소에 추가
       }
