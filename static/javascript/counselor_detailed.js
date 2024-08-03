@@ -13,8 +13,8 @@ let meths = document.getElementsByClassName("method"); // 상담 방법 바꾸�
 let summari = document.getElementsByClassName("detailed-review")[0]; //gemini 요약
 let rvid = document.getElementsByClassName("reviewer-id"); //후기 쓴 사람 아이디 바꾸기
 let fdbtxt = document.getElementsByClassName("feedback-text"); // 후기 내용 바꾸기
-let price = document.getElementsByClassName("session")[0]
-let li = document.getElementsByClassName("li")[0]
+let price = document.getElementsByClassName("session")[0];
+let li = document.getElementsByClassName("li")[0];
 
 fetch(`/api/counselors/${counselor_id}`, {
   method: "GET",
@@ -62,34 +62,31 @@ fetch(`/api/counselors/${counselor_id}`, {
       hashtags.appendChild(phstg); // 생성된 span 요소를 부모 요소에 추가
     }
 
-
-      //가격 
+    //가격
     // P 태그 생성 후 변수 할당 > 그 안에 "30분 세션: " + counsel_price 집어넣기
     // documentget에 연결된 해당 변수에 innerhttp
-    let priceP = document.createElement("p")
-    priceP.innerHTML = "30분 세션: " + data.counsel_price  + "원"
+    let priceP = document.createElement("p");
+    priceP.innerHTML = "30분 세션: " + data.counsel_price + "원";
     price.innerHTML = ""; // 기존의 내용을 지우고
     price.appendChild(priceP); // 새로운 내용을 추가합니다.
- 
+
     // 상담사 상담 방법
     let split_methods = data.counsel_info.split("\n⦁"); // 문자열을 공백을 기준으로 나눔
     split_methods.shift();
     for (let k = 0; k < split_methods.length; k++) {
       // 나눠진 조각 수만큼 반복
       let methss = document.createElement("p"); // p 태그 생성
-      let meths_text = document.createTextNode(
-        split_methods[k].trim() + " "
-      ); // 각 해시태그에 대한 텍스트 노드 생성
+      let meths_text = document.createTextNode(split_methods[k].trim() + " "); // 각 해시태그에 대한 텍스트 노드 생성
       methss.appendChild(meths_text); // 텍스트 노드를 span 요소에 추가
       meths[k].appendChild(methss); // 생성된 span 요소를 부모 요소에 추가
     }
     // 상담사 경력
-    li.innerHTML = ""
+    li.innerHTML = "";
     let split_history = data.counselor_history.split("\n✔");
     split_history.shift(); // 첫 번째 요소 제거
     for (let h = 0; h < split_history.length; h++) {
       // 나눠진 조각 수만큼 반복
-      let history_li = document.createElement('li'); // li 태그 생성
+      let history_li = document.createElement("li"); // li 태그 생성
       let history_li_text = document.createTextNode(
         "✔ " + split_history[h].trim()
       ); // 각 항목에 대한 텍스트 노드 생성
@@ -98,7 +95,7 @@ fetch(`/api/counselors/${counselor_id}`, {
     }
   })
 
-    // li.innerHTML= data.counselor_history
+  // li.innerHTML= data.counselor_history
 
   // })
   .catch((error) => {
