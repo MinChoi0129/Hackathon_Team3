@@ -25,6 +25,7 @@ startButton.addEventListener("click", () => {
 });
 
 recognition.onend = function () {
+  if (texts == "") return;
   addMessage(texts, "sent-message");
   const formData1 = new FormData(); // post 보내는 방식은 formdata
   formData1.append("user_message", texts);
@@ -55,7 +56,6 @@ recognition.onresult = function (e) {
 // 채팅으로 칠 때 나오는 부분
 let chatWindow = document.getElementById("chat-window");
 let chatInput = document.getElementById("chat-input");
-let message = chatInput.value;
 let send = document.getElementById("send-button");
 
 function addMessage(text, className) {
@@ -67,10 +67,10 @@ function addMessage(text, className) {
 }
 
 function typeMessage() {
-  if (message.trim() !== "") {
-    addMessage(message, "sent-message");
+  if (chatInput.value.trim() !== "") {
+    addMessage(chatInput.value, "sent-message");
     const formData2 = new FormData(); // post 보내는 방식은 formdata
-    formData2.append("user_message", message);
+    formData2.append("user_message", chatInput.value);
     fetch(`/api/chat/`, {
       method: "post",
       body: formData2,
@@ -79,7 +79,7 @@ function typeMessage() {
       .then((response) => response.json())
       .then((data) => {
         console.log("Success:", data);
-        addMessage(data, "received-message");
+        addMessage(data.response, "received-message");
       })
       .catch((error) => {
         console.error("Error:", error);
