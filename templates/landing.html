@@ -42,8 +42,13 @@
       </div>
 
       <div class="right">
+        <img
+          style="transform: translate(-50%, 0)"
+          src="{{ url_for('static', path='images/ari_logo_login.svg') }}"
+          alt=""
+        />
         <div class="right_child">
-          <h1>아리에 오신것을 환영합니다!</h1>
+          <h1>아리의 숲에 오신것을 환영합니다!</h1>
           <form method="post" action="/api/login">
             <input
               type="text"

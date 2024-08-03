@@ -1,10 +1,10 @@
-window.SpeechRecognition =
-  window.SpeechRecognition || window.webkitSpeechRecognition;
-
 const recognition = new SpeechRecognition();
 recognition.interimResults = true;
 recognition.lang = "ko-KR";
+window.SpeechRecognition =
+  window.SpeechRecognition || window.webkitSpeechRecognition;
 
+// 시작 종료 버튼
 let p = null;
 let recognizing = false; // 음성 인식 상태를 추적하기 위한 변수
 
@@ -25,6 +25,8 @@ stopButton.addEventListener("click", () => {
   stopButton.disabled = true;
 });
 
+// 음성 인식
+
 recognition.onstart = function () {
   p = document.createElement("p");
   document.querySelector(".words").appendChild(p);
@@ -40,8 +42,6 @@ recognition.onresult = function (e) {
   const texts = Array.from(e.results)
     .map((results) => results[0].transcript)
     .join("");
-
-  texts.replace(/느낌표|강조|뿅/gi, "❗️");
 
   p.textContent = texts;
 };
