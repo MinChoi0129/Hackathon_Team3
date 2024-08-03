@@ -59,8 +59,8 @@ fetch(`/api/counselors/${current_counselor_id}`, {
     it.innerHTML = data.introduction;
 
     let picpth = document.createElement("img")
-    picpth.src = data.profile_img_path
-    picpath.appendChild(picpth)
+    picpth.src = data.profile_img_path + ".png" ;
+    picpath.appendChild(picpth) // 상담사 사진
 
     for (let j = 0; j < Math.floor(data.star_ratio); j++) {
       let star_img1 = document.createElement("img"); // img 태그를 생성할게요~~~ 변수명은 star_img

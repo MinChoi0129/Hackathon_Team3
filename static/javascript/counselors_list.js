@@ -42,7 +42,7 @@ fetch(`/api/counselors/`, {
       let counselor = data[i]; // counselor 배열에는 "각" 상담사 정보가 들어있음
 
       // 상담사 사진 
-      pics[i].src = counselor.profile_img_path // "src" 추가
+      pics[i].src = counselor.profile_img_path + ".png" // "src" 추가
       // 상담사 이름
       names[i].innerHTML = counselor.counselor_name // >< 안에 추가
       // 상담사 후기 갯수
