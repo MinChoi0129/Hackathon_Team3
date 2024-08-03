@@ -25,7 +25,7 @@ startButton.addEventListener("click", () => {
 });
 
 recognition.onend = function () {
-  if (texts == "") return;
+  if (texts.trim() == "") return;
   addMessage(texts, "sent-message");
   const formData1 = new FormData(); // post 보내는 방식은 formdata
   formData1.append("user_message", texts);
@@ -36,7 +36,8 @@ recognition.onend = function () {
     .then((response) => response.json())
     .then((data) => {
       console.log("Success:", data);
-      addMessage(data, "received-message");
+      addMessage(data.response, "received-message");
+      texts = "";
     })
     .catch((error) => {
       console.error("Error:", error);
