@@ -1,3 +1,14 @@
+ // 모든 "상세보기" 링크를 선택합니다.
+ const detailButtons = document.querySelectorAll('.details-btn');
+
+ // 각 링크에 대해 href 속성을 설정합니다.
+ detailButtons.forEach((button, index) => {
+     // 상담사 ID를 인덱스에 따라 설정합니다.
+     const counselorId = index + 1;
+     // href 속성을 설정합니다.
+     button.href = `/counselor_detailed/${counselorId}`;
+ });
+
 // Script for future functionalities, e.g., search filtering
 document.getElementById("search-input").addEventListener("input", function () {
   // Implement search functionality
@@ -39,7 +50,7 @@ fetch(`/api/counselors/`, {
       // 상담사 별점 그림
       for (let j = 0; j < Math.floor(counselor.star_ratio); j++) {
         let star_img = document.createElement("img") // img 태그를 생성할게요~~~ 변수명은 star_img
-        star_img.src = "{{ url_for('static', path ='images/로고2svg.svg')}}" // img 태그에 'src' 속성 추가
+        star_img.src = "/static/images/counselor/star.svg" // img 태그에 'src' 속성 추가
         stars[i].appendChild(star_img) // 별점 그림을 넣을 '횟수'를 정하는 메소드
                                        // 생성된 태그를 도큐먼트에 연결
       }

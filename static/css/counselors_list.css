@@ -133,9 +133,10 @@ h1 {
   gap: 5px;
 }
 
+
 .search-bar #search-input::placeholder {
   color: #b44b34;
-  text-indent: 2ch;
+  
 }
 
 .search-bar input {
@@ -144,11 +145,14 @@ h1 {
   font-size: 16px;
   border: 1px solid #e2bf8b;
   border-radius: 25px;
-
+  text-indent: 2ch;
 }
 
 .search-logo {
-  margin-left: 5px;
+  margin-left: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .sort-button-container {
@@ -246,7 +250,8 @@ h1 {
 .reviews {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
+  gap: 40px;
   margin: 10px 0;
   width: 100%; /* 추가된 코드: 전체 너비를 차지하도록 설정 */
 
@@ -292,7 +297,7 @@ h1 {
   font-weight: 600;
 }
 
-.details-btn {
+a.details-btn {
   background: #fffeea;
   color: #000000;
   opacity: 0.6;
@@ -304,8 +309,18 @@ h1 {
   margin: 10px auto 20px;
   width: 205px;
   height: 37;
+  font-weight: 500;
+  font-size: 14px
 }
 
-.details-btn:hover {
+a.details-btn:hover {
   background: #ffc85d;
+}
+
+a.details-btn:active {
+  background-color: #E2BF8B;
+}
+
+a.details-btn:visited {
+  color: #000000; /* 텍스트 색상 유지 */
 }

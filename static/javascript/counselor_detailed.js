@@ -1,6 +1,13 @@
+const reserveButton = document.querySelector(".btn-reserve");
+reserveButton.addEventListener("click", function() {
+  // 링크로 이동합니다.
+  window.location.href = targetLink;
+});
+
+
+// ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 console.log("정정현");
 
-let counselor_id = 1;
 
 let name_h1 = document.getElementsByTagName("h1")[0]; // 이름 바꾸기
 let rn = document.getElementsByClassName("review-number")[0]; // 후기 수 바꾸기
@@ -15,13 +22,16 @@ let rvid = document.getElementsByClassName("reviewer-id"); //후기 쓴 사람 �
 let fdbtxt = document.getElementsByClassName("feedback-text"); // 후기 내용 바꾸기
 let price = document.getElementsByClassName("session")[0]
 let li = document.getElementsByClassName("li")[0]
+let picpath = document.getElementsByClassName("counselorpicture")[0]
 
-fetch(`/api/counselors/${counselor_id}`, {
+fetch(`/api/counselors/${current_counselor_id}`, {
   method: "GET",
 })
   .then((response) => response.json())
   .then((data) => {
     console.log("Success:정현", data);
+
+    let counselor_id = data.id;
 
     let 상담사이름 = data.counselor_name;
     let 리뷰개수 = data.num_of_reviews;
@@ -29,14 +39,25 @@ fetch(`/api/counselors/${counselor_id}`, {
     let 상담사소개 = data.introduction;
 
     name_h1.innerHTML = data.counselor_name; // 상담사 이름
+    name_title = document.createElement("span")
+    name_title.className = "title"
+    name_title.innerHTML = "심리 상담사"
+    name_h1.appendChild(name_title)
     rn.innerHTML = data.num_of_reviews;
     it.innerHTML = data.introduction;
 
+    let picpth = document.createElement("img")
+    picpth.src = data.profile_img_path
+    picpath.appendChild(picpth)
+
     for (let j = 0; j < Math.floor(data.star_ratio); j++) {
-      let star_img = document.createElement("img"); // img 태그를 생성할게요~~~ 변수명은 star_img
-      star_img.src = "{{ url_for('static', path ='images/로고2svg.svg')}}"; // img 태그에 'src' 속성 추가
-      starsFirst.appendChild(star_img); // 별점 그림을 넣을 '횟수'를 정하는 메소드
-      starsSecond.appendChild(star_img); // 생성된 태그를 도큐먼트에 연결
+      let star_img1 = document.createElement("img"); // img 태그를 생성할게요~~~ 변수명은 star_img
+      star_img1.src = "/static/images/counselor/star.svg"; // img 태그에 'src' 속성 추가
+      let star_img2 = document.createElement("img"); // img 태그를 생성할게요~~~ 변수명은 star_img
+      star_img2.src = "/static/images/counselor/star.svg"; // img 태그에 'src' 속성 추가
+
+      starsFirst.appendChild(star_img1); // 별점 그림을 넣을 '횟수'를 정하는 메소드
+      starsSecond.appendChild(star_img2); // 생성된 태그를 도큐먼트에 연결
     }
 
     let star_span = document.createElement("span");
