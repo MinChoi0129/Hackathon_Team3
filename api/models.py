@@ -64,6 +64,13 @@ class Review(Base):
     id = Column(Integer, primary_key=True)
     review_text = Column(String, nullable=False)
     counselor_id = Column(Integer, ForeignKey("counselors.id"))
+    
+    # 추가
+    professionalism = Column(Integer, nullable=False)  # 전문성 (1-3)
+    willingness_to_reconsult = Column(Integer, nullable=False)  # 재상담 의사 (1-3)
+    personalized_feedback = Column(Integer, nullable=False)  # 개인 맞춤형 피드백 (1-3)
+    kindness = Column(Integer, nullable=False)  # 친절함 (1-3)
+    total_ratio = Column(Integer, nullable=False)
 
     # Relationships
     counselor = relationship("Counselor", back_populates="reviews")

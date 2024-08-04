@@ -82,7 +82,13 @@ async def read_counselors(db: Session = Depends(get_db)):
 
 @router.post("/api/reviews/{counselor_id}")
 async def create_review(
-    counselor_id: int, review_text: str = Form(...), db: Session = Depends(get_db)
+    counselor_id: int, 
+    review_text: str = Form(...), 
+    professionalism: int = Form(...),
+    willingness_to_reconsult: int = Form(...),
+    personalized_feedback: int = Form(...),
+    kindness: int = Form(...),
+    db: Session = Depends(get_db)
 ):
     db_review = Review(review_text=review_text, counselor_id=counselor_id)
     db.add(db_review)
