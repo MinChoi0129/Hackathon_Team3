@@ -21,7 +21,7 @@ document.getElementById("currentMonth").textContent = `${year}년 ${
 }`;
 
 // Chart.js 차트 업데이트 함수
-function updateChart(labels, data) {
+function updateChart(labels, data, colors) {
   const ctx = document.getElementById("myBarChart").getContext("2d");
   const myBarChart = new Chart(ctx, {
     type: "bar",
@@ -31,22 +31,8 @@ function updateChart(labels, data) {
         {
           label: "비율",
           data: data,
-          backgroundColor: [
-            "rgba(255, 99, 132, 0.2)",
-            "rgba(54, 162, 235, 0.2)",
-            "rgba(255, 206, 86, 0.2)",
-            "rgba(75, 192, 192, 0.2)",
-            "rgba(153, 102, 255, 0.2)",
-            "rgba(255, 159, 64, 0.2)",
-          ],
-          borderColor: [
-            "rgba(255, 99, 132, 1)",
-            "rgba(54, 162, 235, 1)",
-            "rgba(255, 206, 86, 1)",
-            "rgba(75, 192, 192, 1)",
-            "rgba(153, 102, 255, 1)",
-            "rgba(255, 159, 64, 1)",
-          ],
+          backgroundColor: colors.backgroundColor,
+          borderColor: colors.borderColor,
           borderWidth: 1,
         },
       ],
@@ -64,6 +50,15 @@ function updateChart(labels, data) {
       },
     },
   });
+
+  // 차트에 포커스 방지 및 백스페이스 키 입력 방지
+  document
+    .getElementById("myBarChart")
+    .addEventListener("keydown", function (e) {
+      if (e.key === "Backspace") {
+        e.preventDefault();
+      }
+    });
 }
 
 // 단어 및 비율 페치
@@ -85,6 +80,11 @@ fetch(`/api/report/month`, {
     const dataForMonth = data["6"]; // 예시로 6월 데이터를 사용
     const words = [];
     const percentages = [];
+    const colors = {
+      backgroundColor: [],
+      borderColor: [],
+    };
+
     for (let i = 0; i < dataForMonth.length; i++) {
       if (i < tablewords.length) {
         tablewords[i].innerHTML = dataForMonth[i][0]; // 단어 설정
@@ -96,9 +96,13 @@ fetch(`/api/report/month`, {
         if (dataForMonth[i][1][1] === "P") {
           pnimgs[i].src = "/static/images/imgfolder/positive.svg";
           pnimgs[i].alt = "positive";
+          colors.backgroundColor.push("rgba(54, 162, 235, 0.2)");
+          colors.borderColor.push("rgba(54, 162, 235, 1)");
         } else if (dataForMonth[i][1][1] === "N") {
           pnimgs[i].src = "/static/images/imgfolder/negative.svg";
           pnimgs[i].alt = "negative";
+          colors.backgroundColor.push("rgba(255, 99, 132, 0.2)");
+          colors.borderColor.push("rgba(255, 99, 132, 1)");
         }
       }
       words.push(dataForMonth[i][0]);
@@ -106,7 +110,7 @@ fetch(`/api/report/month`, {
     }
 
     // Chart.js 업데이트
-    updateChart(words, percentages);
+    updateChart(words, percentages, colors);
   })
   .catch((error) => {
     console.error("Error:", error);
