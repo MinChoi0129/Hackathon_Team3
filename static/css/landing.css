@@ -2,6 +2,10 @@ body {
   background-color: #fffeea;
 }
 
+#logo_img_forest {
+  width: 300px;
+}
+
 .left {
   width: 45%;
   float: left;
@@ -35,7 +39,8 @@ body {
     margin-top: -10vh;
   }
 }
-img {
+
+#character {
   position: relative;
   top: 25vh;
   left: 10%;
@@ -47,7 +52,8 @@ img {
 
 h1 {
   font-weight: 300;
-  font-size: 22px;
+  font-size: 30px;
+  margin: 8px;
 }
 
 input {
@@ -55,8 +61,8 @@ input {
   border-radius: 100px;
   margin-top: 2rem;
   border: none;
-  width: 293px;
-  height: 59px;
+  width: 250px;
+  height: 40px;
   font-size: 22px;
   text-align: center;
   color: rgb(0, 0, 0);
@@ -77,8 +83,8 @@ button {
   color: white;
   border: none;
   border-radius: 25px;
-  width: 112px;
-  height: 59px;
+  width: 100px;
+  height: 48px;
   margin-top: 4rem;
   font-weight: 700;
   font-size: 1.2rem;

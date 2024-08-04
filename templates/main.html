@@ -29,7 +29,7 @@
 
   <body>
     <header>
-      <div id="logo_img" onclick ="window.location.href='/main'">
+      <div id="logo_img" onclick="window.location.href='/main'">
         <img
           id="header_logo_img"
           src="{{ url_for('static', path ='images/main_img/ari_log.svg')}}"
@@ -66,6 +66,16 @@
         <div class="item">
           <a href="{{ url_for('jack') }}">앓이 기록</a>
         </div>
+        <br />
+        <br />
+        <div class="item">
+          <a
+            style="text-decoration: underline; color: #f7ac17"
+            href="{{ url_for('logout') }}"
+            onclick="() => {fetch('/api/logout')}"
+            >로그아웃</a
+          >
+        </div>
       </div>
     </div>
 
@@ -95,19 +105,20 @@
       />
     </div>
 
-    <div class="wrapper" >
+    <div class="wrapper">
       <div class="left">
-        <img 
+        <img
           id="talk_ari"
           src="{{ url_for('static', path ='images/main_img/ari_talk_logo.svg')}}"
           alt="loading.."
         />
-      <button id = "lets_talk_ari" onclick ="window.location.href='/ari_talk'">아리와 대화할래</button>
+        <button id="lets_talk_ari" onclick="window.location.href='/ari_talk'">
+          아리와 대화할래
+        </button>
       </div>
 
       <div class="button-seprator">
-
-        <img 
+        <img
           id="seprator"
           src="{{ url_for('static', path ='images/main_img/seprator.svg')}}"
           alt="loading.."
@@ -115,17 +126,18 @@
       </div>
 
       <div class="right">
-        
         <img
           id="diary"
           src="{{ url_for('static', path ='images/main_img/diary.svg')}}"
           alt="loading.."
         />
-        <button class="writing" onclick ="window.location.href='/diary'"> 일기 쓸래 </button>
+        <button class="writing" onclick="window.location.href='/diary'">
+          일기 쓸래
+        </button>
       </div>
     </div>
 
-  <!-- <div class="talk_ari_method">
+    <!-- <div class="talk_ari_method">
     <div class="how_to_talk_ari">
       <img
       id="mic"

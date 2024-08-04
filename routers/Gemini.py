@@ -190,7 +190,11 @@ async def chat(
         user_chats[user_id] = model.start_chat(history=[])
 
     chat: genai.ChatSession = user_chats[user_id]
-    response = chat.send_message(user_message)
+    response = chat.send_message(
+        "나의 말 : "
+        + user_message
+        + "대답 조건(이것을 대답에 섞지 말 것) : 대답할 때 너무 길게 대답하지말고, 문장마다 두번씩 엔터를 입력해줘. 귀여운 이모티콘도 함께 사용해줘. 너는 상담가 역할이야."
+    )
 
     if user_message == "exit_chat":
         conversation_string_list = [

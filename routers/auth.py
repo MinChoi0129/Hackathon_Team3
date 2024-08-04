@@ -84,7 +84,7 @@ async def login(
             return response
 
 
-@router.post("/api/logout")
+@router.get("/api/logout")
 async def logout(response: Response):
     response = RedirectResponse(url="/", status_code=302)
     response.delete_cookie(key="user_id")

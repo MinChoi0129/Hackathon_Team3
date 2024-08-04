@@ -132,6 +132,8 @@ async def diary(request: Request, user_id: str = Cookie(None)):
 
 @router.get("/iframe_talk", response_class=HTMLResponse)
 async def iframeTalk(request: Request, user_id: str = Cookie(None)):
+    if not isLogined(user_id):
+        return RedirectResponse(url="/")
 
     return templates.TemplateResponse(
         "iframe_talk.html", {"request": request, "user_id": user_id}

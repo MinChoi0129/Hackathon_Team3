@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', path='css/reset.css') }}"
+    />
     <!-- CSS 연결 -->
     <link
       rel="stylesheet"
@@ -61,10 +65,44 @@
           </div>
         </div>
 
-        <div class="iframe_talk">
+        <!-- <div class="iframe_talk">
           <iframe src="/iframe_talk">
             <p>사용 중인 브라우저는 iframe을 지원하지 않습니다.</p>
           </iframe>
+        </div> -->
+        <div class="chat-container">
+          <div class="chat-window" id="chat-window"></div>
+          <div class="send-elements">
+            <textarea
+              id="chat-input"
+              placeholder="아리와 대화해보세요!"
+            ></textarea>
+            <div class="sero">
+              <img
+                id="user_chat"
+                src="{{ url_for('static', path ='images/user_chat.svg')}}"
+                alt="loading.."
+              />
+              <button id="send-button">
+                <img
+                  id="send-icon"
+                  src="{{ url_for('static', path ='images/send_icon.svg')}}"
+                  alt="loading.."
+                />
+                보내기
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="talk_ari_method">
+          <div class="how_to_talk_ari">
+            <img
+              id="mic"
+              src="{{ url_for('static', path ='images/main_img/mic.svg')}}"
+              alt="loading.."
+            />
+          </div>
         </div>
       </div>
     </div>
