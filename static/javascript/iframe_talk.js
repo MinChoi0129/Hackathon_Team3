@@ -25,7 +25,7 @@ startButton.addEventListener("click", () => {
 });
 
 recognition.onend = function () {
-  if (texts.trim() == "") return;
+  if (texts.trim() == "") return; // 아무 말 안하면 자동 종료됨
   addMessage(texts, "sent-message");
   const formData1 = new FormData(); // post 보내는 방식은 formdata
   formData1.append("user_message", texts);
@@ -58,6 +58,7 @@ recognition.onresult = function (e) {
 let chatWindow = document.getElementById("chat-window");
 let chatInput = document.getElementById("chat-input");
 let send = document.getElementById("send-button");
+//chatInput.value값은 매번 바뀜.  미리 가져오면 안되기 때문에 여기 x
 
 function addMessage(text, className) {
   var chatWindow = document.getElementById("chat-window");
@@ -91,5 +92,3 @@ function typeMessage() {
 if (recognizing == false) {
   send.addEventListener("click", typeMessage);
 }
-
-//button click event 가 나오면 post 하는 함수 ?
