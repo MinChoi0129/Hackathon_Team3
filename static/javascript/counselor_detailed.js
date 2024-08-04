@@ -40,11 +40,10 @@ let li = document.getElementsByClassName("li")[0];
 let picpath = document.getElementsByClassName("counselorpicture")[0];
 let rn_2 = document.getElementsByClassName("feedback-review")[0];
 
-let p = document.getElementsByClassName("p")
-let f = document.getElementsByClassName("f")
-let r = document.getElementsByClassName("r")
-let k = document.getElementsByClassName("k")
-
+let p = document.getElementsByClassName("p");
+let f = document.getElementsByClassName("f");
+let r = document.getElementsByClassName("r");
+let k = document.getElementsByClassName("k");
 
 fetch(`/api/counselors/${current_counselor_id}`, {
   method: "GET",
@@ -117,8 +116,8 @@ fetch(`/api/counselors/${current_counselor_id}`, {
     price.appendChild(priceP); // 새로운 내용을 추가합니다.
 
     // 상담사 상담 방법
-    let split_methods = data.counsel_info.split("\n⦁"); // 문자열을 공백을 기준으로 나눔
-    split_methods.shift();
+    let split_methods = data.counsel_info.split("|||"); // 문자열을 공백을 기준으로 나눔
+    // split_methods.shift();
     for (let k = 0; k < 3; k++) {
       // 나눠진 조각 수만큼 반복
       let methss = document.createElement("p"); // p 태그 생성
@@ -294,20 +293,20 @@ fetch(`/api/reviews/${counselor_id}`, {
 
     const bars = document.querySelectorAll(".bar");
 
-
     // 텍스트 수정
-    p[0].innerHTML = "높아요 (" + p1 + ") " + Math.round(p3 / tlp), + "%"
-    p[1].innerHTML = "보통이에요 (" + p2 + ") " + Math.round(p2 / tlp), + "%"
-    p[2].innerHTML = "부족해요 (" + p3 + ") " + Math.round(p1 / tlp), + "%"
-    k[0].innerHTML = "친절해요 (" + k1 + ") " + Math.round(k3 / tlp), + "%"
-    k[1].innerHTML = "보통이에요 (" + k2 + ") " + Math.round(k2 / tlp), + "%"
-    k[2].innerHTML = "아쉬워요 (" + k3 + ") " + Math.round(k1 / tlp), + "%"
-    f[0].innerHTML = "도움이 되었어요 (" + f1 + ") " + Math.round(f3 / tlp), + "%"
-    f[1].innerHTML = "보통이에요 (" + f2 + ") " + Math.round(f2 / tlp), + "%"
-    f[2].innerHTML = "별로에요 (" + f3 + ") " + Math.round(f1 / tlp), + "%"
-    r[0].innerHTML = "재상담 원해요 (" + r1 + ") " + Math.round(r3 / tlp), + "%"
-    r[1].innerHTML = "보통이에요 (" + r2 + ") " + Math.round(r2 / tlp), + "%"
-    r[2].innerHTML = "그저 그래요 (" + r3 + ") " + Math.round(r1 / tlp), + "%"
+    p[0].innerHTML = "높아요 (" + p3 + ") " + Math.round(p3 / tlp) + "%";
+    p[1].innerHTML = "보통이에요 (" + p2 + ") " + Math.round(p2 / tlp) + "%";
+    p[2].innerHTML = "부족해요 (" + p1 + ") " + Math.round(p1 / tlp) + "%";
+    k[0].innerHTML = "친절해요 (" + k3 + ") " + Math.round(k3 / tlp) + "%";
+    k[1].innerHTML = "보통이에요 (" + k2 + ") " + Math.round(k2 / tlp) + "%";
+    k[2].innerHTML = "아쉬워요 (" + k1 + ") " + Math.round(k1 / tlp) + "%";
+    f[0].innerHTML =
+      "도움이 되었어요 (" + f3 + ") " + Math.round(f3 / tlp) + "%";
+    f[1].innerHTML = "보통이에요 (" + f2 + ") " + Math.round(f2 / tlp) + "%";
+    f[2].innerHTML = "별로에요 (" + f1 + ") " + Math.round(f1 / tlp) + "%";
+    r[0].innerHTML = "재상담 원해요 (" + r3 + ") " + Math.round(r3 / tlp) + "%";
+    r[1].innerHTML = "보통이에요 (" + r2 + ") " + Math.round(r2 / tlp) + "%";
+    r[2].innerHTML = "그저 그래요 (" + r1 + ") " + Math.round(r1 / tlp) + "%";
 
     // 각 바의 너비를 퍼센트 값으로 설정
     bars.forEach((bar, index) => {
