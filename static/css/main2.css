@@ -43,39 +43,7 @@
     display: flex;
   }
   
-  .talk_ari_method{
-    position: relative;
-    left:39px;
-    bottom:320px;
-    display:flex;
-    flex-direction: column;
-    justify-content: space-around;
-    gap: 28px;
   
-  }
-  .how_to_talk_ari{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 200px;
-    width:55px;
-    height:55px;
-    background-color: #F3B8AB;
-    border-radius: 50%;
-    box-shadow: 2px 6px 6px rgba(0, 0, 0, 0.3);
-  
-  }
-  #cam{
-    width: 27px;
-    height: auto;
-  }
-  #mic{
-    width:18px;
-    height: auto;
-  }
-
-
 
 
   .frame_zone{
