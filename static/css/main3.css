@@ -14,7 +14,7 @@ body {
 }
 .element {
   position: relative;
-  /* display: flex; */
+  display: flex;
 }
 .ari_image {
   width: 750px;
@@ -44,40 +44,14 @@ body {
 }
 
 #diary_bubble {
-  width: 300px;
+  /* width: 300px;
   position: relative;
   left: 37vw;
-  bottom: 10vh;
-}
-
-.talk_ari_method {
-  position: relative;
-  left: 39px;
-  bottom: 320px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  gap: 28px;
-}
-.how_to_talk_ari {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  top: 200px;
-  width: 55px;
-  height: 55px;
-  background-color: #f3b8ab;
-  border-radius: 50%;
-  box-shadow: 2px 6px 6px rgba(0, 0, 0, 0.3);
-}
-#cam {
-  width: 27px;
-  height: auto;
-}
-#mic {
-  width: 18px;
-  height: auto;
+  bottom: 10vh; */
+  width: 300px;
+  position: absolute;
+  left: 37vw;
+  bottom: 4vh;
 }
 
 .frame_zone {
@@ -86,7 +60,8 @@ body {
   right: 140px;
   width: fit-content;
   height: fit-content;
-  display: flex;
+  display: flex !important;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   display: inline-block; /* 이 줄을 추가하여 자식 요소를 감쌀 수 있게 함 */
@@ -179,13 +154,36 @@ body {
 /*  */
 .diary_sheet {
   position: relative;
-  display: flex;
-  justify-content: center;
+  width: auto;
+  z-index: 0;
 }
 #yello_sheet {
   display: flex;
   width: 450px;
   height: auto;
+  z-index: 1;
+}
+#diary_content {
+  width: 400px;
+  height: 350px;
+  position: absolute;
+  padding-top: 90px;
+  padding-left: 34px;
+  padding-right: 40px;
+  padding-bottom: 90px;
+  top: 0px;
+  display: flex;
+  border: none;
+  background: none;
+  position: relative;
+  z-index: 999;
+  background-image: url("../images/diary_sheet.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+#diary_content:focus {
+  outline: none;
 }
 .button {
   display: flex;
@@ -201,12 +199,5 @@ body {
   box-shadow: 2px 6px 6px rgba(0, 0, 0, 0.3);
   text-wrap: nowrap;
   font-weight: 600;
-}
-.content {
-  width: 370px;
-  height: 370px;
-  position: absolute;
-  top: 90px;
-  display: flex;
-  overflow-y: scroll;
+  cursor: pointer;
 }

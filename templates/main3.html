@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link
+    rel="stylesheet"
+    href="{{ url_for('static', path='css/reset.css') }}"
+  />
     <!-- CSS 연결 -->
     <link
       rel="stylesheet"
@@ -67,38 +71,10 @@
           </div>
         </div>
 
-        <div class="iframe_talk">
-          <!-- <iframe src="/diary_sheet">
-        <p>사용 중인 브라우저는 iframe을 지원하지 않습니다.</p>
-      </iframe> -->
+        <div class="iframe_talk"> 
           <div class="diary_sheet">
-            <img
-              id="yello_sheet"
-              src="{{ url_for('static', path ='images/diary_sheet.svg')}}"
-              alt="loading.."
-            />
-
-            <div class="content">
-              어쩌구 저쩌구asdfsadffsdfasddsfasdfz 어쩌구
-              저쩌구asdfsadffsdfasddsfasdfz 어쩌구 저쩌구asdfsadffsdfasddsfasdfz
-              어쩌구 저쩌구asdfsadffsdfasddsfasdfz 어쩌구
-              저쩌구asdfsadffsdfasddsfasdfz 어쩌구 저쩌구asdfsadffsdfasddsfasdfz
-              어쩌구 저쩌구asdfsadffsdfasddsfasdfz 어쩌구
-              저쩌구asdfsadffsdfasddsfasdfz 어쩌구 저쩌구asdfsadffsdfasddsfasdfz
-              어쩌구 저쩌구asdfsadffsdfasddsfasdfz 어쩌구
-              저쩌구asdfsadffsdfasddsfasdfz 어쩌구 저쩌구asdfsadffsdfasddsfasdfz
-              어쩌구 저쩌구asdfsadffsdfasddsfasdfz 어쩌구
-              저쩌구asdfsadffsdfasddsfasdfz 어쩌구 저쩌구asdfsadffsdfasddsfasdfz
-              어쩌구 저쩌구asdfsadffsdfasddsfasdfz 어쩌구
-              저쩌구asdfsadffsdfasddsfasdfz 어쩌구 저쩌구asdfsadffsdfasddsfasdfz
-              어쩌구 저쩌구asdfsadffsdfasddsfasdfz 어쩌구
-              저쩌구asdfsadffsdfasddsfasdfz 어쩌구 저쩌구asdfsadffsdfasddsfasdfz
-              어쩌구 저쩌구asdfsadffsdfasddsfasdfz 어쩌구
-              저쩌구asdfsadffsdfasddsfasdfz 어쩌구 저쩌구asdfsadffsdfasddsfasdfz
-              어쩌구 저쩌구asdfsadffsdfasddsfasdfz 어쩌구
-              저쩌구asdfsadffsdfasddsfasdfz 어쩌구 저쩌구asdfsadffsdfasddsfasdfz
-              어쩌구 저쩌구asdfsadffsdfasddsfasdfz
-            </div>
+            <textarea id ="diary_content" type="text" placeholder="저에게 다 털어놓아 보세요."></textarea>
+          </div>
           </div>
 
           <button class="button">저장하기</button>
@@ -106,21 +82,6 @@
       </div>
     </div>
 
-    <div class="talk_ari_method">
-      <div class="how_to_talk_ari">
-        <img
-          id="mic"
-          src="{{ url_for('static', path ='images/main_img/mic.svg')}}"
-          alt="loading.."
-        />
-      </div>
-      <div class="how_to_talk_ari">
-        <img
-          id="cam"
-          src="{{ url_for('static', path ='images/main_img/cam.svg')}}"
-          alt="loading.."
-        />
-      </div>
-    </div>
+  
   </body>
 </html>

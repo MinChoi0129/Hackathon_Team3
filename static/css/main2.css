@@ -231,6 +231,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: end;
 }
 
 #user_chat{
@@ -245,8 +246,14 @@
     display: flex;
     align-items:flex-start;
     width: 250px;
-    height: 80px;
-    padding: 20px;
+    height: 30px;
+    padding-top: 30px;
+    padding-left:20px;
+    padding-right:20px;
+
+    padding-bottom: 50px;
+    text-align: left;
+ 
     border: none;
     background-color: #F3B8AB;
     border-radius: 3rem;
@@ -257,7 +264,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap :4px;
     font-size: 13px;
     width: 70px;
     height: fit-content;
@@ -274,6 +280,7 @@
 
   #send-icon{
     width: 14px;
+    position:relative;
   }
   
   .talk_ari_method {
