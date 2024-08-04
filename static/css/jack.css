@@ -79,24 +79,24 @@ body {
   /* display: inline-flex; */
   position: relative;
   z-index: 10;
-  /* background-color: #ff4673; */
+  background-color: #ff4673;
   width: 300px;
   height: 150px;
   position: absolute;
-  top: 90px;
-  left: 250px;
+  top: 230px;
+  left: 830px;
 }
 
 .pictures3 {
   /* display: inline-flex; */
   position: relative;
   z-index: 10;
-  /* background-color: #ff4673; */
+  background-color: #ff4673;
   width: 300px;
   height: 150px;
   position: absolute;
-  top: 250px;
-  left: 800px;
+  top: 120px;
+  left: 250px;
 }
 
 a {
