@@ -123,26 +123,7 @@
   
     
   }
-  .how_to_talk_ari{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width:55px;
-    height:55px;
-    background-color: #F3B8AB;
-    border-radius: 50%;
-    box-shadow: 2px 6px 6px rgba(0, 0, 0, 0.3);
-  
-  }
-  #cam{
-    width: 27px;
-    height: auto;
-  }
-  #mic{
-    width:18px;
-    height: auto;
-  }
+   
 
 
 
@@ -164,7 +145,6 @@
     display: inline-block;
     right:110px;
     top:110px;
-    border : solid 1px black;
     
   }
   
@@ -197,49 +177,82 @@
 
   .chat-message {
     margin: 5px 0;
-    padding: 10px;
+    padding: 10px; 
     border-radius: 30px;
     max-width: 70%;
+ 
   }
   
   .sent-message {
-    background-color: #e1ffc7;
+    background-color: #F3B8AB;
     align-self: flex-end;
+    margin-right: 20px;
+    font-size: 15px;
+    padding:17px;
+    
   }
-  .sent-message::before{
+.profile-img{
+  
+  display: block;
+  width: 20px; /* 이미지의 너비 */
+  height:20px; 
+  min-height: 20px;/* 이미지의 높이 */
   background-image: url('../images/user_chat.svg');
+  background-size: cover; /* 이미지를 요소 크기에 맞게 조정 */
+  background-position: center; /* 이미지를 중앙에 배치 */
+  position: relative;
+  left: 390px;
+  bottom:10px;
+
   }
 
   
   .received-message {
-    background-color: #f1f1f1;
+    width: fit-content;
+    background-color: #E2BF8B;
     align-self: flex-start;
+    margin-left: 20px;
+    font-size: 15px;
+    padding:17px;
+    display: inline-block;
+    position: relative;
   }
+ 
   
 .send-elements{
 
   position: relative;
   display: flex;
-  
-  top: 10px;
-  gap: 25px;
-  
+  justify-content: center;
+  top: 15px;
+  gap:10px;
 
 }
 .sero{
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
+  gap: 20px;
   align-items: end;
 }
 
 #user_chat{
   position: relative;
   width:40px;
-  overflow-y: scroll;
+  height: 43px;
+  right: 10px;
   
 }
+
+.input_bubble{
+  display: inline-block;
+  width: fit-content;
+  align-items: baseline;
+  position: relative;
+
+}
+
   #chat-input {
     /* width: calc(100% - 50px); */
     position: relative;
@@ -258,6 +271,17 @@
     background-color: #F3B8AB;
     border-radius: 3rem;
     
+  }
+  #chat-input:focus {
+    outline: none;
+  }
+  #input_tail{
+    width: 40px;
+    height: auto;
+    position: relative;
+    top:27px;
+    left:250px;
+
   }
   
   #send-button {
@@ -280,7 +304,7 @@
 
   #send-icon{
     width: 14px;
-    position:relative;
+    position: relative;
   }
   
   .talk_ari_method {
@@ -297,15 +321,49 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 200px;
+    top: 165px; 
+    right: 59px;
     width: 55px;
     height: 55px;
-    background-color: #f3b8ab;
+    background-color: #F3B8AB;
     border-radius: 50%;
-    box-shadow: 2px 6px 6px rgba(0, 0, 0, 0.3);
-  }
+    /* box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.3); */
+    cursor: pointer;
+  } 
   #mic {
+    position: relative;
     width: 18px;
     height: auto;
+    cursor: pointer;
+  }
+  .arrow_box {
+    visibility: hidden;
+    position: absolute;
+    width: 100px;
+    padding: 8px;
+    left: 0;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    background: #333;
+    color: #fff;
+    font-size: 14px;
   }
   
+  .arrow_box:after {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    margin-left: -10px;
+    border: solid transparent;
+    border-color: rgba(51, 51, 51, 0);
+    border-bottom-color: #333;
+    border-width: 10px;
+    pointer-events: none;
+    content: ' ';
+  }
+  .how_to_talk_ari:hover + p.arrow_box {
+    display: block;
+  }

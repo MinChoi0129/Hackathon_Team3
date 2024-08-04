@@ -73,10 +73,37 @@ function addMessage(text, className) {
   chatWindow.insertBefore(messageElement, chatWindow.firstChild);
 }
 
+function addProfile() {
+  let profileCreate = document.createElement("div");
+  profileCreate.classList.add("chat-message", "profile-img");
+  chatWindow.insertBefore(profileCreate, chatWindow.firstChild);
+}
+
 function typeMessage() {
   if (chatInput.value.trim() !== "") {
+    if (chatInput.value == "대화종료할게") {
+      addProfile();
+      addMessage(chatInput.value, "sent-message");
+      const formData2 = new FormData(); // post 보내는 방식은 formdata
+      formData2.append("user_message", "exit_chat");
+      fetch(`/api/chat/`, {
+        method: "post",
+        body: formData2,
+      })
+        .then((chatInput.value = ""))
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Success:", data);
+          addMessage(data.response, "received-message");
+        })
+        .then()
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    }
+    addProfile();
     addMessage(chatInput.value, "sent-message");
-    const formData2 = new FormData(); // post 보내는 방식은 formdata
+    formData2 = new FormData(); // post 보내는 방식은 formdata
     formData2.append("user_message", chatInput.value);
     fetch(`/api/chat/`, {
       method: "post",
