@@ -258,3 +258,11 @@ a {
   padding-left: 10px;
   padding-right: 10px;
 }
+
+.logoutt {
+  font-size: small;
+  color: #ffc85d;
+  text-decoration: underline;
+  margin-left: 85vw;
+  margin-top: 20px;
+}
