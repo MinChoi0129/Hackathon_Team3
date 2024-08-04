@@ -1,3 +1,4 @@
+
 // 모든 "상세보기" 링크를 선택합니다.
 const detailButtons = document.querySelectorAll(".details-btn");
 
@@ -16,11 +17,6 @@ document.getElementById("search-input").addEventListener("input", function () {
 
 // script.js
 
-document.getElementById("sort-button").addEventListener("click", function () {
-  // 추천순 정렬 기능 구현
-  // 현재는 기본 템플릿이므로 추후 데이터와 함께 기능 구현 필요
-});
-// ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 console.log("정정현");
 
 let pics = document.getElementsByClassName("counselorimg");

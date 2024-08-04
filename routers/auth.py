@@ -84,7 +84,7 @@ async def login(
             return response
 
 
-@router.post("/api/logout")
+@router.get("/api/logout")
 async def logout(response: Response):
     response = RedirectResponse(url="/", status_code=302)
     response.delete_cookie(key="user_id")
@@ -95,9 +95,17 @@ async def logout(response: Response):
 
 
 @router.delete("/api/user_delete")
-async def delete_user(user_id: str = Cookie(None), db: Session = Depends(get_db)):
+async def delete_user(
+    response: Response, user_id: str = Cookie(None), db: Session = Depends(get_db)
+):
     db_user = db.query(User).filter(User.id == int(user_id)).first()
     db.delete(db_user)
     db.commit()
 
-    return {"detail": "User deleted successfully"}
+    response = RedirectResponse(url="/", status_code=302)
+    response.delete_cookie(key="user_id")
+    response.delete_cookie(key="welcome_new_user")
+    response.delete_cookie(key="form_error")
+    response.delete_cookie(key="login_error")
+
+    return response
