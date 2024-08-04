@@ -25,7 +25,12 @@ startButton.addEventListener("click", () => {
 });
 
 recognition.onend = function () {
-  if (texts.trim() == "") return; // 아무 말 안하면 자동 종료됨
+  if (texts.trim() == "") {
+    if (recognizing) {
+      recognition.start();
+    }
+    return;
+  } // 아무 말 안하면 자동 종료됨
   addMessage(texts, "sent-message");
   const formData1 = new FormData(); // post 보내는 방식은 formdata
   formData1.append("user_message", texts);
