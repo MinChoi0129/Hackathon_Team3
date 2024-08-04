@@ -1,201 +1,196 @@
-console.log("페이지 로드됨");
+// 요소들
+const reviewModal = document.getElementById("reviewModal");
+const closeModalBtn = reviewModal.querySelector(".close");
+const reviewForm = document.getElementById("reviewForm");
+const deleteAccountBtn = document.querySelector(".delete-account");
+const editInfoBtn = document.querySelector(".edit-info");
+const modifyReservationBtn = document.querySelector(".modify-reservation");
+const historyList = document.querySelector(".history-list");
+const reservationManagement = document.querySelector(
+  ".reservation-management p"
+);
+const counselorNameInput = document.getElementById("counselorName");
 
-let user_greeting = document.querySelector('.greeting p');
-let profile_pic = document.querySelector('.profile-pic');
-let profile_info_left = document.querySelector('.profile-info-left');
-let membership_date = document.querySelector('.membership-date');
+// 이벤트 리스너
+closeModalBtn.addEventListener("click", closeModal);
+window.addEventListener("click", outsideClick);
+reviewForm.addEventListener("submit", submitReview);
+deleteAccountBtn.addEventListener("click", deleteAccount); // 필요에 따라 주석 해제
+editInfoBtn.addEventListener("click", editInfo); // 필요에 따라 주석 해제
+modifyReservationBtn.addEventListener("click", modifyReservation); // 필요에 따라 주석 해제
 
-let reservation_info = document.querySelector('.reservation-management p');
-let history_list = document.querySelector('.history-list');
-
-let edit_info_btn = document.querySelector('.edit-info');
-let modify_reservation_btn = document.querySelector('.modify-reservation');
-let delete_account_btn = document.querySelector('.delete-account');
-
-let review_modal = document.getElementById('reviewModal');
-let close_modal_btn = document.querySelector('.close');
-let review_form = document.getElementById('reviewForm');
-let review_text = document.getElementById('reviewText');
-let current_review_item = null;
-
-document.addEventListener('DOMContentLoaded', () => {
-  loadUserData();
-  loadReservationData();
-  loadConsultationHistory();
-  setupEventListeners();
-});
-
-function loadUserData() {
-  fetch('/api/user', {
-    method: "GET",
-  })
-    .then(response => response.json())
-    .then(data => {
-      console.log("User Data Success:", data);
-
-      let 사용자이름 = data.username;
-      let 프로필사진 = data.profilePic;
-      let 나이 = data.age;
-      let 직업 = data.job;
-      let 목표 = data.goal;
-      let 가입날짜 = data.membershipDate;
-
-      user_greeting.innerHTML = `${사용자이름}님 반갑습니다.`;
-      profile_pic.src = 프로필사진;
-      profile_info_left.innerHTML = `
-        <p>나이 : ${나이}</p>
-        <p>직업 : ${직업}</p>
-        <p>나의 목표 : ${목표}</p>
-      `;
-      membership_date.innerHTML = `가입날짜 : ${가입날짜}`;
-    })
-    .catch(error => {
-      console.error("User Data Error:", error);
-    });
+// 함수들
+function closeModal() {
+  reviewModal.style.display = "none";
 }
 
-function loadReservationData() {
-  fetch('/api/reservation', {
-    method: "GET",
-  })
-    .then(response => response.json())
-    .then(data => {
-      console.log("Reservation Data Success:", data);
-
-      let 사용자이름 = data.username;
-      let 예약날짜 = data.reservationDate;
-      let 상담사이름 = data.counselorName;
-
-      reservation_info.innerHTML = `${사용자이름}님은 ${예약날짜}에 ${상담사이름} 상담사와 상담예약이 되어있습니다!`;
-    })
-    .catch(error => {
-      console.error("Reservation Data Error:", error);
-    });
+function outsideClick(e) {
+  if (e.target == reviewModal) {
+    reviewModal.style.display = "none";
+  }
 }
 
-function loadConsultationHistory() {
-  fetch('/api/consultation-history', {
-    method: "GET",
-  })
-    .then(response => response.json())
-    .then(data => {
-      console.log("Consultation History Success:", data);
+function openReviewModal(c_id) {
+  reviewModal.style.display = "block";
+  counselorNameInput.value = c_id; // 상담사 정보를 hidden input에 저장
+}
 
-      history_list.innerHTML = ''; // Clear existing items
-      data.history.forEach(item => {
-        let 상담사이름 = item.counselorName;
-        let 상담사직함 = item.counselorRole;
-        let 회차 = item.sessionNumber;
-        let 프로그램 = item.program;
-        let 금액 = item.amount;
-        let 상태 = item.status;
-        let 날짜 = item.date;
+function submitReview(e) {
+  e.preventDefault();
+  const reviewText = document.getElementById("reviewText").value;
+  const counselor_id = counselorNameInput.value;
+  const aa = document.getElementById("aa").value;
+  const bb = document.getElementById("bb").value;
+  const cc = document.getElementById("cc").value;
+  const dd = document.getElementById("dd").value;
+  const ee = document.getElementById("ee").value;
 
-        let history_item = document.createElement('div');
-        history_item.classList.add('history-item');
-        if (item.paid) {
-          history_item.classList.add('paid');
+  if (reviewText.trim() && aa && bb && cc && dd && ee) {
+    // 여기에서 후기를 제출하는 로직을 처리합니다
+
+    // 서버에 후기 전송
+    fetch(`/api/reviews/${counselor_id}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: new URLSearchParams({
+        review_text: reviewText,
+        professionalism: aa,
+        kindness: bb,
+        personalized_feedback: cc,
+        willingness_to_recounsel: dd,
+        total_ratio: ee,
+      }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
         }
-        history_item.innerHTML = `
-          <div class="history-header">
-            <p class="consultant-name">${상담사이름}</p>
-            <p class="consultant-role">${상담사직함}</p>
-          </div>
-          <p>${회차}회차</p>
-          <p>◎ ${프로그램}</p>
-          <p>
-            <span class="amount">${금액}원</span>
-            <span class="status">${상태}</span>
-          </p>
-          <p>${날짜}</p>
-          <button class="review-btn">후기 작성</button>
-        `;
-        history_list.appendChild(history_item);
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Success:", data);
+        // 폼을 초기화하고 모달을 닫습니다
+        alert("리뷰가 성공적으로 제출되었습니다.");
+        reviewForm.reset();
+        closeModal();
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  } else {
+    alert("모든 필드를 작성해주세요.");
+  }
+}
 
-        // Add event listener for review button
-        history_item.querySelector('.review-btn').addEventListener('click', () => {
-          current_review_item = item;
-          openReviewModal();
+function deleteAccount() {
+  if (confirm("정말로 회원 탈퇴를 하시겠습니까?")) {
+    fetch("/api/user_delete", {
+      method: "DELETE",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        alert(data.detail);
+        window.location.href = "/";
+      })
+      .catch((error) => console.error("Error:", error));
+  }
+}
+
+function editInfo() {
+  alert("현재 개발 중입니다!!");
+}
+
+function modifyReservation() {
+  alert("현재 개발 중입니다!!");
+}
+
+function loadUserProfile() {
+  // console.log("Loading user profile...");
+  fetch("/api/user")
+    .then((response) => response.json())
+    .then((user) => {
+      // console.log("User profile data:", user);
+      if (user) {
+        document.querySelector(
+          ".greeting p"
+        ).textContent = `${user.username}님 반갑습니다.`;
+        document.querySelector(".profile-info-left").innerHTML = `
+                <p>나이 : ${user.age}</p>
+                <p>직업 : ${user.job}</p>
+                <p>나의 목표 : ${user.goal}</p>
+            `;
+        document.querySelector(
+          ".membership-date"
+        ).textContent = `가입날짜 : ${new Date(
+          user.signup_date
+        ).toLocaleDateString()}`;
+      }
+    })
+    .catch((error) => console.error("Error:", error));
+}
+
+function loadReservationManagement() {
+  // console.log("Loading reservation management...");
+  fetch("/api/payment")
+    .then((response) => response.json())
+    .then((payments) => {
+      console.log(payments);
+      for (let i = 0; i < payments.length; i++) {
+        const payment = payments[i];
+
+        let ischeck = "";
+        let reviewButton = "";
+        if (payment.is_used) {
+          ischeck = "paid";
+          // "paid" 상태인 경우에만 후기 작성 버튼 추가
+          reviewButton = `<button class="review-btn" c_id="${payment.counselor_id}" data-counselor="${payment.counselor_name}">후기 작성</button>`;
+        }
+
+        let new_html = `<div class="history-item ${ischeck}">
+          <div class="history-header">
+            <p class="consultant-name">${payment.counselor_name}</p>
+            <p class="consultant-role">&nbsp;상담사</p>
+          </div>
+          <p><span class="amount">${payment.paid_price.toLocaleString()}원</span></p>
+          <p>결제일 : ${payment.when_paid}</p>
+          <p>상담일 : ${payment.counsel_date}</p>
+
+          ${reviewButton}
+      </div>`;
+        historyList.innerHTML = historyList.innerHTML + new_html;
+      }
+
+      // 후기 작성 버튼에 이벤트 리스너 추가
+      const reviewBtns = document.querySelectorAll(".review-btn");
+      reviewBtns.forEach((btn) => {
+        btn.addEventListener("click", function () {
+          openReviewModal(btn.getAttribute("c_id"));
         });
       });
     })
-    .catch(error => {
-      console.error("Consultation History Error:", error);
-    });
+    .catch((error) => console.error("Error:", error));
 }
 
-function openReviewModal() {
-  review_modal.style.display = "block";
-}
-
-function closeReviewModal() {
-  review_modal.style.display = "none";
-  review_text.value = ''; // Clear the textarea
-  current_review_item = null;
-}
-
-function setupEventListeners() {
-  edit_info_btn.addEventListener('click', () => {
-    window.location.href = '/edit-profile';
-  });
-
-  modify_reservation_btn.addEventListener('click', () => {
-    window.location.href = '/modify-reservation';
-  });
-
-  delete_account_btn.addEventListener('click', () => {
-    if (confirm('정말로 회원탈퇴를 하시겠습니까?')) {
-      fetch('/api/delete-account', {
-        method: 'DELETE'
-      })
-      .then(response => {
-        if (response.ok) {
-          alert('회원탈퇴가 완료되었습니다.');
-          window.location.href = '/';
-        } else {
-          alert('회원탈퇴 중 오류가 발생했습니다.');
+function loadPaymentHistory() {
+  // console.log("Loading payment history...");
+  fetch("/api/payment")
+    .then((response) => response.json())
+    .then((payments) => {
+      console.log(payments);
+      for (let i = 0; i < payments.length; i++) {
+        const payment = payments[i];
+        if (payment.is_used === false) {
+          document.querySelector(
+            ".reservation-management p"
+          ).innerHTML = `${payment.username}님은 ${payment.counsel_date}에 ${payment.counselor_name}와 상담예약이 되어있습니다!`;
         }
-      })
-      .catch(error => console.error('Error deleting account:', error));
-    }
-  });
-
-  close_modal_btn.addEventListener('click', closeReviewModal);
-
-  window.addEventListener('click', (event) => {
-    if (event.target == review_modal) {
-      closeReviewModal();
-    }
-  });
-
-  review_form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    submitReview();
-  });
+      }
+    })
+    .catch((error) => console.error("Error:", error));
 }
 
-function submitReview() {
-  if (!current_review_item) return;
-
-  let reviewData = {
-    reviewText: review_text.value,
-    sessionId: current_review_item.sessionId,
-  };
-
-  fetch('/api/submit-review', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(reviewData)
-  })
-  .then(response => response.json())
-  .then(data => {
-    console.log('Review Submission Success:', data);
-    closeReviewModal();
-    alert('후기가 성공적으로 제출되었습니다.');
-  })
-  .catch(error => {
-    console.error('Review Submission Error:', error);
-  });
-}
+loadUserProfile();
+loadPaymentHistory();
+loadReservationManagement();
