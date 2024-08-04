@@ -82,15 +82,24 @@ async def read_counselors(db: Session = Depends(get_db)):
 
 @router.post("/api/reviews/{counselor_id}")
 async def create_review(
-    counselor_id: int, 
-    review_text: str = Form(...), 
+    counselor_id: int,
+    review_text: str = Form(...),
     professionalism: int = Form(...),
-    willingness_to_reconsult: int = Form(...),
+    willingness_to_recounsel: int = Form(...),
     personalized_feedback: int = Form(...),
     kindness: int = Form(...),
-    db: Session = Depends(get_db)
+    total_ratio: int = Form(...),
+    db: Session = Depends(get_db),
 ):
-    db_review = Review(review_text=review_text, counselor_id=counselor_id)
+    db_review = Review(
+        review_text=review_text,
+        counselor_id=counselor_id,
+        professionalism=professionalism,
+        willingness_to_recounsel=willingness_to_recounsel,
+        personalized_feedback=personalized_feedback,
+        kindness=kindness,
+        total_ratio=total_ratio,
+    )
     db.add(db_review)
     db.commit()
     db.refresh(db_review)
