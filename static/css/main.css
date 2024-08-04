@@ -1,12 +1,28 @@
-button{
-  background: inherit ; border:none; box-shadow:none; border-radius:0; padding:0; overflow:visible; cursor:pointer;
+button {
+  background: inherit;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  overflow: visible;
+  cursor: pointer;
   font-size: 15px;
-} 
+}
 
 #header_logo_img {
   width: 34px;
   height: 34px;
 }
+
+@keyframes motion {
+  0% {
+    margin-top: -2vh;
+  }
+  100% {
+    margin-top: 0vh;
+  }
+}
+
 #logo_img {
   display: flex;
   position: absolute;
@@ -16,7 +32,7 @@ button{
 }
 body {
   background-color: #fffeea;
-  overflow:hidden;
+  overflow: hidden;
 }
 .menu {
   position: absolute;
@@ -63,6 +79,7 @@ body {
   position: relative;
   transform: translate(-80%, -4%);
   z-index: 2;
+  animation: motion 0.4s ease-in 0s infinite alternate;
 }
 .eclipse {
   height: 600px;
@@ -90,9 +107,9 @@ body {
 }
 #hi_im_ari {
   width: 230px;
-  position: relative;
+  position: absolute;
   left: 840px;
-  bottom: 330px;
+  bottom: 350px;
 }
 a {
   color: #ffc85d;
@@ -103,7 +120,7 @@ a {
   width: fit-content;
   height: auto;
   position: absolute;
-  left:845px;
+  left: 845px;
   bottom: 74px;
   padding: 10px 23px 10px 19px;
   justify-content: center;
@@ -121,77 +138,72 @@ a {
   flex-basis: 0;
   transition: 0.3s;
 }
-#talk_ari{
-  padding:9px;
+#talk_ari {
+  padding: 9px;
 }
-#lets_talk_ari{
+#lets_talk_ari {
   display: inline;
   width: fit-content;
   height: fit-content;
   white-space: nowrap;
-  cursor: pointer; 
+  cursor: pointer;
 }
 
-#diary{
-  padding:15px;
+#diary {
+  padding: 15px;
 }
-.writing{
+.writing {
   display: inline;
   height: fit-content;
   padding-right: 3px;
-  cursor: pointer; 
+  cursor: pointer;
 }
-.left{
-  width:fit-content;
-  display:flex;
+.left {
+  width: fit-content;
+  display: flex;
   align-items: center;
-  position:relative;
+  position: relative;
   font-size: 18px;
-  padding:10px; 
+  padding: 10px;
   padding-right: 28px;
 }
-.right{
-
-  display:flex;
+.right {
+  display: flex;
   align-items: center;
   position: relative;
   font-size: 18px;
-  padding:10px;
+  padding: 10px;
   padding-left: 17px;
 }
-#seprator{
-  
+#seprator {
   display: flex;
   height: 40px;
-
 }
-.talk_ari_method{
+.talk_ari_method {
   position: relative;
-  left:39px;
-  bottom:320px;
-  display:inline-flex;
+  left: 39px;
+  bottom: 320px;
+  display: inline-flex;
   flex-direction: column;
   justify-content: space-around;
   gap: 28px;
-
 }
-.how_to_talk_ari{
+.how_to_talk_ari {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  width:55px;
-  height:55px;
-  background-color: #F3B8AB;
+  width: 55px;
+  height: 55px;
+  background-color: #f3b8ab;
   border-radius: 50%;
   box-shadow: 2px 6px 6px rgba(0, 0, 0, 0.3);
-
 }
-#cam{
+#cam {
   width: 27px;
   height: auto;
 }
-#mic{
-  width:18px;
+#mic {
+  width: 18px;
   height: auto;
 }
