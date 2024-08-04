@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <!-- CSS 연결 -->
     <link
@@ -17,12 +17,22 @@
       src="{{ url_for('static', path='javascript/iframe_talk.js') }}"
       defer
     ></script>
-</head>
-<body>
+  </head>
+  <body>
     <div class="chat-container">
-        <div class="chat-window" id="chat-window"></div>
-        <input type="text" id="chat-input" placeholder="메시지를 입력하세요">
-        <button id="send-button">보내기</button>
-    </div>  
-</body>
+      <div class="chat-window" id="chat-window"></div>
+      <input type="text" id="chat-input" placeholder="메시지를 입력하세요" />
+      <button id="send-button">보내기</button>
+    </div>
+
+    <div class="talk_ari_method">
+      <div class="how_to_talk_ari">
+        <img
+          id="mic"
+          src="{{ url_for('static', path ='images/main_img/nomic.svg')}}"
+          alt="loading.."
+        />
+      </div>
+    </div>
+  </body>
 </html>

@@ -74,11 +74,15 @@ function start_payment() {
   const radios = radioGroup.querySelectorAll('input[type="radio"]');
 
   let flag = false;
-  radios.forEach((radio) => {
+  let pay_type = -1;
+  for (let i = 0; i < radios.length; i++) {
+    const radio = radios[i];
     if (radio.checked) {
       flag = true;
+      pay_type = i;
+      break;
     }
-  });
+  }
 
   if (!flag) {
     alert("결제 방식을 선택해주세요.");
@@ -87,6 +91,7 @@ function start_payment() {
 
   const formData = new FormData();
   formData.append("paid_price", final_price);
+  formData.append("pay_type", pay_type);
 
   fetch(`/api/payment/${item_counselor_id}`, {
     method: "POST",
@@ -95,26 +100,49 @@ function start_payment() {
     .then((response) => response.json())
     .then((data) => {
       console.log("Success:", data);
+      location.href = `/payment_over?payment_id=${data.id}`;
     })
     .catch((error) => {
       console.error("Error:", error);
     });
+}
 
-  location.href = `/payment_over?counselor_item=${item_counselor_id}`;
+function applyCounselorInfoInHTML(counselor_id) {
+  fetch(`/api/counselors/${counselor_id}`)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Success:", data);
+      counselor_info_name.innerHTML = data.counselor_name;
+      counselor_info_date.innerHTML = data.counsel_date;
+      counselor_info_type.innerHTML = data.counsel_type;
+      counselor_info_address.innerHTML = data.address;
+      counselor_img_tag.src = data.profile_img_path + ".png";
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 }
 
 // ========================= 변수 선언부 ========================= //
 
+// 할인부
 const couponField = document.querySelector(
   ".counselor_detail_sub_item > input"
 );
-
 const couponApplyButton = document.getElementById("apply_discount");
 
 let detail_numbers = document.getElementsByClassName("price_sub_detail_number");
 let more_discounts = document.getElementsByClassName("more_discount");
 
+// 상담사 정보부
+let counselor_info_name = document.getElementsByTagName("p")[1];
+let counselor_info_date = document.getElementsByTagName("p")[3];
+let counselor_info_type = document.getElementsByTagName("p")[5];
+let counselor_info_address = document.getElementsByTagName("p")[7];
+let counselor_img_tag = document.getElementById("counselor_img");
+
 // ========================= 기능 적용부 ========================= //
 couponField.addEventListener("input", applyCouponPrettier);
 couponApplyButton.addEventListener("click", applyCouponCode);
+applyCounselorInfoInHTML(counselor_item);
 applyCouponInHTML();

@@ -32,6 +32,7 @@ async def check_coupon(coupon: CouponCode):
 async def create_payment_by_user(
     counselor_id: int,
     paid_price: int = Form(...),
+    pay_type: int = Form(...),
     user_id: str = Cookie(None),
     db: Session = Depends(get_db),
 ):
@@ -41,6 +42,7 @@ async def create_payment_by_user(
         is_used=False,
         when_paid=datetime.now(),
         paid_price=paid_price,
+        pay_type=pay_type,
     )
     db.add(db_payment)
     db.commit()

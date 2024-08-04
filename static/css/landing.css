@@ -47,12 +47,12 @@ img {
 
 h1 {
   font-weight: 300;
-  font-size: 35px;
+  font-size: 22px;
 }
 
 input {
   background-color: #ffffff;
-  border-radius: 15px;
+  border-radius: 100px;
   margin-top: 2rem;
   border: none;
   width: 293px;
@@ -76,7 +76,7 @@ button {
   background-color: #ffc85d;
   color: white;
   border: none;
-  border-radius: 15px;
+  border-radius: 25px;
   width: 112px;
   height: 59px;
   margin-top: 4rem;
