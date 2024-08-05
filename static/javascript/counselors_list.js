@@ -1,4 +1,3 @@
-
 // 모든 "상세보기" 링크를 선택합니다.
 const detailButtons = document.querySelectorAll(".details-btn");
 
@@ -60,11 +59,6 @@ fetch(`/api/counselors/`, {
       let shortinfofo = document.createElement("p");
       shortinfofo.innerHTML = counselor.short_info;
       shortinfo[i].appendChild(shortinfofo);
-
-      // 상담사 해쉬태그
-      //   let phstg = document.createElement("span")
-      //   phstg.innerHTML = counselor.hash_tags
-      //   hashtags[i].appendChild(phstg)
 
       // 상담사 해쉬태그
       let split_hashtags = counselor.hash_tags.split(" "); // 해시태그 문자열을 공백을 기준으로 나눔
