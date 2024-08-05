@@ -1,5 +1,6 @@
 import uvicorn
 from fastapi import FastAPI
+from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from routers import Gemini, auth, payment, html, conversation, diary, counselor
 from config.database import engine, Base
@@ -20,6 +21,12 @@ app.include_router(conversation.router)
 app.include_router(payment.router)
 app.include_router(Gemini.router)
 app.include_router(html.router)
+
+
+@app.get("/favicon.ico", include_in_schema=False)
+async def favicon():
+    return FileResponse("favicon.ico")
+
 
 # HOST와 PORT 설정
 HOST = "127.0.0.1"

@@ -43,8 +43,8 @@ header {
 .item:hover {
   color: transparent; /* 텍스트 색상을 투명하게 설정 */
 }
-#my_page{
-  position:relative;
+#my_page {
+  position: relative;
 }
 #my_page:hover::after {
   content: "";
@@ -62,7 +62,7 @@ header {
     -50%,
     -50%
   ); /* 중앙으로부터 이동하여 정확히 중앙에 위치 */
-  cursor: pointer; 
+  cursor: pointer;
 }
 #counselor:hover:after {
   content: "";
@@ -100,7 +100,7 @@ header {
 
 body {
   font-family: Pretendard;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   margin: 0;
   padding: 0;
 }
@@ -112,31 +112,33 @@ body {
   text-align: center;
 }
 
+
 h1 {
   color: #fcb900;
+}
+#counselor-title {
+  cursor: pointer;
 }
 
 .search-bar-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  margin-bottom: 55px;
+  margin-top: 55px;
 }
 
 .search-bar {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80%;
+  width: 900px;
   margin-bottom: 10px;
   gap: 5px;
 }
 
-
 .search-bar #search-input::placeholder {
   color: #b44b34;
-  
 }
 
 .search-bar input {
@@ -148,26 +150,7 @@ h1 {
   text-indent: 2ch;
 }
 
-.search-logo {
-  margin-left: 0;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
 
-.sort-button-container {
-  text-align: right;
-  width: 80%;
-  margin-top: 10px;
-}
-
-#sort-button {
-  font-size: 12px;
-  background-color: transparent;
-  border: none;
-  color: #b44b34;
-  cursor: pointer;
-}
 
 .counselor-list {
   display: grid;
@@ -177,7 +160,6 @@ h1 {
 
 .counselor-card {
   background: white;
-  /* border: 1px solid #ddd; */
   border-radius: 10px;
   padding: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -185,11 +167,8 @@ h1 {
   flex-direction: column;
   justify-content: space-between;
   align-items: center; /* 수평 중앙 정렬 */
-  /* justify-content: center; 수직 중앙 정렬 */
-  /* text-align: center; 텍스트 중앙 정렬 */
   gap: 10px;
 }
-
 
 .image-wrapper {
   width: 100%;
@@ -217,7 +196,6 @@ h1 {
   font-weight: 400;
   color: #000000;
   line-height: 1;
-  /* align-items: flex-end; */
 }
 
 .hashtags {
@@ -230,7 +208,6 @@ h1 {
   line-height: 1.5;
   width: 110px; /* 고정된 가로 길이 */
   justify-content: left;
-  /* align-items: flex-end; */
   gap: 3px;
 }
 
@@ -244,7 +221,6 @@ h1 {
   color: #000000;
   opacity: 0.4;
   text-align: left;
-  /* margin-left: 20px 0; */
 }
 
 .reviews {
@@ -254,7 +230,6 @@ h1 {
   gap: 40px;
   margin: 10px 0;
   width: 100%; /* 추가된 코드: 전체 너비를 차지하도록 설정 */
-
 }
 
 .review-text {
@@ -271,7 +246,6 @@ h1 {
   align-items: center;
 }
 
-
 .partial-star {
   width: 20px; /* 전체 별의 너비와 동일하게 설정 */
   height: 20px;
@@ -282,7 +256,12 @@ h1 {
 .partial-star img {
   width: 20px; /* 전체 별의 너비와 동일하게 설정 */
   height: 20px;
-  clip-path: polygon(0 0, 30% 0, 30% 100%, 0% 100%); /* 0.3개의 별만 표시되도록 자름 */
+  clip-path: polygon(
+    0 0,
+    30% 0,
+    30% 100%,
+    0% 100%
+  ); /* 0.3개의 별만 표시되도록 자름 */
 }
 
 .stars img {
@@ -310,7 +289,8 @@ a.details-btn {
   width: 205px;
   height: 37;
   font-weight: 500;
-  font-size: 14px
+  font-size: 14px;
+  text-decoration: none;
 }
 
 a.details-btn:hover {
@@ -318,7 +298,7 @@ a.details-btn:hover {
 }
 
 a.details-btn:active {
-  background-color: #E2BF8B;
+  background-color: #e2bf8b;
 }
 
 a.details-btn:visited {

@@ -64,19 +64,20 @@
             일기 쓰기
           </div>
         </div>
-
-        <!-- <div class="iframe_talk">
-          <iframe src="/iframe_talk">
-            <p>사용 중인 브라우저는 iframe을 지원하지 않습니다.</p>
-          </iframe>
-        </div> -->
         <div class="chat-container">
           <div class="chat-window" id="chat-window"></div>
           <div class="send-elements">
-            <textarea
-              id="chat-input"
-              placeholder="아리와 대화해보세요!"
-            ></textarea>
+            <div class="input_bubble">
+              <img
+                id="input_tail"
+                src="{{ url_for('static', path ='images/tail.svg')}}"
+                alt="loading.."
+              />
+              <textarea
+                id="chat-input"
+                placeholder="대화를 종료하고 싶다면 '대화 종료 할게'라고 말하거나 입력해주세요!"
+              ></textarea>
+            </div>
             <div class="sero">
               <img
                 id="user_chat"
@@ -96,13 +97,25 @@
         </div>
 
         <div class="talk_ari_method">
+          <div id="tooltip">마이크를 통해 아리와 대화해보세요!</div>
+          <<<<<<< HEAD
           <div class="how_to_talk_ari">
             <img
               id="mic"
-              src="{{ url_for('static', path ='images/main_img/mic.svg')}}"
+              src="{{ url_for('static', path ='images/nomic.svg')}}"
               alt="loading.."
+              style="width: 20px"
             />
+            <p class="arrow_box">눌러서 아리와 목소리로 대화해 보세요!</p>
           </div>
+          =======
+          <img
+            id="mic"
+            src="{{ url_for('static', path ='images/nomic.svg')}}"
+            alt="loading.."
+            style="width: 45px"
+          />
+          >>>>>>> yj_lee
         </div>
       </div>
     </div>

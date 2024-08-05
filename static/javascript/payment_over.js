@@ -3,8 +3,6 @@ let black_infos = document.getElementsByClassName("black_info");
 fetch(`/api/payment/`)
   .then((response) => response.json())
   .then((data) => {
-    console.log("Success:", data);
-
     let counselor_id = null;
     let when_paid = null;
     let paid_price = null;
@@ -24,7 +22,6 @@ fetch(`/api/payment/`)
     fetch(`/api/counselors/${counselor_id}`)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         document.getElementsByClassName("gray_info")[0].innerHTML =
           when_paid.replace("-", "").replace("-", "") +
           data.id +

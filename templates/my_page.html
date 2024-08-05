@@ -99,98 +99,47 @@
         <div class="entire consultation-history">
           <div class="consultation-history">
             <h2>상담이력 및 결제 내역</h2>
-            <div class="history-list">
-              <!-- <div class="history-item paid">
-                <div class="history-header">
-                  <p class="consultant-name">최우식</p>
-                  <p class="consultant-role">상담사</p>
-                </div>
-                <p>1회차</p>
-                <p>◎ 자아찾기 프로그램</p>
-                <p>
-                  <span class="amount">12500원</span>
-                  <span class="status">결제완료</span>
-                </p>
-                <p>2024. 07. 16 (화)</p>
-                <button class="review-btn">후기 작성</button>
-              </div>
-              <div class="history-item paid">
-                <div class="history-header">
-                  <p class="consultant-name">변요한</p>
-                  <p class="consultant-role">상담사</p>
-                </div>
-                <p>1회차</p>
-                <p>◎ 번아웃 극복 프로그램</p>
-                <p>
-                  <span class="amount">13800원</span>
-                  <span class="status">결제완료</span>
-                </p>
-                <p>2024. 07. 23 (화)</p>
-                <button class="review-btn">후기 작성</button>
-              </div>
-              <div class="history-item">
-                <div class="history-header">
-                  <p class="consultant-name">최우식</p>
-                  <p class="consultant-role">상담사</p>
-                </div>
-                <p>2회차</p>
-                <p>◎ 자아찾기 프로그램</p>
-                <p><span class="amount">12500원</span></p>
-                <p>2024. 08. 02 (화)</p>
-                <button class="review-btn">후기 작성</button>
-              </div>
-              <div class="history-item">
-                <div class="history-header">
-                  <p class="consultant-name">최우식</p>
-                  <p class="consultant-role">상담사</p>
-                </div>
-                <p>3회차</p>
-                <p>◎ 자아찾기 프로그램</p>
-                <p><span class="amount">12500원</span></p>
-                <p>2024. 08. 16 (목)</p>
-                <button class="review-btn">후기 작성</button>
-              </div> -->
-            </div>
+            <div class="history-list"></div>
           </div>
         </div>
       </div>
     </main>
     <!-- 후기 작성 모달 -->
-    <body>
-      <div id="reviewModal" class="modal">
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <h2>후기 작성</h2>
-          <form id="reviewForm">
-            <label for="reviewText">후기:</label>
-            <textarea id="reviewText" rows="10" cols="50"></textarea>
-            
-            <div class="input-group">
-              <label for="aa">전문성: (최대 3점)</label>
-              <input type="number" id="aa" name="aa" min="0" max="3" />
-            </div>
-            <div class="input-group">
-              <label for="bb">친절함: (최대 3점)</label>
-              <input type="number" id="bb" name="bb" min="0" max="3" />
-            </div>
-            <div class="input-group">
-              <label for="cc">개인 맞춤형 피드백: (최대 3점)</label>
-              <input type="number" id="cc" name="cc" min="0" max="3" />
-            </div>
-            <div class="input-group">
-              <label for="dd">재상담 의사: (최대 3점)</label>
-              <input type="number" id="dd" name="dd" min="0" max="3" />
-            </div>
-            <div class="input-group">
-              <label for="ee">전체: (최대 5점)</label>
-              <input type="number" id="ee" name="ee" min="0" max="5" />
-            </div>
-            
-            <input type="hidden" id="counselorName" name="counselorName" />
-            <button type="submit" class="submit-btn">제출</button>
-          </form>
-        </div>
+
+    <div id="reviewModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>후기 작성</h2>
+        <form id="reviewForm">
+          <label for="reviewText">후기:</label>
+          <textarea id="reviewText" rows="10" cols="50"></textarea>
+
+          <div class="input-group">
+            <label for="aa">전문성: (최대 3점)</label>
+            <input type="number" id="aa" name="aa" min="0" max="3" />
+          </div>
+          <div class="input-group">
+            <label for="bb">친절함: (최대 3점)</label>
+            <input type="number" id="bb" name="bb" min="0" max="3" />
+          </div>
+          <div class="input-group">
+            <label for="cc">개인 맞춤형 피드백: (최대 3점)</label>
+            <input type="number" id="cc" name="cc" min="0" max="3" />
+          </div>
+          <div class="input-group">
+            <label for="dd">재상담 의사: (최대 3점)</label>
+            <input type="number" id="dd" name="dd" min="0" max="3" />
+          </div>
+          <div class="input-group">
+            <label for="ee">전체: (최대 5점)</label>
+            <input type="number" id="ee" name="ee" min="0" max="5" />
+          </div>
+
+          <input type="hidden" id="counselorName" name="counselorName" />
+          <button type="submit" class="submit-btn">제출</button>
+        </form>
       </div>
+    </div>
 
     <footer>
       <button class="delete-account">회원탈퇴</button>

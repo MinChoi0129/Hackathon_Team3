@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Request, Cookie
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
+from datetime import datetime
 
 
 def isLogined(user_id: str):
@@ -79,11 +80,18 @@ async def jack(request: Request, user_id: str = Cookie(None)):
 
 
 @router.get("/monthreport", response_class=HTMLResponse)
-async def monthreport(request: Request, user_id: str = Cookie(None)):
+async def monthreport(
+    request: Request,
+    currentMonth: int = datetime.today().month,
+    user_id: str = Cookie(None),
+):
     if not isLogined(user_id):
         return RedirectResponse(url="/")
 
-    return templates.TemplateResponse("monthreport.html", {"request": request})
+    return templates.TemplateResponse(
+        "monthreport.html",
+        {"request": request, "currentMonth": str(currentMonth)},
+    )
 
 
 @router.get("/counselors_list", response_class=HTMLResponse)

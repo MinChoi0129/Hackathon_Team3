@@ -66,13 +66,11 @@ fetch(`/api/user`, {
   });
 
 // 긍정 부정 단어 월별 가져오기
-fetch(`/api/report/jack`, {
+fetch(`/api/report/jack/${currentMonth}`, {
   method: "GET",
 })
   .then((response) => response.json())
   .then((data) => {
-    console.log("Success:", data);
-
     // 이파리에 단어 채워주기(근데 위치는 아직 지정안함)
     for (let month = 6; month <= 8; month++) {
       let month_result = data[month];
