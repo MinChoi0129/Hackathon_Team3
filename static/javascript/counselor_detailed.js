@@ -16,10 +16,8 @@ detailButtons.forEach((button, index) => {
 });
 
 // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
-console.log("정정현");
 
 let counselor_id = current_counselor_id;
-
 let name_h1 = document.getElementsByTagName("h1")[0]; // 이름 바꾸기
 let rn = document.getElementsByClassName("review-number")[0]; // 후기 수 바꾸기
 let sr = document.getElementsByClassName("star-rating")[0]; // 별점 바꾸기
@@ -47,7 +45,6 @@ fetch(`/api/counselors/${current_counselor_id}`, {
 })
   .then((response) => response.json())
   .then((data) => {
-    console.log("Success:정현", data);
 
     let 상담사이름 = data.counselor_name;
     let 리뷰개수 = data.num_of_reviews;
@@ -150,7 +147,6 @@ fetch(`/api/summarize_reviews/${counselor_id}`, {
 })
   .then((response) => response.json())
   .then((data) => {
-    console.log("Success:", data);
     summari.innerHTML = data.summary;
   })
   .catch((error) => {
@@ -162,8 +158,6 @@ fetch(`/api/reviews/${counselor_id}`, {
 }) // 특정 상담사의 리뷰 가져오기.
   .then((response) => response.json())
   .then((data) => {
-    console.log("Success:", data);
-
     //ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ후기 작성
 
     data.forEach((review, index) => {
@@ -264,10 +258,6 @@ fetch(`/api/reviews/${counselor_id}`, {
         k1 += 1;
       }
     }
-
-    console.log(
-      `${p3}, ${p2}, ${p1}, ${f3}, ${f2}, ${f1}, ${r3}, ${r2}, ${r1}, ${k3}, ${k2}, ${k1}`
-    );
 
     const percentages = [
       p3 / tlp,

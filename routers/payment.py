@@ -7,8 +7,10 @@ from datetime import datetime
 
 router = APIRouter(tags=["결제"])
 
+
 class CouponCode(BaseModel):
     coupon_code: str
+
 
 @router.post("/api/check_coupon")
 async def check_coupon(coupon: CouponCode):
@@ -19,10 +21,10 @@ async def check_coupon(coupon: CouponCode):
     }
 
     if coupon.coupon_code in VALID_COUPONS:
-        print(coupon)
         return {"valid": True}
     else:
         raise HTTPException(status_code=400, detail="Invalid coupon code")
+
 
 @router.post("/api/payment/{counselor_id}")
 async def create_payment_by_user(
@@ -45,6 +47,7 @@ async def create_payment_by_user(
     db.refresh(db_payment)
     return db_payment
 
+
 @router.get("/api/payment")
 async def read_payments_by_user(
     user_id: str = Cookie(None), db: Session = Depends(get_db)
@@ -52,19 +55,27 @@ async def read_payments_by_user(
     payments = db.query(Payment).filter(Payment.paid_user_id == int(user_id)).all()
     result = []
     for payment in payments:
-        counselor = db.query(Counselor).filter(Counselor.id == payment.counselor_id).first()
-        result.append({
-            "id": payment.id,
-            "counselor_name": counselor.counselor_name if counselor else "Unknown",
-            "paid_price": payment.paid_price,
-            "is_used": payment.is_used,
-            "when_paid": payment.when_paid,
-            "counsel_date": counselor.counsel_date if counselor else None,
-            "username": db.query(User).filter(User.id == payment.paid_user_id).first().username,
-            "counselor_id": counselor.id
-        })
-    result.sort(key=lambda x:x["is_used"], reverse=True)
+        counselor = (
+            db.query(Counselor).filter(Counselor.id == payment.counselor_id).first()
+        )
+        result.append(
+            {
+                "id": payment.id,
+                "counselor_name": counselor.counselor_name if counselor else "Unknown",
+                "paid_price": payment.paid_price,
+                "is_used": payment.is_used,
+                "when_paid": payment.when_paid,
+                "counsel_date": counselor.counsel_date if counselor else None,
+                "username": db.query(User)
+                .filter(User.id == payment.paid_user_id)
+                .first()
+                .username,
+                "counselor_id": counselor.id,
+            }
+        )
+    result.sort(key=lambda x: x["is_used"], reverse=True)
     return result
+
 
 @router.patch("/api/payment/{payment_id}")
 async def update_payment_is_used(
@@ -86,6 +97,7 @@ async def update_payment_is_used(
     else:
         raise HTTPException(status_code=404, detail="Payment not found")
 
+
 # 예시 데이터 생성 함수
 def create_example_payments(db: Session):
     # 예시 유저 데이터
@@ -98,14 +110,16 @@ def create_example_payments(db: Session):
             age=30,
             job="회사원",
             goal="스트레스 관리",
-            signup_date=datetime(2024, 7, 2)
+            signup_date=datetime(2024, 7, 2),
         )
         db.add(user1)
         db.commit()
         db.refresh(user1)
 
     # 예시 상담사 데이터
-    counselor1 = db.query(Counselor).filter(Counselor.counselor_name == "최우식").first()
+    counselor1 = (
+        db.query(Counselor).filter(Counselor.counselor_name == "최우식").first()
+    )
     if not counselor1:
         counselor1 = Counselor(
             counselor_name="최우식",
@@ -131,7 +145,7 @@ def create_example_payments(db: Session):
             insta_id="@choi_insta",
             counsel_type="비대면 상담",
             address="경상남도 진주시 진주대로 501",
-            counsel_date=datetime(2024, 7, 18, 14, 0)
+            counsel_date=datetime(2024, 7, 18, 14, 0),
         )
         db.add(counselor1)
         db.commit()
@@ -144,7 +158,7 @@ def create_example_payments(db: Session):
         is_used=True,
         when_paid=datetime(2024, 7, 16, 10, 0),
         paid_price=12500,
-        pay_type=1
+        pay_type=1,
     )
     db.add(payment1)
     db.commit()
@@ -156,13 +170,14 @@ def create_example_payments(db: Session):
         is_used=False,
         when_paid=datetime(2024, 7, 20, 15, 30),
         paid_price=13800,
-        pay_type=2
+        pay_type=2,
     )
     db.add(payment2)
     db.commit()
     db.refresh(payment2)
 
     return {"message": "예시 결제 데이터가 성공적으로 생성되었습니다."}
+
 
 @router.get("/api/create_example_payments")
 async def create_payments(db: Session = Depends(get_db)):

@@ -99,7 +99,6 @@ function start_payment() {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log("Success:", data);
       location.href = `/payment_over?payment_id=${data.id}`;
     })
     .catch((error) => {
@@ -111,7 +110,6 @@ function applyCounselorInfoInHTML(counselor_id) {
   fetch(`/api/counselors/${counselor_id}`)
     .then((response) => response.json())
     .then((data) => {
-      console.log("Success:", data);
       counselor_info_name.innerHTML = data.counselor_name;
       counselor_info_date.innerHTML = data.counsel_date;
       counselor_info_type.innerHTML = data.counsel_type;
@@ -119,7 +117,7 @@ function applyCounselorInfoInHTML(counselor_id) {
       counselor_img_tag.src = data.profile_img_path + ".png";
     })
     .catch((error) => {
-      console.log(error);
+      console.error(error);
     });
 }
 

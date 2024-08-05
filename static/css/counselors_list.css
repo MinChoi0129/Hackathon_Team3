@@ -43,8 +43,8 @@ header {
 .item:hover {
   color: transparent; /* 텍스트 색상을 투명하게 설정 */
 }
-#my_page{
-  position:relative;
+#my_page {
+  position: relative;
 }
 #my_page:hover::after {
   content: "";
@@ -62,7 +62,7 @@ header {
     -50%,
     -50%
   ); /* 중앙으로부터 이동하여 정확히 중앙에 위치 */
-  cursor: pointer; 
+  cursor: pointer;
 }
 #counselor:hover:after {
   content: "";
@@ -100,7 +100,7 @@ header {
 
 body {
   font-family: Pretendard;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   margin: 0;
   padding: 0;
 }
@@ -133,10 +133,8 @@ h1 {
   gap: 5px;
 }
 
-
 .search-bar #search-input::placeholder {
   color: #b44b34;
-  
 }
 
 .search-bar input {
@@ -167,7 +165,6 @@ h1 {
   align-items: center; /* 수평 중앙 정렬 */
   gap: 10px;
 }
-
 
 .image-wrapper {
   width: 100%;
@@ -229,7 +226,6 @@ h1 {
   gap: 40px;
   margin: 10px 0;
   width: 100%; /* 추가된 코드: 전체 너비를 차지하도록 설정 */
-
 }
 
 .review-text {
@@ -246,7 +242,6 @@ h1 {
   align-items: center;
 }
 
-
 .partial-star {
   width: 20px; /* 전체 별의 너비와 동일하게 설정 */
   height: 20px;
@@ -257,7 +252,12 @@ h1 {
 .partial-star img {
   width: 20px; /* 전체 별의 너비와 동일하게 설정 */
   height: 20px;
-  clip-path: polygon(0 0, 30% 0, 30% 100%, 0% 100%); /* 0.3개의 별만 표시되도록 자름 */
+  clip-path: polygon(
+    0 0,
+    30% 0,
+    30% 100%,
+    0% 100%
+  ); /* 0.3개의 별만 표시되도록 자름 */
 }
 
 .stars img {
@@ -284,7 +284,7 @@ a.details-btn {
   margin: 10px auto 20px;
   width: 205px;
   height: 37;
-  font-weight: 500; 
+  font-weight: 500;
   font-size: 14px;
   text-decoration: none;
 }
@@ -294,7 +294,7 @@ a.details-btn:hover {
 }
 
 a.details-btn:active {
-  background-color: #E2BF8B;
+  background-color: #e2bf8b;
 }
 
 a.details-btn:visited {

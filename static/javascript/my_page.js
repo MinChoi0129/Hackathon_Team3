@@ -70,7 +70,6 @@ function submitReview(e) {
         return response.json();
       })
       .then((data) => {
-        console.log("Success:", data);
         // 폼을 초기화하고 모달을 닫습니다
         alert("리뷰가 성공적으로 제출되었습니다.");
         reviewForm.reset();
@@ -107,11 +106,9 @@ function modifyReservation() {
 }
 
 function loadUserProfile() {
-  // console.log("Loading user profile...");
   fetch("/api/user")
     .then((response) => response.json())
     .then((user) => {
-      // console.log("User profile data:", user);
       if (user) {
         document.querySelector(
           ".greeting p"
@@ -132,11 +129,9 @@ function loadUserProfile() {
 }
 
 function loadReservationManagement() {
-  // console.log("Loading reservation management...");
   fetch("/api/payment")
     .then((response) => response.json())
     .then((payments) => {
-      console.log(payments);
       for (let i = 0; i < payments.length; i++) {
         const payment = payments[i];
 
@@ -174,11 +169,9 @@ function loadReservationManagement() {
 }
 
 function loadPaymentHistory() {
-  // console.log("Loading payment history...");
   fetch("/api/payment")
     .then((response) => response.json())
     .then((payments) => {
-      console.log(payments);
       for (let i = 0; i < payments.length; i++) {
         const payment = payments[i];
         if (payment.is_used === false) {

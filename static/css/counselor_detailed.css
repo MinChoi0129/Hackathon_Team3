@@ -43,8 +43,8 @@ header {
 .item:hover {
   color: transparent; /* 텍스트 색상을 투명하게 설정 */
 }
-#my_page{
-  position:relative;
+#my_page {
+  position: relative;
 }
 #my_page:hover::after {
   content: "";
@@ -62,7 +62,7 @@ header {
     -50%,
     -50%
   ); /* 중앙으로부터 이동하여 정확히 중앙에 위치 */
-  cursor: pointer; 
+  cursor: pointer;
 }
 #counselor:hover:after {
   content: "";
@@ -106,7 +106,6 @@ body {
   background-color: #ffffff;
 }
 
-
 .profile {
   max-width: 80.09%;
   margin: 0 auto;
@@ -133,7 +132,6 @@ body {
   margin-left: 25px;
   align-items: flex-end;
 }
-  
 
 .reviews {
   display: flex;
@@ -162,7 +160,6 @@ body {
   height: 20px;
   margin-right: 5px;
 }
-
 
 .star-rating#first {
   font-size: 14px;
@@ -205,7 +202,6 @@ body {
   gap: 0px;
 }
 
-
 .intro-left {
   width: 60%;
 }
@@ -231,7 +227,6 @@ body {
   flex-direction: column;
   text-align: center;  
   align-items: center;
-
 }
 
 .counselor-card {
@@ -249,8 +244,7 @@ body {
   width: 200px;
   height: 264px;
   margin-bottom: 10px;
-  border: 1px solid #cbcbcb
-  
+  border: 1px solid #cbcbcb;
 }
 
 .li {
@@ -261,14 +255,14 @@ body {
   font-size: 18px; /* 폰트 크기 설정 */
   font-weight: 300;
   line-height: 1.6; /* 줄간격 설정 */
-  padding-left: 13px; 
+  padding-left: 13px;
   list-style-position: inside;
 }
 .hashtags {
   display: flex;
   justify-content: center; /* 가로축 기준으로 가운데 정렬 */
-  width: 90%; 
-  margin: 10px auto 0; 
+  width: 90%;
+  margin: 10px auto 0;
   flex-wrap: wrap; /* 필요시 줄바꿈 허용 */
 }
 
@@ -289,7 +283,6 @@ body {
   align-items: stretch;
   height: 399px;
 }
-
 
 .second-right {
   display: flex;
@@ -367,11 +360,6 @@ body {
   height: auto;
 }
 
-
-
-
-
-
 .feedback {
   padding: 20px;
   max-width: 80.09%;
@@ -412,7 +400,6 @@ body {
 }
 
 .star-rating#four span {
-  
   font-size: 24px;
   font-weight: 600;
 }
@@ -426,7 +413,6 @@ body {
   flex-direction: column; /* 세로로 정렬 */
   justify-content: space-between;
   margin-top: 25px;
-
 }
 
 .summary {
@@ -456,7 +442,6 @@ body {
 
 .positive-review .percentage {
   font-size: 30px;
-  
 }
 
 .detailed-review {
@@ -486,7 +471,7 @@ body {
 .profession .bar {
   width: 158px;
   height: 10px;
-  background-color: #FF4673; /* 진홍색 바 */
+  background-color: #ff4673; /* 진홍색 바 */
   position: relative;
 }
 

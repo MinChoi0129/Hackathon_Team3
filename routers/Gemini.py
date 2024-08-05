@@ -58,21 +58,27 @@ chat = model.start_chat(history=[])
 user_chats = dict()
 
 
-@router.get("/api/report/{mode}")
+@router.get("/api/report/{mode}/{cm}")
 async def user_report_by_mode(
-    mode: str, user_id: int = Cookie(None), db: Session = Depends(get_db)
+    mode: str, cm: int, user_id: int = Cookie(None), db: Session = Depends(get_db)
 ):
     if mode not in ["jack", "month"]:
         return {"Error": "API 경로가 잘못되었습니다. mode를 올바르게 입력하세요."}
 
-    month_result = dict()
-    for idx, (start_date, end_date) in enumerate(
-        [
-            (datetime(2024, 6, 1), datetime(2024, 6, 30)),
-            (datetime(2024, 7, 1), datetime(2024, 7, 31)),
-            (datetime(2024, 8, 1), datetime(2024, 8, 31)),
+    search_range = None
+    if mode == "jack":
+        search_range = [
+            (datetime(2024, cm - 2, 1), datetime(2024, cm - 2, 30)),
+            (datetime(2024, cm - 1, 1), datetime(2024, cm - 1, 30)),
+            (datetime(2024, cm, 1), datetime(2024, cm, 30)),
         ]
-    ):
+    else:
+        search_range = [
+            (datetime(2024, cm, 1), datetime(2024, cm, 30)),
+        ]
+
+    month_result = dict()
+    for idx, (start_date, end_date) in enumerate(search_range):
         db_conversations = (
             db.query(Conversation)
             .filter(
@@ -122,6 +128,7 @@ async def user_report_by_mode(
         sorted_dict = dict(
             sorted(user_words.items(), key=lambda item: item[1], reverse=True)[:15]
         )
+
         analysis = await classify_words(list(sorted_dict.keys()))
 
         result = dict()
@@ -143,12 +150,14 @@ async def user_report_by_mode(
                     result.append([n_word, [num_of_n_word, "N"]])
                 except:
                     pass
-            result = result[:5]
+
         else:
-            print("잘못된 모드")
+            print("Wrong mode")
 
-        month_result[idx + 6] = result
-
+        if mode == "jack":
+            month_result[cm - 2 + idx] = result
+        else:
+            month_result[cm] = result
     return month_result
 
 
