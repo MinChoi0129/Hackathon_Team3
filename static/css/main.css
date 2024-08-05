@@ -13,6 +13,21 @@ button {
   width: 34px;
   height: 34px;
 }
+#logout {
+  position: absolute;
+  font-size: small;
+  text-wrap: nowrap;
+  color: black;
+  bottom: -340px;
+  left: 20px;
+  padding: 10px;
+  background-color: #e2bf8b;
+  border-radius: 3rem;
+  border: 1px solid black;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.3);
+}
 
 @keyframes motion {
   0% {

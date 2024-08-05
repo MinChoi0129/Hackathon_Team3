@@ -201,7 +201,7 @@ body {
   display: flex;
   justify-content: center;
   top: 15px;
-  gap: 10px;
+  gap: 23px;
 }
 .sero {
   position: relative;
@@ -232,7 +232,7 @@ body {
   display: flex;
   align-items: flex-start;
   width: 250px;
-  height: 30px;
+  height: 40px;
   padding-top: 30px;
   padding-left: 20px;
   padding-right: 20px;
@@ -243,6 +243,7 @@ body {
   border: none;
   background-color: #f3b8ab;
   border-radius: 3rem;
+  resize: none;
 }
 #chat-input:focus {
   outline: none;
@@ -287,54 +288,24 @@ body {
   justify-content: space-around;
   gap: 28px;
 }
-.how_to_talk_ari {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  top: 165px;
-  right: 59px;
-  width: 55px;
-  height: 55px;
-  background-color: #f3b8ab;
-  border-radius: 50%;
-  /* box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.3); */
-  cursor: pointer;
-}
+
 #mic {
+  top: 160px;
+  right: 59px;
+  width: 100px;
+  height: auto;
   position: relative;
-  width: 18px;
+  width: 25px;
   height: auto;
   cursor: pointer;
 }
-.arrow_box {
+#tooltip {
+  position: relative;
+  /* bottom: 30px; */
+  top: 185px;
+  right: 160px;
+  background-color: pink;
+  padding: 10px;
+  border-radius: 5px;
   visibility: hidden;
-  position: absolute;
-  width: 100px;
-  padding: 8px;
-  left: 0;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 8px;
-  background: #333;
-  color: #fff;
-  font-size: 14px;
-}
-
-.arrow_box:after {
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  margin-left: -10px;
-  border: solid transparent;
-  border-color: rgba(51, 51, 51, 0);
-  border-bottom-color: #333;
-  border-width: 10px;
-  pointer-events: none;
-  content: " ";
-}
-.how_to_talk_ari:hover + p.arrow_box {
-  display: block;
 }
