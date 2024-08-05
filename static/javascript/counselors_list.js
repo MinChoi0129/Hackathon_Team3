@@ -1,3 +1,10 @@
+
+//ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+pageTitle = document.querySelector("#counselor-title")
+console.log(pageTitle)
+pageTitle.addEventListener("click", function() {
+  location.reload(); // 페이지 새로고침
+})
 // 모든 "상세보기" 링크를 선택합니다.
 const detailButtons = document.querySelectorAll(".details-btn");
 

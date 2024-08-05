@@ -112,8 +112,12 @@ body {
   text-align: center;
 }
 
+
 h1 {
   color: #fcb900;
+}
+#counselor-title {
+  cursor: pointer;
 }
 
 .search-bar-container {
