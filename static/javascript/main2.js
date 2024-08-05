@@ -19,7 +19,7 @@ startButton.addEventListener("click", () => {
     recognizing = false;
   } else {
     recognition.start();
-    startButton.src = "../static/images/mic.png";
+    startButton.src = "../static/images/mic.svg";
     recognizing = true;
   }
 });
