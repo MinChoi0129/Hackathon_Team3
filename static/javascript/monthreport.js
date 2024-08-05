@@ -1,7 +1,8 @@
-// 최근 연도 네비게이션
+// ********************************* 변수 선언부 ********************************* //
 const now = new Date();
 const year = now.getFullYear();
-const month = now.getMonth() + 1; // 월은 0부터 시작하므로 1을 더함
+const month = now.getMonth() + 1;
+const currentparam = window.location.search;
 const monthNames = [
   "1월",
   "2월",
@@ -16,9 +17,30 @@ const monthNames = [
   "11월",
   "12월",
 ];
+
+let cm = -1;
+
+// ********************************* 변수 적용부 ********************************* //
+
 document.getElementById("currentMonth").textContent = `${year}년 ${
-  monthNames[month - 1]
+  monthNames[parseInt(currentMonth) - 1]
 }`;
+
+if (!currentparam) {
+  cm = parseInt(currentMonth);
+} else {
+  cm = parseInt(currentparam.substring(14, currentparam.length));
+}
+
+document.getElementById("getBeforeMonthBtn").addEventListener("click", () => {
+  window.location.href = `/monthreport?currentMonth=${cm - 1}`;
+});
+
+document.getElementById("getAfterMonthBtn").addEventListener("click", () => {
+  window.location.href = `/monthreport?currentMonth=${cm + 1}`;
+});
+
+// ********************************* 함수 선언부 ********************************* //
 
 // Chart.js 차트 업데이트 함수
 function updateChart(labels, data, colors) {
@@ -61,23 +83,17 @@ function updateChart(labels, data, colors) {
     });
 }
 
+// ********************************* 함수 실행부 ********************************* //
+
 // 단어 및 비율 페치
-fetch(`/api/report/month`, {
-  method: "GET",
-})
+fetch(`/api/report/month/${cm}`)
   .then((response) => response.json())
   .then((data) => {
-    console.log("Success:", data);
-
-    // 모든 tableword 요소 가져오기
     const tablewords = document.getElementsByClassName("tableword");
-    // 모든 tablepercent 요소 가져오기
     const tablepercents = document.getElementsByClassName("tablepercent");
-    // 모든 pnimg 요소 가져오기
     const pnimgs = document.getElementsByClassName("pnimg");
 
-    // 데이터를 순회하며 각 요소에 값 설정
-    const dataForMonth = data["6"]; // 예시로 6월 데이터를 사용
+    const dataForMonth = data[currentMonth];
     const words = [];
     const percentages = [];
     const colors = {
