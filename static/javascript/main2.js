@@ -12,14 +12,26 @@ let recognizing = false; // 음성 인식 상태를 추적하기 위한 변수
 
 const startButton = document.getElementById("mic");
 
+// const hoverElement = document.getElementsByClassName("talk_ari_method")[0];
+
+startButton.addEventListener("mouseover", () => {
+  document.getElementById("tooltip").style.visibility = "visible";
+});
+
+startButton.addEventListener("mouseout", () => {
+  document.getElementById("tooltip").style.visibility = "hidden";
+});
+
 startButton.addEventListener("click", () => {
   if (recognizing) {
     recognition.stop();
     startButton.src = "../static/images/nomic.svg";
+    startButton.style.width = "20px";
     recognizing = false;
   } else {
     recognition.start();
     startButton.src = "../static/images/mic.svg";
+    startButton.style.width = "40px";
     recognizing = true;
   }
 });

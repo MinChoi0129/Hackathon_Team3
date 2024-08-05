@@ -287,6 +287,18 @@ body {
   justify-content: space-around;
   gap: 28px;
 }
+
+#tooltip {
+  position: relative;
+  /* bottom: 30px; */
+  top: 185px;
+  right: 160px;
+  background-color: pink;
+  padding: 10px;
+  border-radius: 5px;
+  visibility: hidden;
+}
+
 .how_to_talk_ari {
   position: relative;
   display: flex;
@@ -300,6 +312,7 @@ body {
   border-radius: 50%;
   /* box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.3); */
   cursor: pointer;
+  flex-direction: column;
 }
 #mic {
   position: relative;

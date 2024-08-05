@@ -66,14 +66,19 @@
         <div class="item">
           <a href="{{ url_for('jack') }}">앓이 기록</a>
         </div>
-        <br />
-        <br />
+
         <div class="item">
           <a
-            style="text-decoration: underline; color: #f7ac17"
+            style="color: #f7ac17; align-items: center; justify-content: center"
             href="{{ url_for('logout') }}"
             onclick="() => {fetch('/api/logout')}"
-            >로그아웃</a
+            ><img
+              src="{{ url_for('static', path='images/logout.png') }}"
+              alt="로그아웃"
+              width="30px"
+              height="30px"
+              style="transform: translate(0, 6px)"
+            />&nbsp;&nbsp;로그아웃</a
           >
         </div>
       </div>
