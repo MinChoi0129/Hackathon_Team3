@@ -1,10 +1,9 @@
-
 //ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
-pageTitle = document.querySelector("#counselor-title")
-console.log(pageTitle)
-pageTitle.addEventListener("click", function() {
+pageTitle = document.querySelector("#counselor-title");
+
+pageTitle.addEventListener("click", function () {
   location.reload(); // 페이지 새로고침
-})
+});
 // 모든 "상세보기" 링크를 선택합니다.
 const detailButtons = document.querySelectorAll(".details-btn");
 
@@ -36,6 +35,7 @@ fetch(`/api/counselors/`, {
 })
   .then((response) => response.json())
   .then((data) => {
+    console.log(data);
     for (let i = 0; i < data.length; i++) {
       let counselor = data[i]; // counselor 배열에는 "각" 상담사 정보가 들어있음
 

@@ -19,7 +19,7 @@ async def classify_words(words: List[str]) -> Dict[str, List[str]]:
     )
 
     response = model.generate_content(prompt).text
-
+    print(response)
     parts = response.split(" ||| ")
 
     response_dict = {}
