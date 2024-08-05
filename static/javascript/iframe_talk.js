@@ -35,7 +35,6 @@ recognition.onend = function () {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log("Success:", data);
       addMessage(data.response, "received-message");
       texts = "";
     })
@@ -80,7 +79,6 @@ function typeMessage() {
       .then((chatInput.value = ""))
       .then((response) => response.json())
       .then((data) => {
-        console.log("Success:", data);
         addMessage(data.response, "received-message");
       })
       .catch((error) => {

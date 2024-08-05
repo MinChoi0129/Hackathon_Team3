@@ -15,6 +15,9 @@
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
     />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      var currentMonth = `{{ currentMonth | safe }}`;
+    </script>
     <script
       src="{{ url_for('static', path='javascript/monthreport.js') }}"
       defer
@@ -78,6 +81,7 @@
     <div>
       <div class="navigation">
         <img
+          id="getBeforeMonthBtn"
           src="{{ url_for('static', path='images/imgfolder/leftgo.svg') }}"
           alt=""
           width="30px"
@@ -85,6 +89,7 @@
         />
         <div id="currentMonth"></div>
         <img
+          id="getAfterMonthBtn"
           src="{{ url_for('static', path='images/rightgo.svg') }}"
           alt=""
           width="30px"

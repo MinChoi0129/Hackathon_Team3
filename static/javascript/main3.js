@@ -15,7 +15,6 @@ function diary_contentPOST() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log("Success:", data);
         alert("일기가 성공적으로 저장되었습니다!");
         diaryInput = "";
         setTimeout(function () {
