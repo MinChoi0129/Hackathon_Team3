@@ -1,3 +1,12 @@
+const startButton = document.getElementById("mic");
+
+startButton.addEventListener("mouseover", () => {
+  document.getElementById("tooltip").style.visibility = "visible";
+});
+
+startButton.addEventListener("mouseout", () => {
+  document.getElementById("tooltip").style.visibility = "hidden";
+});
 // 음성인식
 let texts = "";
 window.SpeechRecognition =
@@ -10,8 +19,6 @@ recognition.lang = "ko-KR";
 let p = null;
 let recognizing = false; // 음성 인식 상태를 추적하기 위한 변수
 
-const startButton = document.getElementById("mic");
-
 startButton.addEventListener("click", () => {
   if (recognizing) {
     recognition.stop();
@@ -19,7 +26,9 @@ startButton.addEventListener("click", () => {
     recognizing = false;
   } else {
     recognition.start();
+
     startButton.src = "../static/images/mic.svg";
+
     recognizing = true;
   }
 });
@@ -31,23 +40,46 @@ recognition.onend = function () {
     }
     return;
   } // 아무 말 안하면 자동 종료됨
-  addMessage(texts, "sent-message");
-  const formData1 = new FormData(); // post 보내는 방식은 formdata
-  formData1.append("user_message", texts);
-  fetch(`/api/chat/`, {
-    method: "post",
-    body: formData1,
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      addMessage(data.response, "received-message");
-      texts = "";
+  if (texts.trim() == "대화 종료 할게") {
+    addMessage(texts, "sent-message");
+    addProfile();
+    const formData1 = new FormData(); // post 보내는 방식은 formdata
+    formData1.append("user_message", "exit_chat");
+    fetch(`/api/chat/`, {
+      method: "post",
+      body: formData1,
     })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
-  if (recognizing) {
-    recognition.start();
+      .then((response) => response.json())
+      .then((data) => {
+        addProfile();
+        addMessage(data.response, "received-message");
+        texts = "";
+        alert("대화가 성공적으로 저장되었습니다!");
+        window.location.href = "/main";
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  } else {
+    addMessage(texts, "sent-message");
+    formData1 = new FormData(); // post 보내는 방식은 formdata
+    formData1.append("user_message", texts);
+    fetch(`/api/chat/`, {
+      method: "post",
+      body: formData1,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        addProfile();
+        addMessage(data.response, "received-message");
+        texts = "";
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+    if (recognizing) {
+      recognition.start();
+    }
   }
 };
 
@@ -78,11 +110,17 @@ function addProfile() {
   chatWindow.insertBefore(profileCreate, chatWindow.firstChild);
 }
 
+chatInput.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    typeMessage();
+  }
+});
+
 function typeMessage() {
   if (chatInput.value.trim() !== "") {
-    if (chatInput.value == "대화종료할게") {
-      addProfile();
+    if (chatInput.value == "대화 종료 할게") {
       addMessage(chatInput.value, "sent-message");
+      addProfile();
       const formData2 = new FormData(); // post 보내는 방식은 formdata
       formData2.append("user_message", "exit_chat");
       fetch(`/api/chat/`, {
@@ -93,31 +131,33 @@ function typeMessage() {
         .then((response) => response.json())
         .then((data) => {
           addMessage(data.response, "received-message");
+          alert("대화가 성공적으로 저장되었습니다!");
+          window.location.href = "/main";
         })
-        .then()
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    } else {
+      addMessage(chatInput.value, "sent-message");
+      addProfile();
+      formData2 = new FormData(); // post 보내는 방식은 formdata
+      formData2.append("user_message", chatInput.value);
+      fetch(`/api/chat/`, {
+        method: "post",
+        body: formData2,
+      })
+        .then((chatInput.value = ""))
+        .then((response) => response.json())
+        .then((data) => {
+          addMessage(data.response, "received-message");
+        })
         .catch((error) => {
           console.error("Error:", error);
         });
     }
-    addProfile();
-    addMessage(chatInput.value, "sent-message");
-    formData2 = new FormData(); // post 보내는 방식은 formdata
-    formData2.append("user_message", chatInput.value);
-    fetch(`/api/chat/`, {
-      method: "post",
-      body: formData2,
-    })
-      .then((chatInput.value = ""))
-      .then((response) => response.json())
-      .then((data) => {
-        addMessage(data.response, "received-message");
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
   }
-}
 
-if (recognizing == false) {
-  send.addEventListener("click", typeMessage);
+  if (recognizing == false) {
+    send.addEventListener("click", typeMessage);
+  }
 }

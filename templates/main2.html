@@ -75,7 +75,7 @@
               />
               <textarea
                 id="chat-input"
-                placeholder="아리와 대화해보세요!"
+                placeholder="대화를 종료하고 싶다면 '대화 종료 할게'라고 말하거나 입력해주세요!"
               ></textarea>
             </div>
             <div class="sero">
@@ -97,14 +97,13 @@
         </div>
 
         <div class="talk_ari_method">
-          <div class="how_to_talk_ari">
-            <img
-              id="mic"
-              src="{{ url_for('static', path ='images/nomic.svg')}}"
-              alt="loading.."
-            />
-            <p class="arrow_box">눌러서 아리와 목소리로 대화해 보세요!</p>
-          </div>
+          <div id="tooltip">마이크를 통해 아리와 대화해보세요!</div>
+          <img
+            id="mic"
+            src="{{ url_for('static', path ='images/nomic.svg')}}"
+            alt="loading.."
+            style="width: 45px"
+          />
         </div>
       </div>
     </div>
