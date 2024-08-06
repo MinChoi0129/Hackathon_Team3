@@ -25,6 +25,11 @@ function getCookie(cookieName) {
   return cookieValue;
 }
 
+alert("원활한 이용을 위해 크롬을 이용해주세요.");
+alert(
+  "For 심사위원 : 김멋사 / 010-1234-1234 / 1234 로 로그인하시면 샘플 데이터로 체험하실 수 있습니다."
+);
+
 if (getCookie("login_error") == "True") {
   alert("일치하는 회원이 없습니다.");
 } else if (getCookie("form_error") == "True") {

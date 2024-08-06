@@ -141,18 +141,24 @@ async def user_report_by_mode(
             result["Negative"] = result["Negative"][:8]
         elif mode == "month":
             result = []
-            for p_word in analysis["Positive"]:
-                try:
-                    num_of_p_word = sorted_dict[p_word]
-                    result.append([p_word, [num_of_p_word, "P"]])
-                except:
-                    pass
-            for n_word in analysis["Negative"]:
-                try:
-                    num_of_n_word = sorted_dict[n_word]
-                    result.append([n_word, [num_of_n_word, "N"]])
-                except:
-                    pass
+            try:
+                for p_word in analysis["Positive"]:
+                    try:
+                        num_of_p_word = sorted_dict[p_word]
+                        result.append([p_word, [num_of_p_word, "P"]])
+                    except:
+                        pass
+            except:
+                pass
+            try:
+                for n_word in analysis["Negative"]:
+                    try:
+                        num_of_n_word = sorted_dict[n_word]
+                        result.append([n_word, [num_of_n_word, "N"]])
+                    except:
+                        pass
+            except:
+                pass
 
         else:
             print("Wrong mode")
