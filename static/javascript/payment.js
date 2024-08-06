@@ -144,3 +144,4 @@ couponField.addEventListener("input", applyCouponPrettier);
 couponApplyButton.addEventListener("click", applyCouponCode);
 applyCounselorInfoInHTML(counselor_item);
 applyCouponInHTML();
+alert("For 심사위원: 쿠폰 코드는 12345-12345-12345-12345 입니다.");

@@ -1,3 +1,25 @@
+.logoutt {
+  margin-left: 85vw;
+  margin-top: 20px;
+  position: relative;
+  font-size: small;
+  color: black;
+  top: 15px;
+  left: 80px;
+  padding: 10px;
+  background-color: #ffc85d;
+  border-radius: 3rem;
+  border: 1px solid black;
+  text-decoration: none;
+  font-weight: 600;
+}
+#logoutsign {
+  color: black;
+  z-index: 999;
+  position: relative;
+  transform: translate(0, 30px);
+}
+
 header {
   display: flex;
   background-color: #fffeea;
