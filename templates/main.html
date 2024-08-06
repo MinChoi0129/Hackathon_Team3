@@ -73,7 +73,13 @@
             id="logout"
             href="{{ url_for('logout') }}"
             onclick="() => {fetch('/api/logout')}"
-            >로그아웃</a
+            ><img
+              id="logout_img"
+              src="{{ url_for('static', path='images/logout.png') }}"
+              alt="로그아웃"
+              width="20px"
+              height="20px"
+            />로그아웃</a
           >
         </div>
       </div>
@@ -136,22 +142,5 @@
         </button>
       </div>
     </div>
-
-    <!-- <div class="talk_ari_method">
-    <div class="how_to_talk_ari">
-      <img
-      id="mic"
-      src="{{ url_for('static', path ='images/main_img/mic.svg')}}"
-      alt="loading.."
-    />
-    </div>
-    <div class="how_to_talk_ari">
-      <img
-      id="cam"
-      src="{{ url_for('static', path ='images/main_img/cam.svg')}}"
-      alt="loading.."
-    />
-    </div>
-  </div> -->
   </body>
 </html>

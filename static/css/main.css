@@ -15,12 +15,18 @@ button {
 }
 #logout {
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: small;
   text-wrap: nowrap;
   color: black;
-  bottom: -340px;
-  left: 20px;
-  padding: 10px;
+  bottom: -370px;
+  left: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   background-color: #e2bf8b;
   border-radius: 3rem;
   border: 1px solid black;
@@ -28,7 +34,10 @@ button {
   font-weight: 600;
   box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.3);
 }
-
+#logout_img {
+  padding-bottom: 11px;
+  margin-bottom: 1px;
+}
 @keyframes motion {
   0% {
     margin-top: -2vh;
