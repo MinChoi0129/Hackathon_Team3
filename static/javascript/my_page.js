@@ -177,7 +177,7 @@ function loadPaymentHistory() {
         if (payment.is_used === false) {
           document.querySelector(
             ".reservation-management p"
-          ).innerHTML = `${payment.username}님은 ${payment.counsel_date}에 ${payment.counselor_name}와 상담예약이 되어있습니다!`;
+          ).innerHTML = `${payment.username} 님은 ${payment.counsel_date}에 ${payment.counselor_name} 상담사님과 상담예약이 되어있습니다!`;
         }
       }
     })
