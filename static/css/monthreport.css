@@ -141,7 +141,9 @@ header {
   width: 34px;
   height: 34px;
 }
-
+#header_logo_img:hover {
+  cursor: pointer;
+}
 #menu_img {
   display: flex;
   position: absolute;
