@@ -42,6 +42,7 @@ body {
 }
 .jack1 {
   display: flex;
+  gap: 5px;
   float: right;
   padding-right: 5vh;
   margin-right: 20px;
@@ -118,6 +119,7 @@ a {
 .ariari {
   margin-top: 15px;
   margin-right: 50px;
+  font-weight: 600;
   display: flex;
 }
 #head {
