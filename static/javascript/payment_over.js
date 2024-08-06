@@ -3,6 +3,7 @@ let black_infos = document.getElementsByClassName("black_info");
 fetch(`/api/payment/`)
   .then((response) => response.json())
   .then((data) => {
+    console.log(data);
     let counselor_id = null;
     let when_paid = null;
     let paid_price = null;
@@ -11,6 +12,7 @@ fetch(`/api/payment/`)
     for (let i = 0; i < data.length; i++) {
       const payment = data[i];
       if (payment.id == payment_id) {
+        console.log(payment);
         counselor_id = payment.counselor_id;
         when_paid = payment.when_paid;
         paid_price = payment.paid_price;
@@ -22,6 +24,7 @@ fetch(`/api/payment/`)
     fetch(`/api/counselors/${counselor_id}`)
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         document.getElementsByClassName("gray_info")[0].innerHTML =
           when_paid.replace("-", "").replace("-", "") +
           data.id +

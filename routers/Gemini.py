@@ -141,18 +141,24 @@ async def user_report_by_mode(
             result["Negative"] = result["Negative"][:8]
         elif mode == "month":
             result = []
-            for p_word in analysis["Positive"]:
-                try:
-                    num_of_p_word = sorted_dict[p_word]
-                    result.append([p_word, [num_of_p_word, "P"]])
-                except:
-                    pass
-            for n_word in analysis["Negative"]:
-                try:
-                    num_of_n_word = sorted_dict[n_word]
-                    result.append([n_word, [num_of_n_word, "N"]])
-                except:
-                    pass
+            try:
+                for p_word in analysis["Positive"]:
+                    try:
+                        num_of_p_word = sorted_dict[p_word]
+                        result.append([p_word, [num_of_p_word, "P"]])
+                    except:
+                        pass
+            except:
+                pass
+            try:
+                for n_word in analysis["Negative"]:
+                    try:
+                        num_of_n_word = sorted_dict[n_word]
+                        result.append([n_word, [num_of_n_word, "N"]])
+                    except:
+                        pass
+            except:
+                pass
 
         else:
             print("Wrong mode")
@@ -202,11 +208,7 @@ async def chat(
         user_chats[user_id] = model.start_chat(history=[])
 
     chat: genai.ChatSession = user_chats[user_id]
-    response = chat.send_message(
-        "나의 말 : "
-        + user_message
-        + "대답 조건(이것을 대답에 섞지 말 것) : 대답할 때 너무 길게 대답하지말고, 문장마다 두번씩 엔터를 입력해줘. 귀여운 이모티콘도 함께 사용해줘. 너는 상담가 역할이야."
-    )
+    response = chat.send_message(user_message)
 
     if user_message == "exit_chat":
         conversation_string_list = [
