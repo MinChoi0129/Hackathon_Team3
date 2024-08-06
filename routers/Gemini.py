@@ -25,8 +25,11 @@ async def classify_words(words: List[str]) -> Dict[str, List[str]]:
     response_dict = {}
 
     for part in parts:
-        key, value = part.split(": ", 1)
-        response_dict[key.strip('"')] = json.loads(value)
+        try:
+            key, value = part.split(": ", 1)
+            response_dict[key.strip('"')] = json.loads(value)
+        except:
+            continue
 
     return response_dict
 
