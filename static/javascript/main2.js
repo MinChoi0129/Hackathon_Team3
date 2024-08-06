@@ -151,8 +151,7 @@ function typeMessage() {
         });
     }
   }
-
-  if (recognizing == false) {
-    send.addEventListener("click", typeMessage);
-  }
+}
+if (recognizing == false) {
+  send.addEventListener("click", typeMessage);
 }
