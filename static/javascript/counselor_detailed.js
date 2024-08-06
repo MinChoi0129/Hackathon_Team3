@@ -45,7 +45,6 @@ fetch(`/api/counselors/${current_counselor_id}`, {
 })
   .then((response) => response.json())
   .then((data) => {
-
     let 상담사이름 = data.counselor_name;
     let 리뷰개수 = data.num_of_reviews;
     let 별개수 = data.star_ratio;
@@ -131,7 +130,6 @@ fetch(`/api/counselors/${current_counselor_id}`, {
       li.appendChild(history_li); // li 요소를 liDiv에 추가
     }
   })
-
 
   .catch((error) => {
     console.error("Error:", error);

@@ -1,3 +1,17 @@
+document.getElementById('search-input').addEventListener('input', function() {
+  const filter = this.value.toLowerCase();
+  const cards = document.querySelectorAll('.counselor-card');
+
+  cards.forEach(card => {
+    const name = card.querySelector('.counselor-name').textContent.toLowerCase();
+    if (name.includes(filter)) {
+      card.style.display = 'flex';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+});
+
 //ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 pageTitle = document.querySelector("#counselor-title");
 
