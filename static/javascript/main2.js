@@ -23,12 +23,12 @@ startButton.addEventListener("click", () => {
   if (recognizing) {
     recognition.stop();
     startButton.src = "../static/images/nomic.svg";
+    startButton.style.width = "45px";
     recognizing = false;
   } else {
     recognition.start();
 
     startButton.src = "../static/images/mic.svg";
-
     recognizing = true;
   }
 });
@@ -146,10 +146,11 @@ function typeMessage() {
         method: "post",
         body: formData2,
       })
-        .then((chatInput.value = ""))
         .then((response) => response.json())
         .then((data) => {
           addMessage(data.response, "received-message");
+          chatInput.value = "";
+          chatInput.value = chatInput.value.replace("\r\n", "");
         })
         .catch((error) => {
           console.error("Error:", error);

@@ -112,8 +112,12 @@ body {
   text-align: center;
 }
 
+
 h1 {
   color: #fcb900;
+}
+#counselor-title {
+  cursor: pointer;
 }
 
 .search-bar-container {
@@ -146,26 +150,7 @@ h1 {
   text-indent: 2ch;
 }
 
-.search-logo {
-  margin-left: 0;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
 
-.sort-button-container {
-  text-align: right;
-  width: 80%;
-  margin-top: 10px;
-}
-
-#sort-button {
-  font-size: 12px;
-  background-color: transparent;
-  border: none;
-  color: #b44b34;
-  cursor: pointer;
-}
 
 .counselor-list {
   display: grid;

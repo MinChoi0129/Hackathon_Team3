@@ -28,9 +28,6 @@ let hashtags = document.getElementsByClassName("hashtags")[0]; // 해쉬태그 �
 let meths = document.getElementsByClassName("method"); // 상담 방법 바꾸기
 let summari = document.getElementsByClassName("detailed-review")[0]; //gemini 요약
 //ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
-// let rvid = document.getElementsByClassName("reviewer-id"); //후기 쓴 사람 아이디 바꾸기
-// let fdbtxt = document.getElementsByClassName("feedback-text"); // 후기 내용 바꾸기
-// let starsthird = document.getElementsByClassName("stars")[2]
 let bottom = document.getElementsByClassName("bottome");
 
 let price = document.getElementsByClassName("session")[0];
@@ -48,7 +45,6 @@ fetch(`/api/counselors/${current_counselor_id}`, {
 })
   .then((response) => response.json())
   .then((data) => {
-    // let counselor_id = data.id;
 
     let 상담사이름 = data.counselor_name;
     let 리뷰개수 = data.num_of_reviews;
@@ -136,9 +132,7 @@ fetch(`/api/counselors/${current_counselor_id}`, {
     }
   })
 
-  // li.innerHTML= data.counselor_history
 
-  // })
   .catch((error) => {
     console.error("Error:", error);
   });

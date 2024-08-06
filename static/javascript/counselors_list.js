@@ -1,3 +1,9 @@
+//ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+pageTitle = document.querySelector("#counselor-title");
+
+pageTitle.addEventListener("click", function () {
+  location.reload(); // 페이지 새로고침
+});
 // 모든 "상세보기" 링크를 선택합니다.
 const detailButtons = document.querySelectorAll(".details-btn");
 
@@ -10,9 +16,9 @@ detailButtons.forEach((button, index) => {
 });
 
 // Script for future functionalities, e.g., search filtering
-document.getElementById("search-input").addEventListener("input", function () {
-  // Implement search functionality
-});
+// document.getElementById("search-input").addEventListener("input", function () {
+//   // Implement search functionality
+// });
 
 // script.js
 
@@ -29,6 +35,7 @@ fetch(`/api/counselors/`, {
 })
   .then((response) => response.json())
   .then((data) => {
+    console.log(data);
     for (let i = 0; i < data.length; i++) {
       let counselor = data[i]; // counselor 배열에는 "각" 상담사 정보가 들어있음
 
@@ -55,11 +62,6 @@ fetch(`/api/counselors/`, {
       let shortinfofo = document.createElement("p");
       shortinfofo.innerHTML = counselor.short_info;
       shortinfo[i].appendChild(shortinfofo);
-
-      // 상담사 해쉬태그
-      //   let phstg = document.createElement("span")
-      //   phstg.innerHTML = counselor.hash_tags
-      //   hashtags[i].appendChild(phstg)
 
       // 상담사 해쉬태그
       let split_hashtags = counselor.hash_tags.split(" "); // 해시태그 문자열을 공백을 기준으로 나눔
