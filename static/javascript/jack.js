@@ -88,7 +88,7 @@ fetch(`/api/report/jack/${currentMonth}`, {
 
         let div = document.createElement("div");
         div.innerText = word;
-        div.style.color = "red";
+        div.style.color = "#F24511";
         div.className = "word_style";
         div.style.transform = `translate(${leaf[i][0]}px, ${leaf[i][1]}px)`;
         leafs[month - 6].appendChild(div);
@@ -99,7 +99,7 @@ fetch(`/api/report/jack/${currentMonth}`, {
 
         let div = document.createElement("div");
         div.innerText = word;
-        div.style.color = "blue";
+        div.style.color = "#1258D8";
         div.className = "word_style";
         div.style.transform = `translate(${leaf[i][0]}px, ${leaf[i][1]}px)`;
         leafs[month - 6].appendChild(div);
