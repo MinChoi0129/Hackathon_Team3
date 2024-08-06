@@ -16,9 +16,9 @@ detailButtons.forEach((button, index) => {
 });
 
 // Script for future functionalities, e.g., search filtering
-document.getElementById("search-input").addEventListener("input", function () {
-  // Implement search functionality
-});
+// document.getElementById("search-input").addEventListener("input", function () {
+//   // Implement search functionality
+// });
 
 // script.js
 
