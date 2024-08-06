@@ -20,29 +20,46 @@ body {
 }
 
 .monthly {
+  display: flex;
   font-weight: bold;
   color: #ffc85d;
   font-size: 20px;
+  gap: 20px;
 }
 .consultant {
+  display: flex;
+  gap: 20px;
   font-weight: bold;
   color: #ffc85d;
   font-size: 20px;
   padding: 10px 0px 10px 0px;
 }
 .mypage {
+  display: flex;
+  gap: 20px;
   font-weight: bold;
   color: #ffc85d;
   font-size: 20px;
 }
+.monthreport {
+  position: relative;
+  bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 30px;
+}
 #logobar {
   height: 5vw;
   width: 100vw;
-  padding: 40px 30px 30px 40px;
+  /* padding: 40px 40px 30px 40px;*/
 }
 .jack1 {
+  position: relative;
+  top: 70px;
+  right: 30px;
   display: flex;
-  gap: 5px;
+  gap: 10px;
   float: right;
   padding-right: 5vh;
   margin-right: 20px;
@@ -103,6 +120,7 @@ body {
 a {
   color: #ffc85d;
   text-decoration-line: none;
+  text-align: end;
 }
 .head {
   width: 100vw;
