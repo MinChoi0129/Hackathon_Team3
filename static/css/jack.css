@@ -18,6 +18,12 @@ body {
   display: flex;
   font-family: "Ownglyph_ryurue-Rg";
 }
+#sun {
+  position: relative;
+  width: 70px;
+  height: auto;
+  z-index: -1;
+}
 
 .monthly {
   display: flex;
@@ -57,7 +63,7 @@ body {
 .jack1 {
   position: relative;
   top: 70px;
-  right: 30px;
+  right: 23px;
   display: flex;
   gap: 10px;
   float: right;
@@ -116,7 +122,10 @@ body {
   top: 80px;
   left: 300px;
 }
-
+#monthly_report {
+  position: relative;
+  left: 16px;
+}
 a {
   color: #ffc85d;
   text-decoration-line: none;
@@ -138,6 +147,7 @@ a {
   margin-top: 15px;
   margin-right: 50px;
   font-weight: 600;
+  font-size: 17px;
   display: flex;
 }
 #head {

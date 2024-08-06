@@ -1,0 +1,20 @@
+<svg width="201" height="175" viewBox="0 0 201 175" fill="none" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="98.4596" cy="84.3314" rx="53.4756" ry="53.6143" transform="rotate(94.2843 98.4596 84.3314)" fill="url(#paint0_linear_738_53)"/>
+<circle cx="79.5" cy="78.5" r="2.5" fill="#383838"/>
+<path d="M118 73.5C118 74.8807 116.881 76 115.5 76C114.119 76 113 74.8807 113 73.5C113 72.1193 114.119 71 115.5 71C116.881 71 118 72.1193 118 73.5Z" fill="#383838"/>
+<line x1="29.9063" y1="150.556" x2="46.7197" y2="133.094" stroke="#FFC14A" stroke-width="7" stroke-linecap="round"/>
+<line x1="3.56111" y1="101.426" x2="31.9211" y2="94.4388" stroke="#FFC14A" stroke-width="7" stroke-linecap="round"/>
+<line x1="19.4911" y1="43.9191" x2="38.8454" y2="51.017" stroke="#FFC14A" stroke-width="7" stroke-linecap="round"/>
+<line x1="66.6245" y1="3.76475" x2="75.0462" y2="22.5808" stroke="#FFC14A" stroke-width="7" stroke-linecap="round"/>
+<line x1="141.394" y1="5.56674" x2="133.567" y2="24.6381" stroke="#FFC14A" stroke-width="7" stroke-linecap="round"/>
+<line x1="196.658" y1="46.605" x2="163.605" y2="60.97" stroke="#FFC14A" stroke-width="7" stroke-linecap="round"/>
+<line x1="172.65" y1="133.704" x2="159.886" y2="124.87" stroke="#FFC14A" stroke-width="7" stroke-linecap="round"/>
+<line x1="129.371" y1="161.046" x2="123.944" y2="146.503" stroke="#FFC14A" stroke-width="7" stroke-linecap="round"/>
+<line x1="74.5977" y1="170.672" x2="79.8246" y2="152.402" stroke="#FFC14A" stroke-width="7" stroke-linecap="round"/>
+<defs>
+<linearGradient id="paint0_linear_738_53" x1="70.7832" y1="64.9858" x2="123.425" y2="145.81" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FFE2AA"/>
+<stop offset="0.484916" stop-color="#FFC14A"/>
+</linearGradient>
+</defs>
+</svg>

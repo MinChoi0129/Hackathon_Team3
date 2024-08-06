@@ -41,6 +41,11 @@
     <div class="pictures1"></div>
     <div class="pictures2"></div>
     <div class="pictures3"></div>
+    <!-- <img
+      id="sun"
+      src="{{ url_for('static', path='images/icon_sunh.svg') }}"
+      alt=""
+    /> -->
     <div class="beantree">
       <img
         id="beantreeimgs"
@@ -78,7 +83,9 @@
             width="20px"
             height="20px"
           />
-          <a href="{{ url_for('monthreport') }}">월별 현황</a>
+          <a id="monthly_report" href="{{ url_for('monthreport') }}"
+            >월별 현황</a
+          >
         </div>
         <div class="consultant">
           <img
