@@ -110,12 +110,6 @@ function addProfile() {
   chatWindow.insertBefore(profileCreate, chatWindow.firstChild);
 }
 
-chatInput.addEventListener("keydown", function (event) {
-  if (event.key === "Enter") {
-    typeMessage();
-  }
-});
-
 function typeMessage() {
   if (chatInput.value.trim() !== "") {
     if (chatInput.value == "대화 종료 할게") {
@@ -157,8 +151,7 @@ function typeMessage() {
         });
     }
   }
-
-  if (recognizing == false) {
-    send.addEventListener("click", typeMessage);
-  }
+}
+if (recognizing == false) {
+  send.addEventListener("click", typeMessage);
 }

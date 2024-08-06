@@ -110,6 +110,12 @@ function applyCounselorInfoInHTML(counselor_id) {
   fetch(`/api/counselors/${counselor_id}`)
     .then((response) => response.json())
     .then((data) => {
+      let first_price = data.counsel_price;
+      let second_price = parseInt(first_price * 0.05);
+      detail_numbers[0].innerHTML = first_price.toLocaleString() + "원";
+      more_discounts[0].innerHTML = second_price.toLocaleString() + "원";
+      final_price.innerHTML =
+        (first_price - second_price).toLocaleString() + "원";
       counselor_info_name.innerHTML = data.counselor_name;
       counselor_info_date.innerHTML = data.counsel_date;
       counselor_info_type.innerHTML = data.counsel_type;

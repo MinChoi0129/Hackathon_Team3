@@ -64,6 +64,7 @@ async def read_payments_by_user(
                 "counselor_name": counselor.counselor_name if counselor else "Unknown",
                 "paid_price": payment.paid_price,
                 "is_used": payment.is_used,
+                "pay_type": payment.pay_type,
                 "when_paid": payment.when_paid,
                 "counsel_date": counselor.counsel_date if counselor else None,
                 "username": db.query(User)
