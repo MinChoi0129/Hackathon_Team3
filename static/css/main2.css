@@ -189,6 +189,7 @@ body {
   width: fit-content;
   background-color: #e2bf8b;
   align-self: flex-start;
+  line-height: 1.5;
   margin-left: 20px;
   font-size: 15px;
   padding: 17px;
